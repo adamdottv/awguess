@@ -73,5 +73,6 @@ model Round {
   gameId  String
   answer  String
   game    Game   @relation(fields: [gameId], references: [id], onDelete: Cascade)
+  start   DateTime
   expires DateTime
 }

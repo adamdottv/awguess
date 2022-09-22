@@ -3,13 +3,30 @@ import Head from "next/head"
 import { inferMutationOutput, trpc } from "../utils/trpc"
 import cn from "classnames"
 import React from "react"
+import create from "zustand"
 
-type Round = inferMutationOutput<"game.start">
+type Round = inferMutationOutput<"game.round">
 type Result = inferMutationOutput<"game.answer">
+
+type GameState = {
+  state: "idle" | "active" | "correct" | "incorrect" | "expired"
+  round?: Round
+  result?: Result
+  choice?: string
+
+  answer: (choice: string) => void
+}
+
+const useGameStore = create<GameState>((set) => ({
+  state: "idle",
+  answer: async (choice: string) => {
+    set((state) => ({ choice }))
+  },
+}))
 
 const Home: NextPage = () => {
   const newGameMutation = trpc.useMutation(["game.new"])
-  const startGameMutation = trpc.useMutation(["game.start"])
+  const newRoundMutation = trpc.useMutation(["game.round"])
   const answerMutation = trpc.useMutation(["game.answer"])
 
   const [currentRound, setCurrentRound] = React.useState<Round>()
@@ -18,13 +35,28 @@ const Home: NextPage = () => {
 
   async function handleNewGame() {
     const response = await newGameMutation.mutateAsync({ name: "test" })
-    const round = await startGameMutation.mutateAsync({ gameId: response.id })
+    const round = await newRoundMutation.mutateAsync({ gameId: response.id })
     setCurrentRound(round)
+  }
+
+  async function newRound() {
+    if (!currentRound) return
+
+    const timeoutHandle = setTimeout(async () => {
+      setResult(undefined)
+      setChoice(undefined)
+
+      const response = await newRoundMutation.mutateAsync({
+        gameId: currentRound.gameId,
+      })
+
+      setCurrentRound(response)
+      clearTimeout(timeoutHandle)
+    }, 2000)
   }
 
   async function handleAnswer(choice: string) {
     if (!currentRound) return
-    if (answerMutation.isLoading) return
 
     const response = await answerMutation.mutateAsync({
       roundId: currentRound.id,
@@ -33,12 +65,7 @@ const Home: NextPage = () => {
 
     setResult(response)
     setChoice(choice)
-
-    setTimeout(() => {
-      setResult(undefined)
-      setChoice(undefined)
-      setCurrentRound(response.next)
-    }, 2000)
+    newRound()
   }
 
   return (
@@ -52,13 +79,70 @@ const Home: NextPage = () => {
       <main className="container mx-auto flex min-h-screen flex-col items-center justify-center p-8">
         {!currentRound && <Button onClick={handleNewGame}>New Game</Button>}
         {currentRound && (
-          <Round
-            round={currentRound}
-            disabled={answerMutation.isLoading || result !== undefined}
-            onAnswer={handleAnswer}
-            choice={choice}
-            result={result}
-          />
+          /* <Round */
+          /*   round={currentRound} */
+          /*   disabled={answerMutation.isLoading || result !== undefined} */
+          /*   onAnswer={handleAnswer} */
+          /*   choice={choice} */
+          /*   result={result} */
+          /* /> */
+          <div className="flex flex-col items-center justify-center">
+            <div className="">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={currentRound.answer.image}
+                alt="resource-logo"
+                className="aspect-square w-96"
+              />
+            </div>
+            {/* Timer Bar */}
+            {/* <div className="relative mt-[40px] h-2 w-full"> */}
+            {/*   <div className="absolute inset-0 bg-gray-9" /> */}
+            {/*   <div */}
+            {/*     className={cn({ */}
+            {/*       "absolute inset-0": true, */}
+            {/*       "bg-green-9": elapsed < 100, */}
+            {/*       "bg-red-9": elapsed === 100, */}
+            {/*     })} */}
+            {/*   style={{ width: `${elapsed}%` }} */}
+            {/*   /> */}
+            {/* </div> */}
+            <div className="mt-[60px] w-full items-center space-y-6 md:flex md:space-y-0 md:space-x-6">
+              {currentRound.choices.map((c) => {
+                const chosen = !!choice && c.name === choice
+                const state =
+                  result === undefined
+                    ? undefined
+                    : result?.answer === c.name
+                      ? "success"
+                      : "error"
+
+                return (
+                  <Button
+                    disabled={answerMutation.isLoading || result !== undefined}
+                    key={c.name}
+                    className={cn({
+                      "relative w-full md:w-64": true,
+                    })}
+                    state={state}
+                    chosen={chosen}
+                    onClick={() => handleAnswer(c.name)}
+                  >
+                    <div className="text-xs font-light uppercase">
+                      {c.prefix === "aws" ? "AWS" : "Amazon"}
+                    </div>
+                    {c.name}
+                    {chosen && (
+                      <div className="absolute top-3 right-3">
+                        {state === "error" && "❌"}
+                        {state === "success" && "🎉"}
+                      </div>
+                    )}
+                  </Button>
+                )
+              })}
+            </div>
+          </div>
         )}
       </main>
     </>
@@ -66,74 +150,6 @@ const Home: NextPage = () => {
 }
 
 export default Home
-
-type RoundProps = {
-  round: Round
-  onAnswer: (choice: string) => void
-  disabled: boolean
-  choice: string | undefined
-  result: Result | undefined
-}
-
-const Round: React.FC<RoundProps> = ({
-  round,
-  onAnswer,
-  disabled,
-  choice,
-  result,
-}) => {
-  return (
-    <div className="flex flex-col items-center justify-center">
-      <div className="">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={round.answer.image}
-          alt="resource-logo"
-          className="aspect-square w-96"
-        />
-      </div>
-      <div className="relative mt-[40px] h-2 w-full">
-        <div className="absolute inset-0 bg-gray-9" />
-        <div className="absolute inset-0 w-20 bg-green-9" />
-      </div>
-      <div className="mt-[60px] w-full items-center space-y-6 md:flex md:space-y-0 md:space-x-6">
-        {round.choices.map((c) => {
-          const chosen = !!choice && c.name === choice
-          const state =
-            result === undefined
-              ? undefined
-              : result?.answer === c.name
-              ? "success"
-              : "error"
-
-          return (
-            <Button
-              disabled={disabled}
-              key={c.name}
-              className={cn({
-                "relative w-full md:w-64": true,
-              })}
-              state={state}
-              chosen={chosen}
-              onClick={() => onAnswer(c.name)}
-            >
-              <div className="text-xs font-light uppercase">
-                {c.prefix === "aws" ? "AWS" : "Amazon"}
-              </div>
-              {c.name}
-              {chosen && (
-                <div className="absolute top-3 right-3">
-                  {state === "error" && "❌"}
-                  {state === "success" && "🎉"}
-                </div>
-              )}
-            </Button>
-          )
-        })}
-      </div>
-    </div>
-  )
-}
 
 interface ButtonProps extends React.ComponentProps<"button"> {
   state?: "success" | "error"

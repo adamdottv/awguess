@@ -22,11 +22,12 @@ async function createRound(prisma: PrismaClient, gameId: string) {
   const choices = [first, second, third, fourth]
   const answer = getRandomItem(choices)
 
+  const start = new Date()
   const expires = new Date()
   expires.setSeconds(expires.getSeconds() + 10)
 
   const round = await prisma.round.create({
-    data: { gameId: gameId, answer: answer.name, expires },
+    data: { gameId: gameId, answer: answer.name, expires, start },
   })
   return {
     ...round,
@@ -52,7 +53,7 @@ export const gameRouter = createRouter()
       return game
     },
   })
-  .mutation("start", {
+  .mutation("round", {
     input: z.object({
       gameId: z.string().min(1),
     }),
@@ -73,17 +74,28 @@ export const gameRouter = createRouter()
       })
       if (!round) throw new Error("Couldn't find round")
 
-      const next = await createRound(ctx.prisma, round.gameId)
-
       const { answer, expires } = round
-      const expired = expires < new Date()
+      const now = new Date()
+      const expired = expires < now
+      const start = round.start.getTime()
+      const total = expires.getTime() - start
+      const elapsed = now.getTime() - start
+      const progress = elapsed / total
+      console.log(progress)
+
       const correct = round.answer === choice
+
+      const scoreDelta = correct ? 1 : 0
+      const game = await ctx.prisma.game.update({
+        data: { score: { increment: scoreDelta } },
+        where: { id: round.gameId },
+      })
 
       return {
         correct,
         answer,
-        next,
         expired,
+        game,
       }
     },
   })
