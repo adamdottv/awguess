@@ -3,26 +3,26 @@ import Head from "next/head"
 import { inferMutationOutput, trpc } from "../utils/trpc"
 import cn from "classnames"
 import React from "react"
-import create from "zustand"
+/* import create from "zustand" */
 
 type Round = inferMutationOutput<"game.round">
 type Result = inferMutationOutput<"game.answer">
 
-type GameState = {
-  state: "idle" | "active" | "correct" | "incorrect" | "expired"
-  round?: Round
-  result?: Result
-  choice?: string
+/* type GameState = { */
+/*   state: "idle" | "active" | "correct" | "incorrect" | "expired" */
+/*   round?: Round */
+/*   result?: Result */
+/*   choice?: string */
+/**/
+/*   answer: (choice: string) => void */
+/* } */
 
-  answer: (choice: string) => void
-}
-
-const useGameStore = create<GameState>((set) => ({
-  state: "idle",
-  answer: async (choice: string) => {
-    set((state) => ({ choice }))
-  },
-}))
+/* const useGameStore = create<GameState>((set) => ({ */
+/*   state: "idle", */
+/*   answer: async (choice: string) => { */
+/*     set((state) => ({ choice })) */
+/*   }, */
+/* })) */
 
 const Home: NextPage = () => {
   const newGameMutation = trpc.useMutation(["game.new"])
