@@ -107,15 +107,15 @@ const Home: NextPage = () => {
             {/*   style={{ width: `${elapsed}%` }} */}
             {/*   /> */}
             {/* </div> */}
-            <div className="mt-[60px] w-full items-center space-y-6 md:flex md:space-y-0 md:space-x-6">
+            <div className="mt-[60px] w-full items-center space-y-6 md:grid md:grid-cols-2 md:grid-rows-2 md:items-stretch md:gap-6 md:space-y-0">
               {currentRound.choices.map((c) => {
                 const chosen = !!choice && c.name === choice
                 const state =
                   result === undefined
                     ? undefined
                     : result?.answer === c.name
-                      ? "success"
-                      : "error"
+                    ? "success"
+                    : "error"
 
                 return (
                   <Button
@@ -161,24 +161,26 @@ const Button: React.FC<ButtonProps> = ({
   className,
   state,
   chosen,
+  disabled,
   ...props
 }) => {
   return (
     <button
       className={cn({
-        "relative border-2 bg-blue-3 py-5 px-12 text-xl font-bold": true,
+        "relative border-2 bg-blue-3 py-5 px-8 text-lg font-bold": true,
         "border-orange-9 text-orange-9 after:bg-orange-9 hover:border-orange-11 hover:text-orange-11 hover:after:bg-orange-11":
           state === undefined || (state === "error" && !chosen),
         "after:absolute after:top-2 after:left-2 after:-right-2 after:-bottom-2 after:-z-10 after:content-['']":
           true,
         "focus:border-orange-11 focus:outline-none": true,
-        "cursor-not-allowed": true,
+        "cursor-not-allowed": disabled,
         "pointer-events-none border-green-9 text-green-9 after:bg-green-9 hover:border-green-9 hover:text-green-9 hover:after:bg-green-9":
           state === "success",
         "pointer-events-none border-red-9 text-red-9 after:bg-red-9 hover:border-red-9 hover:text-red-9 hover:after:bg-red-9":
           state === "error" && chosen,
         [className ?? ""]: !!className,
       })}
+      disabled={disabled}
       {...props}
     >
       {children}
