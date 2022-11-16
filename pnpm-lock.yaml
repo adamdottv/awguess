@@ -29,7 +29,6 @@ specifiers:
   react-dom: 18.2.0
   react-query: ^3.39.2
   react-timer-hook: ^3.0.5
-  require-context: ^1.1.0
   superjson: ^1.9.1
   svg-sprite-loader: ^6.0.11
   tailwindcss: ^3.1.8
@@ -55,7 +54,6 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
   react-query: 3.39.2_biqbaboplfbrettd7655fr4n2y
   react-timer-hook: 3.0.5_biqbaboplfbrettd7655fr4n2y
-  require-context: 1.1.0
   superjson: 1.9.1
   ws: 8.9.0
   xstate: 4.33.6
@@ -2537,13 +2535,6 @@ packages:
       - babel-plugin-macros
     dev: false
 
-  /node-dir/0.1.17:
-    resolution: {integrity: sha512-tmPX422rYgofd4epzrNoOXiE8XFZYOcCq1vD7MAXCDO+O+zndlA2ztdKKMa+EeuBG5tHETpr4ml4RGgpqDCCAg==}
-    engines: {node: '>= 0.10.5'}
-    dependencies:
-      minimatch: 3.1.2
-    dev: false
-
   /node-releases/2.0.6:
     resolution: {integrity: sha512-PiVXnNuFm5+iYkLBNeq5211hvO38y63T0i2KKh2KnUs3RpzJ+JtODFjkD8yjLwnDkTYF1eKXheUwdssR+NRZdg==}
     dev: true
@@ -3090,12 +3081,6 @@ packages:
     resolution: {integrity: sha512-PV0dzCYDNfRi1jCDbJzpW7jNNDRuCOG/jI5ctQcGKt/clZD+YcPS3yIlWuTJMmESC8aevCFmWJy5wjAFgNqN6w==}
     engines: {node: '>=0.10'}
     dev: true
-
-  /require-context/1.1.0:
-    resolution: {integrity: sha512-nfYSy3Q9W3W1fCo0nief19bDq216IGY9+wOUsmCWAJ5jssyak0r110rvqIj4KJYoUYDxLDaeA66ONOYy4PJEUw==}
-    dependencies:
-      node-dir: 0.1.17
-    dev: false
 
   /resolve-from/4.0.0:
     resolution: {integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==}
