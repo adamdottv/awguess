@@ -48,7 +48,7 @@ export const gameRouter = createRouter()
     async resolve({ ctx, input }) {
       const start = new Date()
       const expires = new Date()
-      expires.setSeconds(expires.getSeconds() + 45000)
+      expires.setSeconds(expires.getSeconds() + 45)
 
       const game = await ctx.prisma.game.create({
         data: { name: input.name, score: 0, start, expires },

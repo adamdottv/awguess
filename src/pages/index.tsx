@@ -1,21 +1,13 @@
 import type { NextPage } from "next"
+import dynamic from "next/dynamic"
 import Head from "next/head"
 import { inferMutationOutput, trpc } from "../utils/trpc"
 import cn from "classnames"
 import React from "react"
-import { createMachine, assign, actions } from "xstate"
+import { createMachine, assign, actions, State } from "xstate"
 import { useMachine } from "@xstate/react"
-/* import { inspect } from "@xstate/inspect" */
 import { useTimer } from "react-timer-hook"
 const { send, cancel } = actions
-
-/* if (typeof window !== "undefined") { */
-/*   inspect({ */
-/*     // options */
-/*     // url: 'https://stately.ai/viz?inspect', // (default) */
-/*     iframe: false, // open in new window */
-/*   }) */
-/* } */
 
 type Game = inferMutationOutput<"game.new">
 type Round = inferMutationOutput<"game.round">
@@ -122,11 +114,6 @@ const gameMachine = createMachine<Context, GameEvent, GameTypestate>({
           target: "Game Over",
         },
       },
-      /* after: { */
-      /*   expires: { */
-      /*     target: "Game Over", */
-      /*   }, */
-      /* }, */
       states: {
         Guessing: {
           entry: [
@@ -182,7 +169,35 @@ const gameMachine = createMachine<Context, GameEvent, GameTypestate>({
   },
 })
 
+let previousState: State<Context, GameEvent, GameTypestate>
+if (typeof window !== "undefined") {
+  const serializedState = localStorage.getItem("game-machine-state")
+  if (serializedState) {
+    previousState = JSON.parse(serializedState)
+    console.error("previousState", previousState)
+  }
+}
+
 const Home: NextPage = () => {
+  return (
+    <NonSSRWrapper>
+      <Game />
+    </NonSSRWrapper>
+  )
+}
+
+export default Home
+
+const NonSSRWrapperInner: React.FC<React.PropsWithChildren> = ({
+  children,
+}) => <React.Fragment>{children}</React.Fragment>
+const NonSSRWrapper = dynamic(() => Promise.resolve(NonSSRWrapperInner), {
+  ssr: false,
+})
+
+interface GameProps { }
+
+const Game: React.FC<GameProps> = () => {
   const newGameMutation = trpc.useMutation(["game.new"])
   const newRoundMutation = trpc.useMutation(["game.round"])
   const answerMutation = trpc.useMutation(["game.answer"])
@@ -191,8 +206,8 @@ const Home: NextPage = () => {
     expiryTimestamp: new Date(),
   })
 
-  const [current, send] = useMachine(gameMachine, {
-    /* devTools: true, */
+  const [current, send, service] = useMachine(gameMachine, {
+    state: previousState,
     delays: {
       expires: (context) => {
         if (!context.game) return 30
@@ -252,8 +267,16 @@ const Home: NextPage = () => {
         })
       },
     },
-    /* state:  */
   })
+
+  service.onTransition((state) => {
+    try {
+      localStorage.setItem("game-machine-state", JSON.stringify(state))
+    } catch (e) {
+      console.error("Unable to save to localStorage")
+    }
+  })
+
   const { context } = current
 
   const handleAnswer = React.useCallback(
@@ -282,7 +305,10 @@ const Home: NextPage = () => {
 
       <main className="container mx-auto max-w-sm flex min-h-screen flex-col items-center justify-center p-8">
         {current.matches("Game Over") && (
-          <div className="text-3xl text-orange-9">Game Over</div>
+          <div>
+            <div className="text-3xl text-orange-9">Game Over</div>
+            <div>{context.game?.score}</div>
+          </div>
         )}
         {(current.matches("Idle") || current.matches("Game Over")) && (
           <Button onClick={handleNewGame}>New Game</Button>
@@ -382,8 +408,6 @@ const Home: NextPage = () => {
     </>
   )
 }
-
-export default Home
 
 interface ButtonProps extends React.ComponentProps<"button"> {
   state?: "success" | "error"
