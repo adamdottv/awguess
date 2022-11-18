@@ -1,7 +1,7 @@
 import { createRouter } from "./context"
 import { z } from "zod"
 import { PrismaClient } from "@prisma/client"
-import * as resources from "../../../data/resources.json"
+import resources from "../../../data/resources.json"
 
 function getRandomItem<T>(array: T[]) {
   return array[Math.floor(Math.random() * array.length)] as T
@@ -21,6 +21,8 @@ async function createRound(prisma: PrismaClient, gameId: string) {
   )
   const choices = [first, second, third, fourth]
   const answer = getRandomItem(choices)
+  const { d } = answer
+  const { stop1Color, stop2Color } = answer.image
 
   const start = new Date()
 
@@ -30,10 +32,10 @@ async function createRound(prisma: PrismaClient, gameId: string) {
 
   return {
     ...round,
-    answer: { image: answer.image.hash },
-    choices: choices.map((choice) => ({
-      ...choice,
-      image: choice.image.original,
+    answer: { d, stop1Color, stop2Color },
+    choices: choices.map(({ name, prefix }) => ({
+      name,
+      prefix,
     })),
   }
 }
@@ -46,7 +48,7 @@ export const gameRouter = createRouter()
     async resolve({ ctx, input }) {
       const start = new Date()
       const expires = new Date()
-      expires.setSeconds(expires.getSeconds() + 30)
+      expires.setSeconds(expires.getSeconds() + 45000)
 
       const game = await ctx.prisma.game.create({
         data: { name: input.name, score: 0, start, expires },
@@ -69,11 +71,13 @@ export const gameRouter = createRouter()
     }),
     async resolve({ ctx, input }) {
       const { roundId, choice } = input
+      console.time("findUnique")
       const round = await ctx.prisma.round.findUnique({
         where: { id: roundId },
         include: { game: true },
       })
       if (!round) throw new Error("Couldn't find round")
+      console.timeEnd("findUnique")
 
       const { answer } = round
 
@@ -83,7 +87,7 @@ export const gameRouter = createRouter()
       const correct = round.answer === choice
 
       const streak = correct ? (round.game.streak ?? 0) + 1 : 0
-      const scoreDelta = correct && !expired ? 1 + streak : 0
+      const scoreDelta = correct && !expired ? streak : 0
       const expiresDelta = correct && !expired ? 5 : -5
       const expires = new Date(round.game.expires)
 
@@ -99,13 +103,17 @@ export const gameRouter = createRouter()
         where: { id: round.gameId },
       })
 
+      console.time("await transaction")
       const [, game] = await ctx.prisma.$transaction([roundUpdate, gameUpdate])
+      console.timeEnd("await transaction")
 
       return {
         correct,
         answer,
         expired,
         game,
+        scoreDelta,
+        expiresDelta,
       }
     },
   })

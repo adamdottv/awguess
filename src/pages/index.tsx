@@ -5,17 +5,17 @@ import cn from "classnames"
 import React from "react"
 import { createMachine, assign, actions } from "xstate"
 import { useMachine } from "@xstate/react"
-import { inspect } from "@xstate/inspect"
+/* import { inspect } from "@xstate/inspect" */
 import { useTimer } from "react-timer-hook"
 const { send, cancel } = actions
 
-if (typeof window !== "undefined") {
-  inspect({
-    // options
-    // url: 'https://stately.ai/viz?inspect', // (default)
-    iframe: false, // open in new window
-  })
-}
+/* if (typeof window !== "undefined") { */
+/*   inspect({ */
+/*     // options */
+/*     // url: 'https://stately.ai/viz?inspect', // (default) */
+/*     iframe: false, // open in new window */
+/*   }) */
+/* } */
 
 type Game = inferMutationOutput<"game.new">
 type Round = inferMutationOutput<"game.round">
@@ -192,10 +192,9 @@ const Home: NextPage = () => {
   })
 
   const [current, send] = useMachine(gameMachine, {
-    devTools: true,
+    /* devTools: true, */
     delays: {
-      expires: (context, event) => {
-        console.log(event)
+      expires: (context) => {
         if (!context.game) return 30
         return context.game.expires.getTime() - Date.now()
       },
@@ -253,6 +252,7 @@ const Home: NextPage = () => {
         })
       },
     },
+    /* state:  */
   })
   const { context } = current
 
@@ -269,6 +269,9 @@ const Home: NextPage = () => {
     start()
   }
 
+  const { stop1Color, stop2Color, d } = context.round?.answer ?? {}
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"><defs><linearGradient id="a" x1="0%" x2="100%" y1="100%" y2="0%"><stop offset="0%" stop-color="${stop1Color}"/><stop offset="100%" stop-color="${stop2Color}"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="url(#a)" d="M0 0h80v80H0z"/><path fill="#FFF" d="${d}"/></g></svg>`
+
   return (
     <>
       <Head>
@@ -277,7 +280,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="container mx-auto flex min-h-screen flex-col items-center justify-center p-8">
+      <main className="container mx-auto max-w-sm flex min-h-screen flex-col items-center justify-center p-8">
         {current.matches("Game Over") && (
           <div className="text-3xl text-orange-9">Game Over</div>
         )}
@@ -285,16 +288,55 @@ const Home: NextPage = () => {
           <Button onClick={handleNewGame}>New Game</Button>
         )}
         {current.matches("Active") && context.round && (
-          <div className="flex flex-col items-center justify-center">
-            <div className="text-orange-9">{context.game?.score}</div>
-            <div className="text-orange-9">{context.game?.streak}</div>
-            <div className="text-orange-9">{seconds} seconds</div>
-            <div>
-              <svg className="icon" aria-hidden="true">
-                <use href={`#${context.round.answer.image}`}></use>
-              </svg>
+          <div className="flex flex-col md:flex-row items-center justify-center">
+            <div className="relative aspect-square w-full">
+              <img
+                src={`data:image/svg+xml;utf8,${encodeURIComponent(svg)}`}
+                className="h-full w-full"
+              />
+              <div className="absolute -top-5 -left-5 flex">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full border-4 border-blue-2 bg-orange-9">
+                  <div className="text-lg text-white">{seconds}</div>
+                  {!!context.result?.expiresDelta && (
+                    <div
+                      className={`absolute -top-[10px] -left-[6px] animate-appear text-lg ${context.result.expiresDelta > 0
+                          ? "text-green-11"
+                          : "text-red-11"
+                        }`}
+                    >
+                      {`${context.result.expiresDelta > 0 ? "+" : ""}${context.result.expiresDelta
+                        }`}
+                    </div>
+                  )}
+                </div>
+                <div className="text-orange-9 text-sm mt-[2px]">timer</div>
+              </div>
+              <div className="absolute -top-5 -right-5 flex">
+                <div className="text-orange-9 text-sm mt-[2px]">score</div>
+                <div className="flex h-12 w-12 items-center justify-center rounded-full border-4 border-blue-2 bg-orange-9">
+                  <div className="text-lg text-white">
+                    {context.game?.score}
+                  </div>
+                  {!!context.result?.scoreDelta && (
+                    <div className="absolute -top-[10px] -right-[6px] animate-appear text-lg text-green-11">
+                      {`${context.result.scoreDelta > 0 ? "+" : ""}${context.result.scoreDelta
+                        }`}
+                    </div>
+                  )}
+                </div>
+              </div>
+              {(context.game?.streak ?? 0) > 1 && (
+                <div className="absolute -bottom-5 -right-5 flex items-end">
+                  <div className="text-orange-9 text-sm mt-[2px]">streak</div>
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full border-4 border-blue-2 bg-orange-9">
+                    <div className="text-lg text-white">
+                      {context.game?.streak}
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
-            <div className="mt-[60px] w-full items-center space-y-6 md:grid md:grid-cols-2 md:grid-rows-2 md:items-stretch md:gap-6 md:space-y-0">
+            <div className="mt-[40px] w-full items-center space-y-6 md:grid md:grid-cols-2 md:grid-rows-2 md:items-stretch md:gap-6 md:space-y-0">
               {context.round.choices.map((c) => {
                 const chosen =
                   current.matches({ Active: "Showing Answer" }) &&
@@ -314,13 +356,13 @@ const Home: NextPage = () => {
                     }
                     key={c.name}
                     className={cn({
-                      "relative w-full md:w-64": true,
+                      "relative w-full md:w-64 text-xl leading-4": true,
                     })}
                     state={state}
                     chosen={chosen}
                     onClick={() => handleAnswer(c.name)}
                   >
-                    <div className="text-xs font-light uppercase">
+                    <div className="text-sm font-light uppercase opacity-80">
                       {c.prefix === "aws" ? "AWS" : "Amazon"}
                     </div>
                     {c.name}

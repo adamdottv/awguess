@@ -12,22 +12,13 @@ class MyDocument extends Document {
     ctx: DocumentContext
   ): Promise<DocumentInitialProps> {
     const initialProps = await Document.getInitialProps(ctx)
-
     return initialProps
   }
 
   render() {
     return (
       <Html>
-        <Head>
-          <link
-            rel="preload"
-            href="/fonts/virgil.woff2"
-            as="font"
-            type="font/woff2"
-            crossOrigin="anonymous"
-          />
-        </Head>
+        <Head></Head>
         <body className="bg-blue-2">
           <Main />
           <NextScript />
