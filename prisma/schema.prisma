@@ -65,12 +65,13 @@ model VerificationToken {
 
 model Game {
   id      String  @id @default(cuid())
-  name    String
+  userId  String?
   rounds  Round[]
-  score   Int
+  score   Int @default(0)
   start   DateTime
   expires DateTime
-  streak  Int?
+  complete Boolean @default(false) 
+  streak  Int @default(0) 
 }
 
 model Round {

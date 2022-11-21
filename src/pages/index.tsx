@@ -4,18 +4,28 @@ import Head from "next/head"
 import { inferMutationOutput, trpc } from "../utils/trpc"
 import cn from "classnames"
 import React from "react"
-import { createMachine, assign, actions, State } from "xstate"
+import {
+  createMachine,
+  assign,
+  actions,
+  State,
+  ServiceMap,
+  BaseActionObject,
+  ResolveTypegenMeta,
+  TypegenDisabled,
+} from "xstate"
 import { useMachine } from "@xstate/react"
-import { useTimer } from "react-timer-hook"
 const { send, cancel } = actions
 
-type Game = inferMutationOutput<"game.new">
-type Round = inferMutationOutput<"game.round">
+type NewGame = inferMutationOutput<"game.new">
+type Game = NewGame["game"]
 type Result = inferMutationOutput<"game.answer">
+type Round = Result["next"]
 
 type Context = {
   game?: Game
   round?: Round
+  next?: Round
   result?: Result
   choice?: string
 }
@@ -63,6 +73,7 @@ type GameTypestate =
     context: Context & {
       game: Game
       round: Round
+      next: Round
       choice: string
       result: Result
     }
@@ -109,18 +120,11 @@ const gameMachine = createMachine<Context, GameEvent, GameTypestate>({
     },
     Active: {
       initial: "Guessing",
-      on: {
-        EXPIRED: {
-          target: "Game Over",
-        },
-      },
+      on: { EXPIRED: { target: "Game Over" } },
       states: {
         Guessing: {
           entry: [
-            assign({
-              choice: undefined,
-              result: undefined,
-            }),
+            assign({ choice: undefined, result: undefined }),
             send({ type: "EXPIRED" }, { delay: "expires", id: "timer" }),
           ],
           on: {
@@ -146,6 +150,7 @@ const gameMachine = createMachine<Context, GameEvent, GameTypestate>({
                 actions: assign({
                   result: (_context, event) => event.data,
                   game: (_context, event) => event.data.game,
+                  next: (_context, event) => event.data.next,
                 }),
               },
             ],
@@ -157,9 +162,7 @@ const gameMachine = createMachine<Context, GameEvent, GameTypestate>({
             onDone: [
               {
                 target: "Guessing",
-                actions: assign({
-                  round: (_context, event) => event.data,
-                }),
+                actions: assign({ round: (_ctx, event) => event.data }),
               },
             ],
           },
@@ -174,7 +177,6 @@ if (typeof window !== "undefined") {
   const serializedState = localStorage.getItem("game-machine-state")
   if (serializedState) {
     previousState = JSON.parse(serializedState)
-    console.error("previousState", previousState)
   }
 }
 
@@ -195,32 +197,22 @@ const NonSSRWrapper = dynamic(() => Promise.resolve(NonSSRWrapperInner), {
   ssr: false,
 })
 
-interface GameProps { }
-
-const Game: React.FC<GameProps> = () => {
+const Game: React.FC = () => {
   const newGameMutation = trpc.useMutation(["game.new"])
-  const newRoundMutation = trpc.useMutation(["game.round"])
   const answerMutation = trpc.useMutation(["game.answer"])
 
-  const { start, pause, resume, restart, seconds } = useTimer({
-    expiryTimestamp: new Date(),
-  })
-
   const [current, send, service] = useMachine(gameMachine, {
-    state: previousState,
+    state: previousState?.value === "Game Over" ? undefined : previousState,
     delays: {
       expires: (context) => {
         if (!context.game) return 30
-        return context.game.expires.getTime() - Date.now()
+        return new Date(context.game.expires).getTime() - Date.now()
       },
     },
     services: {
       start: () => {
         return new Promise(async (resolve) => {
-          const game = await newGameMutation.mutateAsync({ name: "test" })
-          const round = await newRoundMutation.mutateAsync({ gameId: game.id })
-
-          restart(game.expires)
+          const { game, round } = await newGameMutation.mutateAsync()
           resolve({ game, round })
         })
       },
@@ -236,31 +228,20 @@ const Game: React.FC<GameProps> = () => {
             choice: context.choice,
           })
 
-          restart(response.game.expires)
           resolve(response)
         })
       },
       next: (context) => {
         return new Promise(async (resolve, reject) => {
-          if (!context.round) {
-            reject("No current round")
+          if (!context.next) {
+            reject("No next round")
             return
           }
 
-          const start = Date.now()
-
-          const round = await newRoundMutation.mutateAsync({
-            gameId: context.round?.gameId,
-          })
-
-          const elapsed = Date.now() - start
-          const minimumDelay = 2000
-          const remaining = minimumDelay - elapsed
-
+          const round = context.next
+          const remaining = new Date(round.start).getTime() - Date.now()
           if (remaining > 0) {
-            setTimeout(() => {
-              resolve(round)
-            }, remaining)
+            setTimeout(() => resolve(round), remaining)
           } else {
             resolve(round)
           }
@@ -289,7 +270,6 @@ const Game: React.FC<GameProps> = () => {
 
   async function handleNewGame() {
     send("START_GAME")
-    start()
   }
 
   const { stop1Color, stop2Color, d } = context.round?.answer ?? {}
@@ -322,7 +302,7 @@ const Game: React.FC<GameProps> = () => {
               />
               <div className="absolute -top-5 -left-5 flex">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full border-4 border-blue-2 bg-orange-9">
-                  <div className="text-lg text-white">{seconds}</div>
+                  <Timer state={current} />
                   {!!context.result?.expiresDelta && (
                     <div
                       className={`absolute -top-[10px] -left-[6px] animate-appear text-lg ${context.result.expiresDelta > 0
@@ -407,6 +387,52 @@ const Game: React.FC<GameProps> = () => {
       </main>
     </>
   )
+}
+
+interface TimerProps {
+  state: State<
+    Context,
+    GameEvent,
+    any,
+    GameTypestate,
+    ResolveTypegenMeta<TypegenDisabled, GameEvent, BaseActionObject, ServiceMap>
+  >
+}
+
+const Timer: React.FC<TimerProps> = ({ state }) => {
+  const { context } = state
+
+  const [seconds, setSeconds] = React.useState(0)
+  const requestRef = React.useRef<number>()
+  const lastSeconds = React.useRef<number>()
+
+  const animate = () => {
+    if (!context.game?.expires) {
+      setSeconds(0)
+      return
+    } else if (state.matches({ Active: "Guessing" })) {
+      const newSeconds = Math.max(
+        Math.round(
+          (new Date(context.game?.expires).getTime() - Date.now()) / 1000
+        ),
+        0
+      )
+      setSeconds(newSeconds)
+      lastSeconds.current = newSeconds
+    } else if (state.matches({ Active: "Showing Answer" })) {
+      if (!lastSeconds.current || !context.result) return
+      setSeconds(lastSeconds.current + context.result.expiresDelta)
+    }
+
+    requestRef.current = requestAnimationFrame(animate)
+  }
+
+  React.useEffect(() => {
+    requestRef.current = requestAnimationFrame(animate)
+    return () => cancelAnimationFrame(requestRef.current!)
+  }, [state.value, context.game?.expires])
+
+  return <div className="text-lg text-white">{seconds}</div>
 }
 
 interface ButtonProps extends React.ComponentProps<"button"> {
