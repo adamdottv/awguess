@@ -1,6 +1,6 @@
 import NextAuth, { type NextAuthOptions } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
-/* import DiscordProvider from "next-auth/providers/discord" */
+import LinkedinProvider from "next-auth/providers/linkedin"
 import TwitterProvider from "next-auth/providers/twitter"
 import cuid from "cuid"
 
@@ -8,30 +8,25 @@ import cuid from "cuid"
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import { prisma } from "../../../server/db/client"
 import { env } from "../../../env/server.mjs"
+import { NextApiRequest, NextApiResponse } from "next"
+import { getToken } from "next-auth/jwt"
+import { claimGames } from "../../../server/common/user"
+
+const secret = env.NEXTAUTH_SECRET
 
 export const authOptions: NextAuthOptions = {
-  debug: true,
+  /* debug: true, */
   session: { strategy: "jwt" },
+  adapter: PrismaAdapter(prisma),
   callbacks: {
-    /* signIn({ user, account, profile, email, credentials }) { */
-    /*   console.log(user) */
-    /*   console.log(account) */
-    /*   console.log(profile) */
-    /*   return true */
-    /* }, */
     // Include user.id on session
     session({ session, user, token }) {
-      /* console.log(session) */
-      /* console.log(user) */
-      /* console.log(token) */
-      /**/
       if (session.user) {
         session.user.id = user?.id ?? token?.sub
       }
       return session
     },
   },
-  adapter: PrismaAdapter(prisma),
   providers: [
     CredentialsProvider({
       id: "anon",
@@ -39,14 +34,13 @@ export const authOptions: NextAuthOptions = {
       credentials: {},
       async authorize() {
         const id = cuid()
-        console.log(id)
-        return { id, name: "Anonymous" }
+        return { id }
       },
     }),
-    /* DiscordProvider({ */
-    /*   clientId: env.DISCORD_CLIENT_ID, */
-    /*   clientSecret: env.DISCORD_CLIENT_SECRET, */
-    /* }), */
+    LinkedinProvider({
+      clientId: env.LINKEDIN_CLIENT_ID,
+      clientSecret: env.LINKEDIN_CLIENT_SECRET,
+    }),
     TwitterProvider({
       clientId: env.TWITTER_CLIENT_ID,
       clientSecret: env.TWITTER_CLIENT_SECRET,
@@ -54,4 +48,25 @@ export const authOptions: NextAuthOptions = {
   ],
 }
 
-export default NextAuth(authOptions)
+export default async function auth(req: NextApiRequest, res: NextApiResponse) {
+  const existingToken = await getToken({ req, secret })
+  const anonymousUserId =
+    existingToken && !existingToken.email && existingToken.sub
+
+  return await NextAuth(req, res, {
+    ...authOptions,
+    callbacks: {
+      ...authOptions.callbacks,
+      async jwt({ token, user }) {
+        // If a user signs in with oauth,
+        // claim all prior games under previous
+        // (anonymous) ID.
+        if (anonymousUserId && user?.email) {
+          await claimGames(anonymousUserId, user.id)
+        }
+
+        return token
+      },
+    },
+  })
+}

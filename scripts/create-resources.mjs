@@ -22,6 +22,11 @@ const categories = {
 
 const baseDir = "./public/images/original/"
 const hashedDir = "./public/images/hashed/"
+
+try {
+  await fs.rm(path.join(baseDir, ".DS_Store"))
+} catch { }
+
 const files = await fs.readdir(baseDir)
 
 await fs.rm(hashedDir, { recursive: true, force: true })

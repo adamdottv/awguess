@@ -11,10 +11,10 @@ export const serverSchema = z.object({
   REDIS_URL: z.string().url(),
   NEXTAUTH_SECRET: z.string(),
   NEXTAUTH_URL: z.string().url().optional(),
-  DISCORD_CLIENT_ID: z.string(),
-  DISCORD_CLIENT_SECRET: z.string(),
   TWITTER_CLIENT_ID: z.string(),
   TWITTER_CLIENT_SECRET: z.string(),
+  LINKEDIN_CLIENT_ID: z.string(),
+  LINKEDIN_CLIENT_SECRET: z.string(),
 })
 
 /**

@@ -6,9 +6,9 @@ import { TRPCError } from "@trpc/server"
 import Redis from "ioredis"
 import { env } from "../../env/server.mjs"
 
-const duration = 30
+const duration = 20
 const roundDelay = 2
-const correctBonus = 3
+const correctBonus = 2
 const incorrectPenalty = -5
 
 const redis = new Redis(env.REDIS_URL)
@@ -118,47 +118,89 @@ export const gameRouter = createRouter()
         })
       }
 
-      const userId = ctx.session?.user?.id
+      // Older scores should be ranked higher than
+      // new scores with the same value.
+      const biggest = 9999999999999
+      const startTime = game.start.getTime()
+      const suffix = biggest - startTime
 
       await Promise.all([
         ctx.prisma.game.update({
-          data: { userId, complete: true },
+          data: { userId: ctx.session?.user?.id, complete: true },
           where: { id: input.gameId },
         }),
-        redis.zadd("scores", game.score, game.id),
-        redis.zadd("streaks", game.longest, game.id),
+        redis.zadd("scores", `${game.score}.${suffix}`, game.id),
+        redis.zadd("streaks", `${game.longest}.${suffix}`, game.id),
       ])
 
-      const rank = await redis.zrevrank("scores", game.id)
-      if (rank === null) return []
-
-      const range = await redis.zrevrange(
-        "scores",
-        Math.max(rank - 2, 0),
-        rank + 2
-      )
-      const rankIndex = range.indexOf(game.id)
-      const firstRank = rank - rankIndex
-      const scores = await getScores(ctx.prisma, range)
-
-      let currentRank = firstRank
-      const leaderboard = range.map((gameId, index) => {
-        const previousGameId = range[index - 1]
-        const previous = scores.find((s) => s.id === previousGameId)
-        const score = scores.find((s) => s.id === gameId)
-        const tie = previous && previous.score === score?.score
-        const previousRank = currentRank
-        currentRank = firstRank + index + 1
-
-        return {
-          ...score,
-          rank: tie ? previousRank : currentRank,
-        }
-      })
-
-      return leaderboard
+      return getRelativeLeaderboard(ctx.prisma, game.id)
     },
   })
+  .query("leaderboard", {
+    input: z
+      .object({ gameId: z.string().nullish(), page: z.number().nullish() })
+      .nullish(),
+    async resolve({ ctx, input }) {
+      if (input?.gameId) {
+        return getRelativeLeaderboard(ctx.prisma, input.gameId)
+      }
+
+      const pageSize = 30
+      const skip = input?.page ? input.page * pageSize : 0
+      const page = await ctx.prisma.game.findMany({
+        select: {
+          id: true,
+          score: true,
+          longest: true,
+          userId: true,
+          user: {
+            select: {
+              name: true,
+              image: true,
+            },
+          },
+        },
+        orderBy: [{ score: "desc" }, { start: "asc" }],
+        skip,
+        take: pageSize,
+      })
+
+      return page.map((score, index) => ({
+        ...score,
+        rank: skip + index + 1,
+      }))
+    },
+  })
+
+async function getRelativeLeaderboard(prisma: PrismaClient, gameId: string) {
+  const rank = await redis.zrevrank("scores", gameId)
+  if (rank === null) return []
+
+  const range = await redis.zrevrange("scores", Math.max(rank - 2, 0), rank + 2)
+  const rankIndex = range.indexOf(gameId)
+  const firstRank = rank - rankIndex
+  const scores = await getScores(prisma, range)
+
+  let currentRank = firstRank
+  const leaderboard = range.map((gameId, index) => {
+    // Trying to implement ties, but poorly.
+    // https://github.com/redis/redis/issues/943
+    /* const previousGameId = range[index - 1] */
+    /* const previous = scores.find((s) => s.id === previousGameId) */
+    const score = scores.find((s) => s.id === gameId)
+    /* const tie = previous && previous.score === score?.score */
+    /* const previousRank = currentRank */
+    currentRank = firstRank + index + 1
+
+    return {
+      ...score,
+      rank: currentRank,
+      /* rank: tie ? previousRank : currentRank, */
+    }
+  })
+
+  return leaderboard
+}
 
 async function getScores(prisma: PrismaClient, gameIds: string[]) {
   const games = await prisma.game.findMany({
@@ -224,12 +266,12 @@ function shuffle<T>(array: Array<T>) {
     randomIndex = Math.floor(Math.random() * currentIndex)
     currentIndex--
 
-      // And swap it with the current element.
-      // @ts-ignore
-      ;[array[currentIndex], array[randomIndex]] = [
-        array[randomIndex],
-        array[currentIndex],
-      ]
+    // And swap it with the current element.
+    // @ts-ignore
+    ;[array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ]
   }
 
   return array
