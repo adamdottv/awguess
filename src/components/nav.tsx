@@ -4,6 +4,7 @@ import cn from "classnames"
 import Link from "next/link"
 import { Logo, Mark } from "./logo"
 import { signOut, useSession } from "next-auth/react"
+import Image from "next/image"
 
 const navigation = [
   /* { name: "Play", href: "/", current: false }, */
@@ -61,10 +62,12 @@ export default function Nav() {
                       <div>
                         <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-blue-12 focus:ring-offset-2 focus:ring-offset-blue-4">
                           <span className="sr-only">Open user menu</span>
-                          <img
+                          <Image
                             className="h-8 w-8 rounded-full"
                             src={session.user.image}
                             alt={session?.user?.name ?? "Anonymous"}
+                            width={32}
+                            height={32}
                           />
                         </Menu.Button>
                       </div>

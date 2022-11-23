@@ -267,10 +267,9 @@ function shuffle<T>(array: Array<T>) {
     currentIndex--
 
     // And swap it with the current element.
-    // @ts-ignore
     ;[array[currentIndex], array[randomIndex]] = [
-      array[randomIndex],
-      array[currentIndex],
+      array[randomIndex] as T,
+      array[currentIndex] as T,
     ]
   }
 

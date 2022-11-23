@@ -363,6 +363,7 @@ const Game: React.FC = () => {
           <div className="relative aspect-square w-full">
             <img
               src={`data:image/svg+xml;utf8,${encodeURIComponent(svg)}`}
+              alt="aws service"
               className="h-full w-full"
             />
             <div className="absolute -top-5 -left-5 flex">
