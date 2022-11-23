@@ -4,6 +4,7 @@ import Head from "next/head"
 import { inferMutationOutput, trpc } from "../utils/trpc"
 import cn from "classnames"
 import React from "react"
+import Confetti from "js-confetti"
 import {
   createMachine,
   assign,
@@ -15,12 +16,17 @@ import {
   TypegenDisabled,
 } from "xstate"
 import { useMachine } from "@xstate/react"
+import { signIn, useSession } from "next-auth/react"
+import Link from "next/link"
 const { send, cancel } = actions
+
+const confetti = typeof window !== "undefined" ? new Confetti() : undefined
 
 type NewGame = inferMutationOutput<"game.new">
 type Game = NewGame["game"]
 type Result = inferMutationOutput<"game.answer">
 type Round = Result["next"]
+type Finalized = inferMutationOutput<"game.finalize">
 
 type Context = {
   game?: Game
@@ -28,6 +34,7 @@ type Context = {
   next?: Round
   result?: Result
   choice?: string
+  finalized?: Finalized
 }
 
 type GameEvent =
@@ -101,6 +108,19 @@ const gameMachine = createMachine<Context, GameEvent, GameTypestate>({
           target: "Starting",
         },
       },
+      entry: ["confetti"],
+      invoke: {
+        src: "finalize",
+        onDone: [
+          {
+            actions: assign((_ctx, event) => {
+              return {
+                finalized: event.data,
+              }
+            }),
+          },
+        ],
+      },
     },
     Starting: {
       invoke: {
@@ -112,6 +132,7 @@ const gameMachine = createMachine<Context, GameEvent, GameTypestate>({
               return {
                 game: event.data.game,
                 round: event.data.round,
+                finalized: undefined,
               }
             }),
           },
@@ -124,7 +145,11 @@ const gameMachine = createMachine<Context, GameEvent, GameTypestate>({
       states: {
         Guessing: {
           entry: [
-            assign({ choice: undefined, result: undefined }),
+            assign({
+              choice: undefined,
+              result: undefined,
+              finalized: undefined,
+            }),
             send({ type: "EXPIRED" }, { delay: "expires", id: "timer" }),
           ],
           on: {
@@ -162,7 +187,12 @@ const gameMachine = createMachine<Context, GameEvent, GameTypestate>({
             onDone: [
               {
                 target: "Guessing",
+                cond: (_ctx, event) => !!event.data,
                 actions: assign({ round: (_ctx, event) => event.data }),
+              },
+              {
+                target: "#Game.Game Over",
+                cond: (_ctx, event) => !event.data,
               },
             ],
           },
@@ -198,15 +228,45 @@ const NonSSRWrapper = dynamic(() => Promise.resolve(NonSSRWrapperInner), {
 })
 
 const Game: React.FC = () => {
+  const { data: session, status } = useSession()
+  React.useEffect(() => {
+    if (status === "unauthenticated") {
+      signIn("anon", { redirect: false })
+    }
+  }, [status])
+
   const newGameMutation = trpc.useMutation(["game.new"])
   const answerMutation = trpc.useMutation(["game.answer"])
+  const finalizeMutation = trpc.useMutation(["game.finalize"])
 
   const [current, send, service] = useMachine(gameMachine, {
-    state: previousState?.value === "Game Over" ? undefined : previousState,
+    /* state: previousState?.value === "Game Over" ? undefined : previousState, */
+    state: previousState,
     delays: {
       expires: (context) => {
         if (!context.game) return 30
         return new Date(context.game.expires).getTime() - Date.now()
+      },
+    },
+    actions: {
+      confetti: (context) => {
+        confetti?.addConfetti({
+          confettiColors: [
+            "#0a4481",
+            "#0954a5",
+            "#0091ff",
+            "#369eff",
+            "#52a9ff",
+            /* "#eaf6ff", */
+            "#763205",
+            "#943e00",
+            "#f76808",
+            "#ff802b",
+            "#ff8b3e",
+            /* "#feeadd", */
+          ],
+          emojis: (context.game?.score ?? 0) === 0 ? ["💩"] : undefined,
+        })
       },
     },
     services: {
@@ -232,9 +292,9 @@ const Game: React.FC = () => {
         })
       },
       next: (context) => {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
           if (!context.next) {
-            reject("No next round")
+            resolve(undefined)
             return
           }
 
@@ -245,6 +305,19 @@ const Game: React.FC = () => {
           } else {
             resolve(round)
           }
+        })
+      },
+      finalize: (context) => {
+        return new Promise(async (resolve) => {
+          if (!context.game) {
+            resolve(undefined)
+            return
+          }
+
+          const finalized = await finalizeMutation.mutateAsync({
+            gameId: context.game?.id,
+          })
+          resolve(finalized)
         })
       },
     },
@@ -279,22 +352,22 @@ const Game: React.FC = () => {
     <>
       <Head>
         <title>awguess | Everyone&apos;s favorite AWS guessing game</title>
-        <meta name="description" content="TBD" />
+        <meta
+          name="description"
+          content="Everyone's favorite AWS guessing game!"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="container mx-auto max-w-sm flex min-h-screen flex-col items-center justify-center p-8">
-        {current.matches("Game Over") && (
-          <div>
-            <div className="text-3xl text-orange-9">Game Over</div>
-            <div>{context.game?.score}</div>
-          </div>
-        )}
-        {(current.matches("Idle") || current.matches("Game Over")) && (
+      <main className="container mx-auto max-w-sm flex min-h-screen flex-col justify-center p-8 text-orange-9">
+        <div className="h-18 flex items-center justify-center absolute top-0 inset-x-0">
+          <img src="/logo.svg" alt="awguess" className="h-12" />
+        </div>
+        {current.matches("Idle") && (
           <Button onClick={handleNewGame}>New Game</Button>
         )}
         {current.matches("Active") && context.round && (
-          <div className="flex flex-col md:flex-row items-center justify-center">
+          <div className="flex flex-col items-center justify-center">
             <div className="relative aspect-square w-full">
               <img
                 src={`data:image/svg+xml;utf8,${encodeURIComponent(svg)}`}
@@ -315,10 +388,10 @@ const Game: React.FC = () => {
                     </div>
                   )}
                 </div>
-                <div className="text-orange-9 text-sm mt-[2px]">timer</div>
+                <div className="text-sm mt-[2px]">timer</div>
               </div>
               <div className="absolute -top-5 -right-5 flex">
-                <div className="text-orange-9 text-sm mt-[2px]">score</div>
+                <div className="text-sm mt-[2px]">score</div>
                 <div className="flex h-12 w-12 items-center justify-center rounded-full border-4 border-blue-2 bg-orange-9">
                   <div className="text-lg text-white">
                     {context.game?.score}
@@ -333,7 +406,7 @@ const Game: React.FC = () => {
               </div>
               {(context.game?.streak ?? 0) > 1 && (
                 <div className="absolute -bottom-5 -right-5 flex items-end">
-                  <div className="text-orange-9 text-sm mt-[2px]">streak</div>
+                  <div className="text-sm mt-[2px]">streak</div>
                   <div className="flex h-12 w-12 items-center justify-center rounded-full border-4 border-blue-2 bg-orange-9">
                     <div className="text-lg text-white">
                       {context.game?.streak}
@@ -342,7 +415,7 @@ const Game: React.FC = () => {
                 </div>
               )}
             </div>
-            <div className="mt-[40px] w-full items-center space-y-6 md:grid md:grid-cols-2 md:grid-rows-2 md:items-stretch md:gap-6 md:space-y-0">
+            <div className="mt-[40px] w-full items-center space-y-6">
               {context.round.choices.map((c) => {
                 const chosen =
                   current.matches({ Active: "Showing Answer" }) &&
@@ -362,7 +435,7 @@ const Game: React.FC = () => {
                     }
                     key={c.name}
                     className={cn({
-                      "relative w-full md:w-64 text-xl leading-4": true,
+                      "relative w-full text-xl leading-4": true,
                     })}
                     state={state}
                     chosen={chosen}
@@ -372,16 +445,83 @@ const Game: React.FC = () => {
                       {c.prefix === "aws" ? "AWS" : "Amazon"}
                     </div>
                     {c.name}
-                    {chosen && (
-                      <div className="absolute top-3 right-3">
-                        {state === "error" && "❌"}
-                        {state === "success" && "🎉"}
-                      </div>
-                    )}
+                    {/* {chosen && ( */}
+                    {/*   <div className="absolute top-3 right-3"> */}
+                    {/*     {state === "error" && "❌"} */}
+                    {/*     {state === "success" && "🎉"} */}
+                    {/*   </div> */}
+                    {/* )} */}
                   </Button>
                 )
               })}
             </div>
+          </div>
+        )}
+        {current.matches("Game Over") && (
+          <div className="flex-col items-center text-center space-y-8">
+            <div className="flex-col space-y-1">
+              <div className="text-4xl">Game Over</div>
+              <div className="text-2xl">
+                Score:{" "}
+                <span className="text-4xl text-blue-9">
+                  {context.game?.score}
+                </span>
+              </div>
+            </div>
+            {context.finalized && (
+              <div className="flex flex-col space-y-2">
+                <table className="table-auto w-full border-spacing-y-1 border-separate">
+                  <thead>
+                    <tr>
+                      <th>Rank</th>
+                      <th>User</th>
+                      <th>Score</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    {context.finalized?.map((score) => (
+                      <tr
+                        key={score.id}
+                        className={cn({
+                          "h-10": true,
+                          "bg-blue-6 outline outline-blue-9":
+                            score.id === context.game?.id,
+                          "bg-blue-3": score.id !== context.game?.id,
+                        })}
+                      >
+                        <td>{score.rank}</td>
+                        <td>
+                          <div className="flex space-x-2 items-center justify-center">
+                            {score.user && (
+                              <img
+                                src={score.user.image!}
+                                alt={score.user.name!}
+                                className="w-6 h-6 rounded-full"
+                              />
+                            )}
+                            <div>{score.user?.name ?? "Anonymous"}</div>
+                          </div>
+                        </td>
+                        <td>{score.score}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                <Link href="/leaderboard">View full leaderboard</Link>
+              </div>
+            )}
+            <div>
+              {!session && (
+                <div>
+                  <div>Signin to add your score to the leaderboard!</div>
+                  <button onClick={() => signIn("twitter")}>
+                    Sign in with Twitter
+                  </button>
+                </div>
+              )}
+            </div>
+            <Button onClick={handleNewGame}>Play Again</Button>
           </div>
         )}
       </main>
@@ -452,7 +592,7 @@ const Button: React.FC<ButtonProps> = ({
     <button
       className={cn({
         "relative border-2 bg-blue-3 py-5 px-8 text-lg font-bold": true,
-        "border-orange-9 text-orange-9 after:bg-orange-9 hover:border-orange-11 hover:text-orange-11 hover:after:bg-orange-11":
+        "border-orange-9 after:bg-orange-9 hover:border-orange-11 hover:text-orange-11 hover:after:bg-orange-11":
           state === undefined || (state === "error" && !chosen),
         "after:absolute after:top-2 after:left-2 after:-right-2 after:-bottom-2 after:-z-10 after:content-['']":
           true,

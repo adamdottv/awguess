@@ -81,28 +81,28 @@ module.exports = {
       keyframes: {
         appear: {
           from: {
-            transform: "scale3d(1, 1, 1);"
+            transform: "scale3d(1, 1, 1);",
           },
           "10%,20%": {
-            transform: "scale3d(0.8, 0.8, 0.8) rotate3d(0, 0, 1, -3deg);"
+            transform: "scale3d(0.8, 0.8, 0.8) rotate3d(0, 0, 1, -3deg);",
           },
           "30%,50%,70%,90%": {
-            transform: "scale3d(1.2, 1.2, 1.2) rotate3d(0, 0, 1, 3deg);"
+            transform: "scale3d(1.2, 1.2, 1.2) rotate3d(0, 0, 1, 3deg);",
           },
           "40%,60%,80%": {
-            transform: "scale3d(1.2, 1.2, 1.2) rotate3d(0, 0, 1, -3deg);"
+            transform: "scale3d(1.2, 1.2, 1.2) rotate3d(0, 0, 1, -3deg);",
           },
           to: {
-            transform: "scale3d(0, 0, 0);"
-          }
-        }
+            transform: "scale3d(0, 0, 0);",
+          },
+        },
       },
       animation: {
-        appear: 'appear 1.5s ease-out both',
-      }
-      /* fontFamily: { */
-      /*   sans: ["Virgil", ...fontFamily.sans], */
-      /* }, */
+        appear: "appear 1.5s ease-out both",
+      },
+      fontFamily: {
+        serif: ["var(--serif-font)", ...fontFamily.serif],
+      },
     },
   },
   plugins: [],

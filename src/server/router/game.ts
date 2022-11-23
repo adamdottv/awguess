@@ -2,49 +2,16 @@ import { createRouter } from "./context"
 import { z } from "zod"
 import { PrismaClient } from "@prisma/client"
 import resources from "../../../data/resources.json"
+import { TRPCError } from "@trpc/server"
+import Redis from "ioredis"
+import { env } from "../../env/server.mjs"
 
 const duration = 30
 const roundDelay = 2
 const correctBonus = 3
 const incorrectPenalty = -5
 
-function getRandomItem<T>(array: T[]) {
-  return array[Math.floor(Math.random() * array.length)] as T
-}
-
-async function createRound(prisma: PrismaClient, gameId: string) {
-  const first = getRandomItem(resources)
-  const second = getRandomItem(resources.filter((r) => r.name !== first.name))
-  const third = getRandomItem(
-    resources.filter((r) => r.name !== first.name && r.name !== second.name)
-  )
-  const fourth = getRandomItem(
-    resources.filter(
-      (r) =>
-        r.name !== first.name && r.name !== second.name && r.name !== third.name
-    )
-  )
-  const choices = [first, second, third, fourth]
-  const answer = getRandomItem(choices)
-  const { d } = answer
-  const { stop1Color, stop2Color } = answer.image
-
-  const start = new Date()
-  start.setSeconds(start.getSeconds() + roundDelay)
-
-  const round = await prisma.round.create({
-    data: { gameId: gameId, answer: answer.name, start },
-  })
-
-  return {
-    ...round,
-    answer: { d, stop1Color, stop2Color },
-    choices: choices.map(({ name, prefix }) => ({
-      name,
-      prefix,
-    })),
-  }
-}
+const redis = new Redis(env.REDIS_URL)
 
 export const gameRouter = createRouter()
   .mutation("new", {
@@ -94,6 +61,7 @@ export const gameRouter = createRouter()
       const correct = round.answer === choice
 
       const streak = correct ? (round.game.streak ?? 0) + 1 : 0
+      const longest = Math.max(streak, round.game.longest ?? 0)
       const scoreDelta = correct && !expired ? streak : 0
       const expiresDelta = correct && !expired ? correctBonus : incorrectPenalty
       const expires = new Date(round.game.expires)
@@ -112,6 +80,7 @@ export const gameRouter = createRouter()
           score: { increment: scoreDelta },
           expires,
           streak,
+          longest,
           complete: expired,
         },
         where: { id: round.gameId },
@@ -136,3 +105,136 @@ export const gameRouter = createRouter()
       }
     },
   })
+  .mutation("finalize", {
+    input: z.object({ gameId: z.string() }),
+    async resolve({ ctx, input }) {
+      const game = await ctx.prisma.game.findUnique({
+        where: { id: input.gameId },
+      })
+      if (!game) {
+        throw new TRPCError({
+          code: "BAD_REQUEST",
+          message: "Could not find game with provided ID",
+        })
+      }
+
+      const userId = ctx.session?.user?.id
+
+      await Promise.all([
+        ctx.prisma.game.update({
+          data: { userId, complete: true },
+          where: { id: input.gameId },
+        }),
+        redis.zadd("scores", game.score, game.id),
+        redis.zadd("streaks", game.longest, game.id),
+      ])
+
+      const rank = await redis.zrevrank("scores", game.id)
+      if (rank === null) return []
+
+      const range = await redis.zrevrange(
+        "scores",
+        Math.max(rank - 2, 0),
+        rank + 2
+      )
+      const rankIndex = range.indexOf(game.id)
+      const firstRank = rank - rankIndex
+      const scores = await getScores(ctx.prisma, range)
+
+      let currentRank = firstRank
+      const leaderboard = range.map((gameId, index) => {
+        const previousGameId = range[index - 1]
+        const previous = scores.find((s) => s.id === previousGameId)
+        const score = scores.find((s) => s.id === gameId)
+        const tie = previous && previous.score === score?.score
+        const previousRank = currentRank
+        currentRank = firstRank + index + 1
+
+        return {
+          ...score,
+          rank: tie ? previousRank : currentRank,
+        }
+      })
+
+      return leaderboard
+    },
+  })
+
+async function getScores(prisma: PrismaClient, gameIds: string[]) {
+  const games = await prisma.game.findMany({
+    select: {
+      id: true,
+      score: true,
+      longest: true,
+      userId: true,
+      user: {
+        select: {
+          name: true,
+          image: true,
+        },
+      },
+    },
+    where: { id: { in: gameIds } },
+  })
+  return games
+}
+
+async function createRound(prisma: PrismaClient, gameId: string) {
+  const choices = [getRandomItem(resources)]
+  for (let index = 0; index < 3; index++) {
+    choices.push(
+      getRandomItem(
+        resources.filter(
+          (r) =>
+            !choices.find((c) => c.name === r.name) &&
+            (index > 0 || choices[0]?.category === r.category)
+        )
+      )
+    )
+  }
+
+  const answer = choices[0]
+  const { d } = answer!
+  const { stop1Color, stop2Color } = answer!.image
+
+  const start = new Date()
+  start.setSeconds(start.getSeconds() + roundDelay)
+
+  const round = await prisma.round.create({
+    data: { gameId: gameId, answer: answer!.name, start },
+  })
+
+  return {
+    ...round,
+    answer: { d, stop1Color, stop2Color },
+    choices: shuffle(choices).map(({ name, prefix }) => ({
+      name,
+      prefix,
+    })),
+  }
+}
+
+function shuffle<T>(array: Array<T>) {
+  let currentIndex = array.length
+  let randomIndex
+
+  // While there remain elements to shuffle.
+  while (currentIndex != 0) {
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex)
+    currentIndex--
+
+      // And swap it with the current element.
+      // @ts-ignore
+      ;[array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ]
+  }
+
+  return array
+}
+
+function getRandomItem<T>(array: T[]) {
+  return array[Math.floor(Math.random() * array.length)] as T
+}

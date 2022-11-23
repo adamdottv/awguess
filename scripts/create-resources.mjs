@@ -20,8 +20,14 @@ const categories = {
   "#BD0816#FF5252": "security",
 }
 
-const files = await fs.readdir("./public/images/original/")
+const baseDir = "./public/images/original/"
+const hashedDir = "./public/images/hashed/"
+const files = await fs.readdir(baseDir)
 
+await fs.rm(hashedDir, { recursive: true, force: true })
+await fs.mkdir(hashedDir)
+
+const promises = []
 const resources = await Promise.all(
   files
     .filter((filename) => filename.indexOf("aws") || filename.indexOf("amazon"))
@@ -30,11 +36,11 @@ const resources = await Promise.all(
       const [prefix, ...fullName] = hyphenatedName.split("-")
       const formatted = toPascalCase(fullName)
       const hash = crypto.createHash("md5").update(hyphenatedName).digest("hex")
+      const oldPath = path.join(baseDir, filename)
+      const newPath = path.join(hashedDir, `${hash}.svg`)
+      promises.push(fs.copyFile(oldPath, newPath))
 
-      const contents = await fs.readFile(
-        path.join("./public/images/original/", filename),
-        { encoding: "utf-8" }
-      )
+      const contents = await fs.readFile(oldPath, { encoding: "utf-8" })
       const parsed = parse(contents)
       const svg = parsed.children[0]
       const defs = svg.children[0]
@@ -75,6 +81,8 @@ const resources = await Promise.all(
       }
     })
 )
+
+await Promise.all(promises)
 
 await fs.writeFile(
   "./data/resources.json",

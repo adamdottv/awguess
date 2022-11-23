@@ -18,21 +18,21 @@ model Example {
 
 // Necessary for Next auth
 model Account {
-  id                String  @id @default(cuid())
-  userId            String
-  type              String
-  provider          String
-  providerAccountId String
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
-  expires_at        Int?
-  token_type        String?
-  scope             String?
-  id_token          String? @db.Text
-  session_state     String?
-  oauth_token       String?
+  id                 String  @id @default(cuid())
+  userId             String
+  type               String
+  provider           String
+  providerAccountId  String
+  refresh_token      String? @db.Text
+  access_token       String? @db.Text
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String? @db.Text
+  session_state      String?
+  oauth_token        String?
   oauth_token_secret String?
-  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user               User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
@@ -53,6 +53,7 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+  games         Game[]
 }
 
 model VerificationToken {
@@ -64,22 +65,24 @@ model VerificationToken {
 }
 
 model Game {
-  id      String  @id @default(cuid())
-  userId  String?
-  rounds  Round[]
-  score   Int @default(0)
-  start   DateTime
-  expires DateTime
-  complete Boolean @default(false) 
-  streak  Int @default(0) 
+  id       String   @id @default(cuid())
+  userId   String
+  user     User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  rounds   Round[]
+  score    Int      @default(0)
+  start    DateTime
+  expires  DateTime
+  complete Boolean  @default(false)
+  streak   Int      @default(0)
+  longest  Int      @default(0)
 }
 
 model Round {
-  id      String @id @default(cuid())
-  gameId  String
-  answer  String
-  game    Game   @relation(fields: [gameId], references: [id], onDelete: Cascade)
-  start   DateTime
-  end     DateTime?
-  choice  String?
+  id     String    @id @default(cuid())
+  gameId String
+  game   Game      @relation(fields: [gameId], references: [id], onDelete: Cascade)
+  answer String
+  start  DateTime
+  end    DateTime?
+  choice String?
 }
