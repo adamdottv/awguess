@@ -9,11 +9,17 @@ import superjson from "superjson"
 import type { AppRouter } from "../server/router"
 import "../styles/globals.css"
 
-import { Bebas_Neue } from "@next/font/google"
-const customFont = Bebas_Neue({
+import { Lora, DM_Sans } from "@next/font/google"
+const customFont = DM_Sans({
   weight: "400",
   subsets: ["latin"],
   display: "swap",
+})
+const serifFont = Lora({
+  weight: ["500"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--serif-font",
 })
 
 const MyApp: AppType<{ session: Session }> = ({
@@ -21,7 +27,7 @@ const MyApp: AppType<{ session: Session }> = ({
   pageProps: { session, ...pageProps },
 }) => {
   return (
-    <div className={customFont.className}>
+    <div className={`${customFont.className} ${serifFont.variable}`}>
       <SessionProvider session={session}>
         <Component {...pageProps} />
       </SessionProvider>

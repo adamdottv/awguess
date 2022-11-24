@@ -7,10 +7,10 @@ type LeaderboardData = inferQueryOutput<"game.leaderboard">
 
 export interface LeaderboardProps extends ComponentProps<"div"> {
   data: LeaderboardData
-  gameId?: string
+  userId?: string
 }
 
-export const Leaderboard: React.FC<LeaderboardProps> = ({ data, gameId }) => {
+export const Leaderboard: React.FC<LeaderboardProps> = ({ data, userId }) => {
   return (
     <div className="flex flex-col space-y-2">
       <table className="table-auto w-full border-spacing-y-1 border-separate">
@@ -29,23 +29,23 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({ data, gameId }) => {
               className={cn({
                 "h-10": true,
                 "bg-blue-6 outline outline-blue-9":
-                  gameId && score.id === gameId,
-                "bg-blue-3": !gameId || score.id !== gameId,
+                  userId && score.id === userId,
+                "bg-blue-3": !userId || score.id !== userId,
               })}
             >
               <td>{score.rank}</td>
               <td>
                 <div className="flex space-x-2 items-center justify-center">
-                  {score.user && (
+                  {score.name && score.image && (
                     <Image
-                      src={score.user.image!}
-                      alt={score.user.name!}
+                      src={score.image}
+                      alt={score.name}
                       className="rounded-full"
                       width={25}
                       height={25}
                     />
                   )}
-                  <div>{score.user?.name ?? "Anonymous"}</div>
+                  <div>{score.name ?? "Anonymous"}</div>
                 </div>
               </td>
               <td>{score.score}</td>

@@ -6,9 +6,9 @@ import { TRPCError } from "@trpc/server"
 import Redis from "ioredis"
 import { env } from "../../env/server.mjs"
 
-const duration = 20
+const duration = 30
 const roundDelay = 2
-const correctBonus = 2
+const correctBonus = 3
 const incorrectPenalty = -5
 
 const redis = new Redis(env.REDIS_URL)
@@ -118,107 +118,128 @@ export const gameRouter = createRouter()
         })
       }
 
-      // Older scores should be ranked higher than
-      // new scores with the same value.
-      const biggest = 9999999999999
-      const startTime = game.start.getTime()
-      const suffix = biggest - startTime
+      const [score, streak] = await Promise.all([
+        redis.zscore("top-scores", game.userId),
+        redis.zscore("top-streaks", game.userId),
+      ])
 
-      await Promise.all([
+      const topScore = Number.parseInt(score ?? "0")
+      const topStreak = Number.parseInt(streak ?? "0")
+
+      const promises: Promise<unknown>[] = [
         ctx.prisma.game.update({
           data: { userId: ctx.session?.user?.id, complete: true },
           where: { id: input.gameId },
         }),
-        redis.zadd("scores", `${game.score}.${suffix}`, game.id),
-        redis.zadd("streaks", `${game.longest}.${suffix}`, game.id),
-      ])
+      ]
+      if (game.score > topScore) {
+        promises.push(redis.zadd("top-scores", game.score, game.userId))
+      }
+      if (game.streak > topStreak) {
+        promises.push(redis.zadd("top-streaks", game.streak, game.userId))
+      }
 
-      return getRelativeLeaderboard(ctx.prisma, game.id)
+      await Promise.all(promises)
+      return getRelativeLeaderboard(ctx.prisma, game.userId)
     },
   })
   .query("leaderboard", {
     input: z
-      .object({ gameId: z.string().nullish(), page: z.number().nullish() })
+      .object({ userId: z.string().nullish(), page: z.number().nullish() })
       .nullish(),
     async resolve({ ctx, input }) {
-      if (input?.gameId) {
-        return getRelativeLeaderboard(ctx.prisma, input.gameId)
+      if (input?.userId) {
+        return getRelativeLeaderboard(ctx.prisma, input.userId)
       }
 
       const pageSize = 30
-      const skip = input?.page ? input.page * pageSize : 0
-      const page = await ctx.prisma.game.findMany({
-        select: {
-          id: true,
-          score: true,
-          longest: true,
-          userId: true,
-          user: {
-            select: {
-              name: true,
-              image: true,
-            },
-          },
-        },
-        orderBy: [{ score: "desc" }, { start: "asc" }],
-        skip,
-        take: pageSize,
-      })
-
-      return page.map((score, index) => ({
-        ...score,
-        rank: skip + index + 1,
-      }))
+      const start = input?.page ? input.page * pageSize : 0
+      return getLeaderboard(ctx.prisma, start, pageSize)
     },
   })
 
-async function getRelativeLeaderboard(prisma: PrismaClient, gameId: string) {
-  const rank = await redis.zrevrank("scores", gameId)
+async function getRelativeLeaderboard(prisma: PrismaClient, userId: string) {
+  const rank = await redis.zrevrank("top-scores", userId)
   if (rank === null) return []
 
-  const range = await redis.zrevrange("scores", Math.max(rank - 2, 0), rank + 2)
-  const rankIndex = range.indexOf(gameId)
+  const scores = await getRange(Math.max(rank - 2, 0), rank + 2)
+  const userIds = scores.map((s) => s.userId)
+
+  const rankIndex = userIds.indexOf(userId)
   const firstRank = rank - rankIndex
-  const scores = await getScores(prisma, range)
+  const users = await getUsers(prisma, userIds)
 
   let currentRank = firstRank
-  const leaderboard = range.map((gameId, index) => {
-    // Trying to implement ties, but poorly.
-    // https://github.com/redis/redis/issues/943
-    /* const previousGameId = range[index - 1] */
-    /* const previous = scores.find((s) => s.id === previousGameId) */
-    const score = scores.find((s) => s.id === gameId)
-    /* const tie = previous && previous.score === score?.score */
-    /* const previousRank = currentRank */
+  const leaderboard = scores.map((score, index) => {
+    const user = users.find((s) => s.id === score.userId)
     currentRank = firstRank + index + 1
 
     return {
-      ...score,
+      ...user,
+      score: score.score,
       rank: currentRank,
-      /* rank: tie ? previousRank : currentRank, */
     }
   })
 
   return leaderboard
 }
 
-async function getScores(prisma: PrismaClient, gameIds: string[]) {
-  const games = await prisma.game.findMany({
+async function getLeaderboard(
+  prisma: PrismaClient,
+  firstRank: number,
+  count = 30
+) {
+  const scores = await getRange(firstRank, count)
+  const userIds = scores.map((s) => s.userId)
+  const users = await getUsers(prisma, userIds)
+
+  let currentRank = firstRank
+  const leaderboard = scores.map((score, index) => {
+    const user = users.find((s) => s.id === score.userId)
+    currentRank = firstRank + index + 1
+
+    return {
+      ...user,
+      score: score.score,
+      rank: currentRank,
+    }
+  })
+
+  return leaderboard
+}
+
+interface GetRangeOptions {
+  set: "top-scores" | "top-streaks"
+}
+
+async function getRange(
+  start: number,
+  end: number,
+  options: GetRangeOptions = { set: "top-scores" }
+) {
+  const range = await redis.zrevrange(options.set, start, end, "WITHSCORES")
+
+  const scores = range
+    .map((userId, index) =>
+      index % 2 === 0
+        ? { userId, score: Number.parseInt(range[index + 1] as string) }
+        : undefined
+    )
+    .filter(Boolean) as { userId: string; score: number }[]
+
+  return scores
+}
+
+async function getUsers(prisma: PrismaClient, userIds: string[]) {
+  const users = await prisma.user.findMany({
     select: {
       id: true,
-      score: true,
-      longest: true,
-      userId: true,
-      user: {
-        select: {
-          name: true,
-          image: true,
-        },
-      },
+      name: true,
+      image: true,
     },
-    where: { id: { in: gameIds } },
+    where: { id: { in: userIds } },
   })
-  return games
+  return users
 }
 
 async function createRound(prisma: PrismaClient, gameId: string) {
@@ -266,11 +287,11 @@ function shuffle<T>(array: Array<T>) {
     randomIndex = Math.floor(Math.random() * currentIndex)
     currentIndex--
 
-    // And swap it with the current element.
-    ;[array[currentIndex], array[randomIndex]] = [
-      array[randomIndex] as T,
-      array[currentIndex] as T,
-    ]
+      // And swap it with the current element.
+      ;[array[currentIndex], array[randomIndex]] = [
+        array[randomIndex] as T,
+        array[currentIndex] as T,
+      ]
   }
 
   return array

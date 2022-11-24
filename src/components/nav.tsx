@@ -1,4 +1,4 @@
-import { Fragment } from "react"
+import { ComponentProps, Fragment } from "react"
 import { Disclosure, Menu, Transition } from "@headlessui/react"
 import cn from "classnames"
 import Link from "next/link"
@@ -12,11 +12,14 @@ const navigation = [
   /* { name: "My Games", href: "/", current: false }, */
 ]
 
-export default function Nav() {
-  const { data: session, status } = useSession()
+export const Nav: React.FC<ComponentProps<"nav">> = ({
+  className,
+  ...props
+}) => {
+  const { data: session } = useSession()
 
   return (
-    <Disclosure as="nav" className="bg-blue-3">
+    <Disclosure as="nav" className={`bg-blue-3 ${className}`} {...props}>
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -107,3 +110,5 @@ export default function Nav() {
     </Disclosure>
   )
 }
+
+export default Nav
