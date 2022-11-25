@@ -25,7 +25,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({ data, userId }) => {
         <tbody>
           {data.map((score) => (
             <tr
-              key={score.id}
+              key={score.rank}
               className={cn({
                 "h-10": true,
                 "bg-blue-6 outline outline-blue-9":

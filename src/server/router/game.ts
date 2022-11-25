@@ -5,8 +5,10 @@ import resources from "../../../data/resources.json"
 import { TRPCError } from "@trpc/server"
 import Redis from "ioredis"
 import { env } from "../../env/server.mjs"
+import { getRandomItem } from "../common/game"
 
 const duration = 30
+const gameDelay = 10
 const roundDelay = 2
 const correctBonus = 3
 const incorrectPenalty = -5
@@ -17,13 +19,14 @@ export const gameRouter = createRouter()
   .mutation("new", {
     async resolve({ ctx }) {
       const start = new Date()
-      const expires = new Date()
+      start.setSeconds(start.getSeconds() + gameDelay)
+      const expires = new Date(start)
       expires.setSeconds(expires.getSeconds() + duration)
 
       const game = await ctx.prisma.game.create({
         data: { start, expires, userId: ctx.session?.user?.id },
       })
-      const round = await createRound(ctx.prisma, game.id)
+      const round = await createRound(ctx.prisma, game.id, start)
 
       return {
         game,
@@ -242,7 +245,11 @@ async function getUsers(prisma: PrismaClient, userIds: string[]) {
   return users
 }
 
-async function createRound(prisma: PrismaClient, gameId: string) {
+async function createRound(
+  prisma: PrismaClient,
+  gameId: string,
+  delayedStart?: Date
+) {
   const choices = [getRandomItem(resources)]
   for (let index = 0; index < 3; index++) {
     choices.push(
@@ -260,11 +267,11 @@ async function createRound(prisma: PrismaClient, gameId: string) {
   const { d } = answer!
   const { stop1Color, stop2Color } = answer!.image
 
-  const start = new Date()
+  const start = delayedStart ?? new Date()
   start.setSeconds(start.getSeconds() + roundDelay)
 
   const round = await prisma.round.create({
-    data: { gameId: gameId, answer: answer!.name, start },
+    data: { gameId, answer: answer!.name, start },
   })
 
   return {
@@ -295,8 +302,4 @@ function shuffle<T>(array: Array<T>) {
   }
 
   return array
-}
-
-function getRandomItem<T>(array: T[]) {
-  return array[Math.floor(Math.random() * array.length)] as T
 }

@@ -2,7 +2,7 @@ import type { NextPage } from "next"
 import dynamic from "next/dynamic"
 import { inferMutationOutput, trpc } from "../utils/trpc"
 import cn from "classnames"
-import React from "react"
+import React, { ComponentProps, useEffect } from "react"
 import Confetti from "js-confetti"
 import {
   createMachine,
@@ -21,6 +21,7 @@ import { Leaderboard } from "../components/leaderboard"
 import { Layout } from "../components/layout"
 import { Button } from "../components/button"
 import Nav from "../components/nav"
+import { getRandomItem } from "../server/common/game"
 const { send, cancel } = actions
 
 const confetti = typeof window !== "undefined" ? new Confetti() : undefined
@@ -56,6 +57,7 @@ type GameTypestate =
     }
   }
   | { value: "Starting"; context: Context }
+  | { value: "Countdown"; context: Context }
   | {
     value: "Active"
     context: Context & {
@@ -130,7 +132,7 @@ const gameMachine = createMachine<Context, GameEvent, GameTypestate>({
         src: "start",
         onDone: [
           {
-            target: "Active",
+            target: "Countdown",
             actions: assign((_context, event) => {
               return {
                 game: event.data.game,
@@ -141,6 +143,9 @@ const gameMachine = createMachine<Context, GameEvent, GameTypestate>({
           },
         ],
       },
+    },
+    Countdown: {
+      after: { countdown: { target: "Active" } },
     },
     Active: {
       initial: "Guessing",
@@ -246,6 +251,10 @@ const Game: React.FC = () => {
     /* state: previousState?.value === "Game Over" ? undefined : previousState, */
     state: previousState,
     delays: {
+      countdown: (context) => {
+        if (!context.round) return 3000
+        return new Date(context.round.start).getTime() - Date.now()
+      },
       expires: (context) => {
         if (!context.game) return 30
         return new Date(context.game.expires).getTime() - Date.now()
@@ -276,7 +285,13 @@ const Game: React.FC = () => {
       start: () => {
         return new Promise(async (resolve) => {
           const { game, round } = await newGameMutation.mutateAsync()
-          resolve({ game, round })
+          const remaining = new Date(game.start).getTime() - Date.now() - 1000
+
+          if (remaining > 0) {
+            setTimeout(() => resolve({ game, round }), remaining)
+          } else {
+            resolve({ game, round })
+          }
         })
       },
       answer: (context) => {
@@ -352,103 +367,20 @@ const Game: React.FC = () => {
     send("START_GAME")
   }
 
-  const { stop1Color, stop2Color, d } = context.round?.answer ?? {}
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"><defs><linearGradient id="a" x1="0%" x2="100%" y1="100%" y2="0%"><stop offset="0%" stop-color="${stop1Color}"/><stop offset="100%" stop-color="${stop2Color}"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="url(#a)" d="M0 0h80v80H0z"/><path fill="#FFF" d="${d}"/></g></svg>`
-
   return (
     <Layout>
-      <Nav className={cn({ "hidden md:block": current.matches("Active") })} />
+      <Nav
+        className={cn({
+          "hidden md:block": current.matches("Active"),
+          hidden: current.matches("Idle"),
+        })}
+      />
       <main className="container mx-auto max-w-sm md:max-w-3xl p-8 text-orange-9">
-        {current.matches("Idle") && (
-          <Button onClick={handleNewGame}>New Game</Button>
-        )}
-        {current.matches("Active") && context.round && (
-          <div className="flex flex-col md:mt-3 md:flex-row md:space-x-12">
-            <div className="relative aspect-square md:w-full">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={`data:image/svg+xml;utf8,${encodeURIComponent(svg)}`}
-                alt="aws service"
-                className="h-full w-full"
-              />
-              <div className="absolute -top-5 -left-5 flex">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full border-4 border-blue-2 bg-orange-9">
-                  <Timer state={current} />
-                  {!!context.result?.expiresDelta && (
-                    <div
-                      className={`absolute -top-[10px] -left-[6px] animate-appear text-lg ${context.result.expiresDelta > 0
-                          ? "text-green-11"
-                          : "text-red-11"
-                        }`}
-                    >
-                      {`${context.result.expiresDelta > 0 ? "+" : ""}${context.result.expiresDelta
-                        }`}
-                    </div>
-                  )}
-                </div>
-                <div className="text-sm mt-[2px]">timer</div>
-              </div>
-              <div className="absolute -top-5 -right-5 flex">
-                <div className="text-sm mt-[2px]">score</div>
-                <div className="flex h-12 w-12 items-center justify-center rounded-full border-4 border-blue-2 bg-orange-9">
-                  <div className="text-lg text-orange-12">
-                    {context.game?.score}
-                  </div>
-                  {!!context.result?.scoreDelta && (
-                    <div className="absolute -top-[10px] -right-[6px] animate-appear text-lg text-green-11">
-                      {`${context.result.scoreDelta > 0 ? "+" : ""}${context.result.scoreDelta
-                        }`}
-                    </div>
-                  )}
-                </div>
-              </div>
-              {(context.game?.streak ?? 0) > 1 && (
-                <div className="absolute -bottom-5 -right-5 flex items-end">
-                  <div className="text-sm mt-[2px]">streak</div>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full border-4 border-blue-2 bg-orange-9">
-                    <div className="text-lg text-blue-12">
-                      {context.game?.streak}
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-            <div className="mt-[30px] w-full items-center space-y-5 md:mt-0">
-              {context.round.choices.map((c) => {
-                const chosen =
-                  current.matches({ Active: "Showing Answer" }) &&
-                  c.name === context.choice
-                const state = current.matches({ Active: "Guessing" })
-                  ? undefined
-                  : context.result?.answer === c.name
-                    ? "success"
-                    : "error"
-
-                return (
-                  <Button
-                    disabled={
-                      answerMutation.isLoading ||
-                      current.matches({ Active: "Checking Answer" }) ||
-                      current.matches({ Active: "Showing Answer" })
-                    }
-                    key={c.name}
-                    className={cn({
-                      "relative w-full uppercase tracking-tight text-xl leading-4":
-                        true,
-                    })}
-                    state={state}
-                    chosen={chosen}
-                    onClick={() => handleAnswer(c.name)}
-                  >
-                    {/* <div className="text-sm font-light uppercase opacity-80"> */}
-                    {/*   {c.prefix === "aws" ? "AWS" : "Amazon"} */}
-                    {/* </div> */}
-                    {c.name}
-                  </Button>
-                )
-              })}
-            </div>
-          </div>
+        {current.matches("Idle") && <Idle onNewGame={handleNewGame} />}
+        {current.matches("Starting") && <Starting />}
+        {current.matches("Countdown") && <Countdown context={context} />}
+        {current.matches("Active") && (
+          <Round current={current} handleAnswer={handleAnswer} />
         )}
         {current.matches("Game Over") && (
           <div className="flex-col items-center text-center space-y-10">
@@ -520,6 +452,262 @@ const Game: React.FC = () => {
         )}
       </main>
     </Layout>
+  )
+}
+
+interface IdleProps extends ComponentProps<"div"> {
+  onNewGame: () => void
+}
+
+const Idle: React.FC<IdleProps> = ({ onNewGame, ...props }) => {
+  return (
+    <div className="isolate bg-blue-2" {...props}>
+      <div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
+        <svg
+          className="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]"
+          viewBox="0 0 1155 678"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill="url(#45de2b6b-92d5-4d68-a6a0-9b9b2abad533)"
+            fillOpacity=".3"
+            d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
+          />
+          <defs>
+            <linearGradient
+              id="45de2b6b-92d5-4d68-a6a0-9b9b2abad533"
+              x1="1155.49"
+              x2="-78.208"
+              y1=".177"
+              y2="474.645"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#9089FC" />
+              <stop offset={1} stopColor="#FF80B5" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <main>
+        <div className="relative px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl pt-20 pb-32 sm:pt-48 sm:pb-40">
+            <div>
+              <div>
+                <h1 className="text-4xl font-display font-bold tracking-tight sm:text-center sm:text-6xl">
+                  There are more than 250 AWS Services
+                </h1>
+                <p className="mt-6 text-2xl leading-8 text-orange-9 sm:text-center">
+                  How many do you know?
+                </p>
+                <div className="mt-8 flex gap-x-4 sm:justify-center">
+                  <Button className="w-64" onClick={onNewGame}>
+                    Play now!
+                  </Button>
+                </div>
+              </div>
+              <div className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
+                <svg
+                  className="relative left-[calc(50%+3rem)] h-[21.1875rem] max-w-none -translate-x-1/2 sm:left-[calc(50%+36rem)] sm:h-[42.375rem]"
+                  viewBox="0 0 1155 678"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill="url(#ecb5b0c9-546c-4772-8c71-4d3f06d544bc)"
+                    fillOpacity=".3"
+                    d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
+                  />
+                  <defs>
+                    <linearGradient
+                      id="ecb5b0c9-546c-4772-8c71-4d3f06d544bc"
+                      x1="1155.49"
+                      x2="-78.208"
+                      y1=".177"
+                      y2="474.645"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop stopColor="#9089FC" />
+                      <stop offset={1} stopColor="#FF80B5" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    /* <div className="" {...props}> */
+    /*   <h1 className="text-2xl md:text-4xl text-blue-9">There are more than</h1> */
+    /*   <Button onClick={handleNewGame}>New Game</Button> */
+    /* </div> */
+  )
+}
+
+const lines = [
+  "Writing least priveledge policies...",
+  "Obsessing over some customers...",
+  "Looking forward to Day 2...",
+  "Buttoning up Job 0...",
+  "Diving deep...",
+  "Launching with CloudFormation support...",
+  "Showing ownership...",
+  "Thinking sooooooooooo big...",
+  "Being right, like, a lot...",
+]
+const delays = [3500, 4000, 5000]
+
+const Starting: React.FC<ComponentProps<"div">> = (props) => {
+  const [text, setText] = React.useState(getRandomItem(lines))
+
+  useEffect(() => {
+    const handle = setTimeout(() => {
+      setText(getRandomItem(lines))
+    }, getRandomItem(delays))
+
+    return () => clearTimeout(handle)
+  }, [text])
+
+  return (
+    <div
+      className="font-display absolute inset-5 flex items-center justify-center text-2xl md:text-4xl text-center text-blue-9"
+      {...props}
+    >
+      {text}
+    </div>
+  )
+}
+
+const prompts = ["Ready", "Set", "Guess"]
+const Countdown: React.FC<ComponentProps<"div"> & { context: Context }> = ({
+  context,
+  ...props
+}) => {
+  const duration = context.round
+    ? new Date(context.round.start).getTime() - Date.now()
+    : 3000
+  const [text, setText] = React.useState(prompts[0])
+
+  useEffect(() => {
+    const handle = setTimeout(() => {
+      if (!text) return
+      const index = prompts.indexOf(text)
+      const nextPrompt = prompts[index + 1]
+      if (nextPrompt) setText(nextPrompt)
+    }, duration / 3)
+
+    return () => clearTimeout(handle)
+  }, [text, duration])
+
+  return (
+    <div
+      className="font-display uppercase absolute inset-5 flex items-center justify-center text-2xl md:text-4xl text-center text-orange-9"
+      {...props}
+    >
+      {text}
+    </div>
+  )
+}
+
+interface RoundProps extends ComponentProps<"div"> {
+  current: State<
+    Context,
+    GameEvent,
+    never,
+    GameTypestate,
+    ResolveTypegenMeta<TypegenDisabled, GameEvent, BaseActionObject, ServiceMap>
+  >
+  handleAnswer: (choice?: string) => Promise<void>
+}
+
+const Round: React.FC<RoundProps> = ({ current, handleAnswer, ...props }) => {
+  const { context } = current
+  const { stop1Color, stop2Color, d } = context.round?.answer ?? {}
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80"><defs><linearGradient id="a" x1="0%" x2="100%" y1="100%" y2="0%"><stop offset="0%" stop-color="${stop1Color}"/><stop offset="100%" stop-color="${stop2Color}"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path fill="url(#a)" d="M0 0h80v80H0z"/><path fill="#FFF" d="${d}"/></g></svg>`
+
+  return (
+    <div className="flex flex-col md:mt-3 md:flex-row md:space-x-12" {...props}>
+      <div className="relative aspect-square md:w-full">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={`data:image/svg+xml;utf8,${encodeURIComponent(svg)}`}
+          alt="aws service"
+          className="h-full w-full"
+        />
+        <div className="absolute -top-5 -left-5 flex">
+          <div className="flex h-12 w-12 items-center justify-center rounded-full border-4 border-blue-2 bg-orange-9">
+            <Timer state={current} />
+            {!!context.result?.expiresDelta && (
+              <div
+                className={`absolute -top-[10px] -left-[6px] animate-appear text-lg ${context.result.expiresDelta > 0
+                    ? "text-green-11"
+                    : "text-red-11"
+                  }`}
+              >
+                {`${context.result.expiresDelta > 0 ? "+" : ""}${context.result.expiresDelta
+                  }`}
+              </div>
+            )}
+          </div>
+          <div className="text-sm mt-[2px]">timer</div>
+        </div>
+        <div className="absolute -top-5 -right-5 flex">
+          <div className="text-sm mt-[2px]">score</div>
+          <div className="flex h-12 w-12 items-center justify-center rounded-full border-4 border-blue-2 bg-orange-9">
+            <div className="text-lg text-orange-12">{context.game?.score}</div>
+            {!!context.result?.scoreDelta && (
+              <div className="absolute -top-[10px] -right-[6px] animate-appear text-lg text-green-11">
+                {`${context.result.scoreDelta > 0 ? "+" : ""}${context.result.scoreDelta
+                  }`}
+              </div>
+            )}
+          </div>
+        </div>
+        {(context.game?.streak ?? 0) > 1 && (
+          <div className="absolute -bottom-5 -right-5 flex items-end">
+            <div className="text-sm mt-[2px]">streak</div>
+            <div className="flex h-12 w-12 items-center justify-center rounded-full border-4 border-blue-2 bg-orange-9">
+              <div className="text-lg text-blue-12">{context.game?.streak}</div>
+            </div>
+          </div>
+        )}
+      </div>
+      <div className="mt-[30px] w-full items-center space-y-5 md:mt-0">
+        {context.round!.choices.map((c) => {
+          const chosen =
+            current.matches({ Active: "Showing Answer" }) &&
+            c.name === context.choice
+          const state = current.matches({ Active: "Guessing" })
+            ? undefined
+            : context.result?.answer === c.name
+              ? "success"
+              : "error"
+
+          return (
+            <Button
+              disabled={
+                current.matches({ Active: "Checking Answer" }) ||
+                current.matches({ Active: "Showing Answer" })
+              }
+              key={c.name}
+              className={cn({
+                "relative w-full uppercase tracking-tight text-xl leading-4":
+                  true,
+              })}
+              state={state}
+              chosen={chosen}
+              onClick={() => handleAnswer(c.name)}
+            >
+              {/* <div className="text-sm font-light uppercase opacity-80"> */}
+              {/*   {c.prefix === "aws" ? "AWS" : "Amazon"} */}
+              {/* </div> */}
+              {c.name}
+            </Button>
+          )
+        })}
+      </div>
+    </div>
   )
 }
 
