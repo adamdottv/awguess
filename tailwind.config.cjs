@@ -116,7 +116,7 @@ module.exports = {
         shake: "shake 0.82s cubic-bezier(.36,.07,.19,.97) both",
       },
       fontFamily: {
-        serif: ["var(--serif-font)", ...fontFamily.serif],
+        display: ["var(--display-font)", ...fontFamily.serif],
       },
     },
   },

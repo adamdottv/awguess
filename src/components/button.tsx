@@ -17,7 +17,7 @@ export const Button: React.FC<ButtonProps> = ({
   disabled,
   full,
   color = "bg-blue-9",
-  darker = "#0a4481",
+  darker = "#0954a5",
   darkest = "#10243e",
   ...props
 }) => {

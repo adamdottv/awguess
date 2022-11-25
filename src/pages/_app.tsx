@@ -15,11 +15,11 @@ const customFont = DM_Sans({
   subsets: ["latin"],
   display: "swap",
 })
-const serifFont = Lora({
+const displayFont = Lora({
   weight: ["500"],
   subsets: ["latin"],
   display: "swap",
-  variable: "--serif-font",
+  variable: "--display-font",
 })
 
 const MyApp: AppType<{ session: Session }> = ({
@@ -27,7 +27,7 @@ const MyApp: AppType<{ session: Session }> = ({
   pageProps: { session, ...pageProps },
 }) => {
   return (
-    <div className={`${customFont.className} ${serifFont.variable}`}>
+    <div className={`${customFont.className} ${displayFont.variable}`}>
       <SessionProvider session={session}>
         <Component {...pageProps} />
       </SessionProvider>
