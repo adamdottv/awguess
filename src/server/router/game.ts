@@ -11,6 +11,7 @@ const duration = 30
 const gameDelay = 6
 const roundDelay = 2
 const correctBonus = 3
+const maxStreakBonus = 20
 const incorrectPenalty = -5
 
 const redis = new Redis(env.REDIS_URL)
@@ -26,7 +27,9 @@ export const gameRouter = createRouter()
       const game = await ctx.prisma.game.create({
         data: { start, expires, userId: ctx.session?.user?.id },
       })
-      const round = await createRound(ctx.prisma, game.id, start)
+      const round = await createRound(ctx.prisma, game.id, {
+        delayedStart: start,
+      })
 
       return {
         game,
@@ -65,7 +68,8 @@ export const gameRouter = createRouter()
 
       const streak = correct ? (round.game.streak ?? 0) + 1 : 0
       const longest = Math.max(streak, round.game.longest ?? 0)
-      const scoreDelta = correct && !expired ? streak : 0
+      const scoreDelta =
+        correct && !expired ? Math.min(streak, maxStreakBonus) : 0
       const expiresDelta = correct && !expired ? correctBonus : incorrectPenalty
       const expires = new Date(round.game.expires)
 
@@ -95,7 +99,7 @@ export const gameRouter = createRouter()
 
       const next = expired
         ? undefined
-        : await createRound(ctx.prisma, round.gameId)
+        : await createRound(ctx.prisma, round.gameId, { streak })
 
       return {
         correct,
@@ -246,19 +250,29 @@ async function getUsers(prisma: PrismaClient, userIds: string[]) {
   return users
 }
 
+interface CreateRoundOptions {
+  delayedStart?: Date
+  streak?: number
+}
+
 async function createRound(
   prisma: PrismaClient,
   gameId: string,
-  delayedStart?: Date
+  options?: CreateRoundOptions
 ) {
+  const streak = options?.streak ?? 0
   const choices = [getRandomItem(resources)]
+  const numberOfSameCategory =
+    streak > 16 ? 3 : streak > 8 ? 2 : streak > 4 ? 1 : 0
+
   for (let index = 0; index < 3; index++) {
     choices.push(
       getRandomItem(
         resources.filter(
           (r) =>
             !choices.find((c) => c.name === r.name) &&
-            (index > 0 || choices[0]?.category === r.category)
+            (index > numberOfSameCategory ||
+              choices[0]?.category === r.category)
         )
       )
     )
@@ -268,7 +282,7 @@ async function createRound(
   const { d } = answer!
   const { stop1Color, stop2Color } = answer!.image
 
-  const start = delayedStart ?? new Date()
+  const start = options?.delayedStart ?? new Date()
   start.setSeconds(start.getSeconds() + roundDelay)
 
   const round = await prisma.round.create({
