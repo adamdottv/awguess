@@ -383,11 +383,11 @@ const Game: React.FC = () => {
         )}
         {current.matches("Game Over") && (
           <div className="flex-col items-center text-center space-y-10">
-            <div className="flex-col space-y-1">
-              <div className="text-4xl font-display">Game Over</div>
-              <div className="text-2xl">
+            <div className="flex-col space-y-1 font-display uppercase">
+              <div className="text-4xl font-bold">Game Over</div>
+              <div className="text-2xl font-semibold">
                 Score:
-                <span className="text-4xl text-blue-9 ml-2">
+                <span className="text-4xl text-blue-9 ml-2 font-bold">
                   {context.game?.score}
                 </span>
               </div>

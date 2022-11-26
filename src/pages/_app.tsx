@@ -16,7 +16,7 @@ const customFont = DM_Sans({
   display: "swap",
 })
 const displayFont = Epilogue({
-  weight: ["500", "900"],
+  weight: ["400", "500", "700", "900"],
   style: ["normal", "italic"],
   subsets: ["latin"],
   display: "swap",

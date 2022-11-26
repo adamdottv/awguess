@@ -135,10 +135,11 @@ export const gameRouter = createRouter()
           where: { id: input.gameId },
         }),
       ]
-      if (game.score > topScore) {
+
+      if (game.score >= topScore) {
         promises.push(redis.zadd("top-scores", game.score, game.userId))
       }
-      if (game.streak > topStreak) {
+      if (game.streak >= topStreak) {
         promises.push(redis.zadd("top-streaks", game.streak, game.userId))
       }
 
@@ -179,7 +180,7 @@ async function getRelativeLeaderboard(prisma: PrismaClient, userId: string) {
 
     return {
       ...user,
-      score: score.score,
+      ...score,
       rank: currentRank,
     }
   })
@@ -203,7 +204,7 @@ async function getLeaderboard(
 
     return {
       ...user,
-      score: score.score,
+      ...score,
       rank: currentRank,
     }
   })
