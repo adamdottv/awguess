@@ -2,7 +2,7 @@ import type { NextPage } from "next"
 import dynamic from "next/dynamic"
 import { inferMutationOutput, trpc } from "../utils/trpc"
 import cn from "classnames"
-import React, { ComponentProps, useEffect } from "react"
+import React, { ComponentProps, useEffect, useState } from "react"
 import Confetti from "js-confetti"
 import {
   createMachine,
@@ -21,7 +21,6 @@ import { Leaderboard } from "../components/leaderboard"
 import { Layout } from "../components/layout"
 import { Button } from "../components/button"
 import Nav from "../components/nav"
-import { getRandomItem } from "../server/common/game"
 const { send, cancel } = actions
 
 const confetti = typeof window !== "undefined" ? new Confetti() : undefined
@@ -376,6 +375,7 @@ const Game: React.FC = () => {
         })}
       />
       <main className="container mx-auto max-w-sm md:max-w-3xl p-8 text-orange-9">
+        <Starting />
         {current.matches("Idle") && <Idle onNewGame={handleNewGame} />}
         {current.matches("Starting") && <Starting />}
         {current.matches("Countdown") && <Countdown context={context} />}
@@ -490,7 +490,7 @@ const Idle: React.FC<IdleProps> = ({ onNewGame, ...props }) => {
         </svg>
       </div>
       <main>
-        <div className="relative px-6 lg:px-8">
+        <div className="relative px-6 md:px-8">
           <div className="mx-auto max-w-3xl pt-20 pb-32 sm:pt-48 sm:pb-40">
             <div>
               <div>
@@ -538,74 +538,133 @@ const Idle: React.FC<IdleProps> = ({ onNewGame, ...props }) => {
         </div>
       </main>
     </div>
-    /* <div className="" {...props}> */
-    /*   <h1 className="text-2xl md:text-4xl text-blue-9">There are more than</h1> */
-    /*   <Button onClick={handleNewGame}>New Game</Button> */
-    /* </div> */
   )
 }
 
-const lines = [
-  "Writing least priveledge policies...",
-  "Obsessing over some customers...",
-  "Looking forward to Day 2...",
-  "Buttoning up Job 0...",
-  "Diving deep...",
-  "Launching with CloudFormation support...",
-  "Showing ownership...",
-  "Thinking sooooooooooo big...",
-  "Being right, like, a lot...",
+interface Quote {
+  quote: string
+  name: string
+  title: string
+}
+
+const quotes: Quote[] = [
+  {
+    quote:
+      "The secret to getting a high score on awguess? Simple. Be right, a lot.",
+    name: "Jeff Bezos",
+    title: "Founder and Executive Chairman of Amazon",
+  },
+  {
+    quote:
+      "Happiness is when what you think, what you say, and what you do are in harmony. Also, playing awguess.",
+    name: "Mahatma Gandhi",
+    title: "Really Famous Person",
+  },
+  {
+    quote:
+      "There are only two things I accomplished in life that I'm proud of. Being put on Mount Rushmore and my score of 76 on awguess.",
+    name: "Theodore Roosevelt",
+    title: "26th President of the United States",
+  },
+  {
+    quote:
+      "If at first you don't succeed, you might just be bad at this. I mean, there's A LOT of AWS Services.",
+    name: "Robert the Bruce",
+    title: "King of Scotland",
+  },
+  {
+    quote:
+      "Do not go where the path may lead, go instead to awguess.com and leave a score.",
+    name: "Ralph Waldo Emerson",
+    title: "American Essayist",
+  },
+  {
+    quote:
+      "When you reach the end of your rope, just guess. Seriously, nobody will see this, amirite?",
+    name: "Franklin D. Roosevelt",
+    title: "32nd President of the United States",
+  },
 ]
-const delays = [3500, 4000, 5000]
 
 const Starting: React.FC<ComponentProps<"div">> = (props) => {
-  const [text, setText] = React.useState(getRandomItem(lines))
+  const [quote, setQuote] = React.useState<Quote>()
 
   useEffect(() => {
-    const handle = setTimeout(() => {
-      setText(getRandomItem(lines))
-    }, getRandomItem(delays))
+    const index = Number.parseInt(window.localStorage.getItem("quote") ?? "0")
+    setQuote(quotes[index])
 
-    return () => clearTimeout(handle)
-  }, [text])
+    window.localStorage.setItem(
+      "quote",
+      (index + 1 > quotes.length - 1 ? 0 : index + 1).toString()
+    )
+  }, [])
+
+  if (!quote) return null
 
   return (
     <div
-      className="font-display absolute inset-5 flex items-center justify-center text-2xl md:text-4xl text-center text-blue-9"
+      className="bg-blue-7 rounded-3xl p-5 md:relative md:z-10 md:pb-0"
       {...props}
     >
-      {text}
+      <div className="md:mx-auto md:grid md:max-w-7xl md:grid-cols-3 md:gap-8 md:px-8">
+        <div className="md:col-span-2 md:m-0 md:pl-8">
+          <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 md:max-w-none md:px-0 md:py-20">
+            <blockquote>
+              <div>
+                <svg
+                  className="h-12 w-12 text-blue-12 opacity-25"
+                  fill="currentColor"
+                  viewBox="0 0 32 32"
+                  aria-hidden="true"
+                >
+                  <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+                </svg>
+                <p className="mt-6 text-xl md:text-2xl font-medium text-blue-12">
+                  {quote.quote}
+                </p>
+              </div>
+              <footer className="mt-6">
+                <p className="text-base font-medium text-blue-12">
+                  {quote.name}
+                </p>
+                <p className="text-base font-medium text-blue-11">
+                  {quote.title}
+                </p>
+              </footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
 
-const prompts = ["Ready", "Set", "Guess"]
 const Countdown: React.FC<ComponentProps<"div"> & { context: Context }> = ({
   context,
   ...props
 }) => {
+  const [step, setStep] = useState(1)
   const duration = context.round
     ? new Date(context.round.start).getTime() - Date.now()
     : 3000
-  const [text, setText] = React.useState(prompts[0])
 
   useEffect(() => {
     const handle = setTimeout(() => {
-      if (!text) return
-      const index = prompts.indexOf(text)
-      const nextPrompt = prompts[index + 1]
-      if (nextPrompt) setText(nextPrompt)
-    }, duration / 3)
+      if (step === 3) return
+      setStep((step) => step + 1)
+    }, duration / 4)
 
     return () => clearTimeout(handle)
-  }, [text, duration])
+  }, [duration, step])
 
   return (
     <div
-      className="font-display uppercase absolute inset-5 flex items-center justify-center text-2xl md:text-4xl text-center text-orange-9"
+      className="font-display italic font-black uppercase absolute inset-5 flex items-center justify-center text-5xl md:text-7xl text-center text-orange-9"
       {...props}
     >
-      {text}
+      {step === 1 && <div className="animate-pop">Ready</div>}
+      {step === 2 && <div className="animate-pop">Set</div>}
+      {step === 3 && <div className="animate-pop">Guess</div>}
     </div>
   )
 }

@@ -8,7 +8,7 @@ import { env } from "../../env/server.mjs"
 import { getRandomItem } from "../common/game"
 
 const duration = 30
-const gameDelay = 10
+const gameDelay = 6
 const roundDelay = 2
 const correctBonus = 3
 const incorrectPenalty = -5

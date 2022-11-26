@@ -9,14 +9,15 @@ import superjson from "superjson"
 import type { AppRouter } from "../server/router"
 import "../styles/globals.css"
 
-import { Lora, DM_Sans } from "@next/font/google"
+import { Epilogue, DM_Sans } from "@next/font/google"
 const customFont = DM_Sans({
   weight: "400",
   subsets: ["latin"],
   display: "swap",
 })
-const displayFont = Lora({
-  weight: ["500"],
+const displayFont = Epilogue({
+  weight: ["500", "900"],
+  style: ["normal", "italic"],
   subsets: ["latin"],
   display: "swap",
   variable: "--display-font",

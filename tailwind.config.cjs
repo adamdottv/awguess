@@ -110,9 +110,26 @@ module.exports = {
             transform: "translate3d(4px, 0, 0);",
           },
         },
+        pop: {
+          "0%": {
+            opacity: "0",
+            transform: "scale(0.4)",
+          },
+          "60%": {
+            transform: "scale(1.2)",
+          },
+          "80%": {
+            opacity: "1",
+            transform: "scale(0.9)",
+          },
+          "100%": {
+            transform: "scale(1)",
+          },
+        },
       },
       animation: {
         appear: "appear 1.5s ease-out both",
+        pop: "pop 150ms cubic-bezier(.36,0.7,.19,.97) both",
         shake: "shake 0.82s cubic-bezier(.36,.07,.19,.97) both",
       },
       fontFamily: {
