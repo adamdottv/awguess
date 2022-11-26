@@ -375,7 +375,6 @@ const Game: React.FC = () => {
         })}
       />
       <main className="container mx-auto max-w-sm md:max-w-3xl p-8 text-orange-9">
-        <Starting />
         {current.matches("Idle") && <Idle onNewGame={handleNewGame} />}
         {current.matches("Starting") && <Starting />}
         {current.matches("Countdown") && <Countdown context={context} />}
