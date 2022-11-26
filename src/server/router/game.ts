@@ -11,7 +11,7 @@ const duration = 30
 const gameDelay = 6
 const roundDelay = 2
 const correctBonus = 3
-const maxStreakBonus = 20
+const maxStreakBonus = 10
 const incorrectPenalty = -5
 
 const redis = new Redis(env.REDIS_URL)

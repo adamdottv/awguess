@@ -49,7 +49,13 @@ export const authOptions: NextAuthOptions = {
 }
 
 export default async function auth(req: NextApiRequest, res: NextApiResponse) {
-  const existingToken = await getToken({ req, secret })
+  let existingToken = undefined
+  try {
+    existingToken = await getToken({ req, secret })
+  } catch (error) {
+    console.error(error)
+  }
+
   const anonymousUserId =
     existingToken && !existingToken.email && existingToken.sub
 
