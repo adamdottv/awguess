@@ -13,7 +13,6 @@ specifiers:
   '@types/node': 18.0.0
   '@types/react': 18.0.14
   '@types/react-dom': 18.0.5
-  '@types/use-persisted-state': ^0.3.1
   '@typescript-eslint/eslint-plugin': ^5.33.0
   '@typescript-eslint/parser': ^5.33.0
   '@xstate/inspect': ^0.7.0
@@ -41,7 +40,6 @@ specifiers:
   svg-parser: ^2.0.4
   tailwindcss: ^3.2.4
   typescript: 4.7.4
-  use-persisted-state: ^0.3.3
   ws: ^8.9.0
   xstate: ^4.33.6
   zod: ^3.18.0
@@ -56,7 +54,6 @@ dependencies:
   '@trpc/next': 9.27.4_lpmytvrtsrhzfskzwej4vbwnm4
   '@trpc/react': 9.27.4_2g6rn7sj2da6xgohvi4oglgmnq
   '@trpc/server': 9.27.4
-  '@types/use-persisted-state': 0.3.1
   '@xstate/inspect': 0.7.0_ws@8.11.0+xstate@4.34.0
   '@xstate/react': 3.0.1_7ojefnuuzfifciyttpq4e7jpxq
   classnames: 2.3.2
@@ -72,7 +69,6 @@ dependencies:
   react-query: 3.39.2_biqbaboplfbrettd7655fr4n2y
   react-timer-hook: 3.0.5_biqbaboplfbrettd7655fr4n2y
   superjson: 1.11.0
-  use-persisted-state: 0.3.3_react@18.2.0
   ws: 8.11.0
   xstate: 4.34.0
   zod: 3.19.1
@@ -515,12 +511,6 @@ packages:
     resolution: {integrity: sha512-21cFJr9z3g5dW8B0CVI9g2O9beqaThGQ6ZFBqHfwhzLDKUxaqTIy3vnfah/UPkfOiF2pLq+tGz+W8RyCskuslw==}
     dev: true
 
-  /@types/use-persisted-state/0.3.1:
-    resolution: {integrity: sha512-GZtzdCPeR+KZfrzKrVLnbpRcHSCVDHaFCJ0QtkXDAmh5M+eUJqGquFtN+eUOvAMIjwLgTZ2zKq0/JL+e1/gf8g==}
-    dependencies:
-      '@types/react': 18.0.14
-    dev: false
-
   /@typescript-eslint/eslint-plugin/5.43.0_q3h472e5eme7ylc63rczosp6oi:
     resolution: {integrity: sha512-wNPzG+eDR6+hhW4yobEmpR36jrqqQv1vxBq5LJO3fBAktjkvekfr4BRl+3Fn1CM/A+s8/EiGUbOMDoYqWdbtXA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
@@ -649,14 +639,6 @@ packages:
       '@typescript-eslint/types': 5.43.0
       eslint-visitor-keys: 3.3.0
     dev: true
-
-  /@use-it/event-listener/0.1.7_react@18.2.0:
-    resolution: {integrity: sha512-hgfExDzUU9uTRTPDCpw2s9jWTxcxmpJya3fK5ADpf5VDpSy8WYwY/kh28XE0tUcbsljeP8wfan48QvAQTSSa3Q==}
-    peerDependencies:
-      react: '>=16.8.0'
-    dependencies:
-      react: 18.2.0
-    dev: false
 
   /@xstate/inspect/0.7.0_ws@8.11.0+xstate@4.34.0:
     resolution: {integrity: sha512-3wrTf8TfBYprH1gBFdxmOQUBDpBazlICWvGdFzr8IHFL4MbiexEZdAsL2QC/WAmW9BqNYTWTwgfbvKHKg+FrlA==}
@@ -2860,15 +2842,6 @@ packages:
         optional: true
     dependencies:
       '@types/react': 18.0.14
-      react: 18.2.0
-    dev: false
-
-  /use-persisted-state/0.3.3_react@18.2.0:
-    resolution: {integrity: sha512-pCNlvYC8+XjRxwnIut4teGC9f2p9aD88R8OGseQGZa2dvqG/h1vEGk1vRE1IZG0Vf161UDpn+NlW4+UGubQflQ==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-    dependencies:
-      '@use-it/event-listener': 0.1.7_react@18.2.0
       react: 18.2.0
     dev: false
 
