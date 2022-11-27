@@ -261,32 +261,39 @@ async function createRound(
   options?: CreateRoundOptions
 ) {
   const streak = options?.streak ?? 0
-  const choices = [getRandomItem(resources)]
+  const answer = getRandomItem(resources)
+  const choices = [answer]
   const numberOfSameCategory =
-    streak > 16 ? 3 : streak > 8 ? 2 : streak > 4 ? 1 : 0
+    streak >= 16 ? 4 : streak >= 12 ? 3 : streak >= 8 ? 2 : streak >= 4 ? 1 : 0
+
+  const category = answer?.category
+  const subcategory = answer?.subcategory
 
   for (let index = 0; index < 3; index++) {
-    choices.push(
-      getRandomItem(
-        resources.filter(
-          (r) =>
-            !choices.find((c) => c.name === r.name) &&
-            (index > numberOfSameCategory ||
-              choices[0]?.category === r.category)
-        )
+    const others = resources.filter(
+      (r) => !choices.find((c) => c.name === r.name)
+    )
+
+    const choice = getRandomItem(
+      others.filter(
+        (r) =>
+          index > numberOfSameCategory ||
+          (subcategory
+            ? subcategory === r.subcategory
+            : category === r.category)
       )
     )
+    choices.push(choice ?? getRandomItem(others))
   }
 
-  const answer = choices[0]
-  const { d } = answer!
-  const { stop1Color, stop2Color } = answer!.image
+  const { d } = answer
+  const { stop1Color, stop2Color } = answer.image
 
   const start = options?.delayedStart ?? new Date()
   start.setSeconds(start.getSeconds() + roundDelay)
 
   const round = await prisma.round.create({
-    data: { gameId, answer: answer!.name, start },
+    data: { gameId, answer: answer.name, start },
   })
 
   return {

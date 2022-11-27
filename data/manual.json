@@ -1,0 +1,322 @@
+[
+  {
+    "id": "aws-cloud-development-kit",
+    "name": "CDK"
+  },
+  {
+    "id": "aws-identity-and-access-management",
+    "name": "IAM"
+  },
+  {
+    "id": "amazon-elastic-block-store",
+    "name": "EBS"
+  },
+  {
+    "id": "amazon-efs",
+    "name": "EFS"
+  },
+  {
+    "id": "amazon-elastic-container-registry",
+    "name": "ECR"
+  },
+  {
+    "id": "amazon-elastic-container-service",
+    "name": "ECS"
+  },
+  {
+    "id": "amazon-elastic-kubernetes-service",
+    "name": "EKS"
+  },
+  {
+    "id": "amazon-keyspaces",
+    "name": "Keyspaces"
+  },
+  {
+    "id": "amazon-lookout-for-equipment",
+    "subcategory": "Lookout"
+  },
+  {
+    "id": "amazon-lookout-for-metrics",
+    "subcategory": "Lookout"
+  },
+  {
+    "id": "amazon-lookout-for-vision",
+    "subcategory": "Lookout"
+  },
+  {
+    "id": "amazon-simple-email-service",
+    "name": "SES"
+  },
+  {
+    "id": "amazon-application-auto-scaling"
+  },
+  {
+    "id": "amazon-cloud-directory",
+    "subcategory": "Application Integration",
+    "url": "https://aws.amazon.com/cloud-directory/"
+  },
+  {
+    "id": "amazon-codewhisperer",
+    "name": "CodeWhisperer",
+    "subcategory": "Machine Learning",
+    "url": "https://aws.amazon.com/codewhisperer/"
+  },
+  {
+    "id": "amazon-comprehend-medical",
+    "subcategory": "Machine Learning"
+  },
+  {
+    "id": "amazon-ec2-image-builder"
+  },
+  {
+    "id": "amazon-eks-anywhere",
+    "name": "EKS Anywhere",
+    "subcategory": "EKS",
+    "url": "https://aws.amazon.com/eks/eks-anywhere/"
+  },
+  {
+    "id": "amazon-ecs-anywhere",
+    "name": "ECS Anywhere",
+    "subcategory": "Containers",
+    "url": "https://aws.amazon.com/ecs/anywhere/"
+  },
+  {
+    "id": "amazon-eks-cloud",
+    "name": "EKS Cloud",
+    "subcategory": "EKS"
+  },
+  {
+    "id": "amazon-eks-distro",
+    "name": "EKS Distro",
+    "subcategory": "EKS",
+    "url": "https://aws.amazon.com/eks/eks-distro/"
+  },
+  {
+    "id": "amazon-fsx-for-lustre",
+    "name": "FSx for Lustre",
+    "subcategory": "FSx",
+    "url": "https://aws.amazon.com/fsx/lustre/"
+  },
+  {
+    "id": "amazon-fsx-for-openzfs",
+    "name": "FSx for OpenZFS",
+    "subcategory": "FSx",
+    "url": "https://aws.amazon.com/fsx/openzfs/"
+  },
+  {
+    "id": "amazon-fsx-for-netapp-ontap",
+    "name": "FSx for NetApp ONTAP",
+    "subcategory": "FSx",
+    "url": "https://aws.amazon.com/fsx/netapp-ontap/"
+  },
+  {
+    "id": "amazon-fsx-for-wfs",
+    "name": "FSx for WFS",
+    "subcategory": "FSx",
+    "url": "https://aws.amazon.com/fsx/windows/"
+  },
+  {
+    "id": "amazon-genomics-cli"
+  },
+  {
+    "id": "amazon-gamesparks",
+    "subcategory": "Game Tech"
+  },
+  {
+    "id": "amazon-kinesis-data-streams",
+    "subcategory": "Kinesis"
+  },
+  {
+    "id": "amazon-kinesis-data-analytics",
+    "subcategory": "Kinesis"
+  },
+  {
+    "id": "amazon-kinesis-firehose",
+    "subcategory": "Kinesis"
+  },
+  {
+    "id": "amazon-managed-service-for-prometheus"
+  },
+  {
+    "id": "amazon-rds-on-vmware",
+    "subcategory": "Databases"
+  },
+  {
+    "id": "amazon-s3-on-outposts",
+    "subcategory": "S3"
+  },
+  {
+    "id": "amazon-sagemaker-studio-lab"
+  },
+  {
+    "id": "amazon-simple-storage-service-glacier",
+    "name": "S3 Glacier",
+    "subcategory": "S3"
+  },
+  {
+    "id": "amazon-simple-storage-service",
+    "name": "S3"
+  },
+  {
+    "id": "amazon-virtual-private-cloud",
+    "name": "VPC"
+  },
+  {
+    "id": "amazon-worklink"
+  },
+  {
+    "id": "amazon-workspaces-web"
+  },
+  {
+    "id": "aws-activate",
+    "subcategory": "Support"
+  },
+  {
+    "id": "aws-appconfig"
+  },
+  {
+    "id": "aws-application-auto-scaling"
+  },
+  {
+    "id": "aws-application-cost-profiler"
+  },
+  {
+    "id": "aws-application-migration-service"
+  },
+  {
+    "id": "aws-backint-agent"
+  },
+  {
+    "id": "aws-billing-conductor"
+  },
+  {
+    "id": "aws-client-vpn"
+  },
+  {
+    "id": "aws-cloud-wan"
+  },
+  {
+    "id": "aws-codeartifact"
+  },
+  {
+    "id": "aws-distro-for-opentelemetry"
+  },
+  {
+    "id": "aws-elemental-link"
+  },
+  {
+    "id": "aws-elemental-live"
+  },
+  {
+    "id": "aws-glue-databrew"
+  },
+  {
+    "id": "aws-glue-elastic-views"
+  },
+  {
+    "id": "aws-iam-identity-center"
+  },
+  {
+    "id": "aws-gamekit",
+    "subcategory": "Game Tech"
+  },
+  {
+    "id": "aws-iot-expresslink"
+  },
+  {
+    "id": "aws-iq",
+    "subcategory": "Support"
+  },
+  {
+    "id": "aws-iot-things-graph"
+  },
+  {
+    "id": "aws-local-zones"
+  },
+  {
+    "id": "aws-migration-evaluator"
+  },
+  {
+    "id": "aws-neuron"
+  },
+  {
+    "id": "aws-nitro-enclaves"
+  },
+  {
+    "id": "aws-outposts-family"
+  },
+  {
+    "id": "aws-outposts-servers"
+  },
+  {
+    "id": "aws-outposts-rack"
+  },
+  {
+    "id": "aws-parallelcluster"
+  },
+  {
+    "id": "aws-professional-services",
+    "subcategory": "Support"
+  },
+  {
+    "id": "aws-repost",
+    "subcategory": "Support"
+  },
+  {
+    "id": "aws-signer"
+  },
+  {
+    "id": "aws-site-to-site-vpn"
+  },
+  {
+    "id": "aws-snowball-edge",
+    "subcategory": "Snow Family"
+  },
+  {
+    "id": "aws-snowball",
+    "subcategory": "Snow Family"
+  },
+  {
+    "id": "aws-snowcone",
+    "subcategory": "Snow Family"
+  },
+  {
+    "id": "aws-snowmobile",
+    "subcategory": "Snow Family"
+  },
+  {
+    "id": "aws-support",
+    "subcategory": "Support"
+  },
+  {
+    "id": "aws-systems-manager-incident-manager"
+  },
+  {
+    "id": "aws-thinkbox-krakatoa",
+    "subcategory": "Thinkbox"
+  },
+  {
+    "id": "aws-thinkbox-frost",
+    "subcategory": "Thinkbox"
+  },
+  {
+    "id": "aws-thinkbox-stoke",
+    "subcategory": "Thinkbox"
+  },
+  {
+    "id": "aws-thinkbox-xmesh",
+    "subcategory": "Thinkbox"
+  },
+  {
+    "id": "aws-training-certification",
+    "subcategory": "Support"
+  },
+  {
+    "id": "aws-thinkbox-deadline",
+    "subcategory": "Thinkbox"
+  },
+  {
+    "id": "aws-thinkbox-sequoia",
+    "subcategory": "Thinkbox"
+  }
+]

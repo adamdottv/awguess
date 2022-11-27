@@ -2,6 +2,7 @@ import fs from "fs/promises"
 import path from "path"
 import crypto from "crypto"
 import { parse } from "svg-parser"
+import fetch from "node-fetch"
 
 const toPascalCase = (words) => {
   return words
@@ -32,7 +33,28 @@ const files = await fs.readdir(baseDir)
 await fs.rm(hashedDir, { recursive: true, force: true })
 await fs.mkdir(hashedDir)
 
+let metadata
+try {
+  const services = await fetch(
+    "https://aws.amazon.com/api/dirs/items/search?item.directoryId=aws-products&sort_by=item.additionalFields.productNameLowercase&sort_order=asc&size=300&item.locale=en_US&tags.id=aws-products%23type%23service&tags.id=!aws-products%23type%23variant"
+  )
+  const json = await services.json()
+
+  metadata = JSON.parse(
+    JSON.stringify(json.items.map((i) => ({ ...i.item }))).replaceAll(
+      "?did=ap_card&trk=ap_card",
+      ""
+    )
+  )
+  await fs.writeFile("./data/raw.json", JSON.stringify(metadata, undefined, 2))
+} catch (error) {
+  console.warning("failed to read metadata from aws url")
+}
+
+const manual = JSON.parse(await fs.readFile("./data/manual.json"))
+
 const promises = []
+const lacking = []
 const resources = await Promise.all(
   files
     .filter((filename) => filename.indexOf("aws") || filename.indexOf("amazon"))
@@ -71,9 +93,33 @@ const resources = await Promise.all(
         console.log(svg.children)
       }
 
+      const meta = metadata?.find((m) =>
+        m.name
+          .replaceAll("elastic-file-system-", "")
+          .startsWith(
+            hyphenatedName
+              .replaceAll("location-service", "location")
+              .replaceAll("simple-storage-service", "s3")
+              .replaceAll("virtual-private-cloud", "vpc")
+          )
+      )
+      if (!meta) lacking.push(hyphenatedName)
+
+      const productName = meta?.additionalFields?.productName
+        ?.split(" ")
+        .slice(1)
+        .join(" ")
+
+      const manualMetadata = manual.find((i) => i.id === hyphenatedName)
+
       return {
-        name: formatted,
+        id: hyphenatedName,
+        name: productName ?? formatted,
         category,
+        subcategory: meta?.additionalFields?.productCategory,
+        url: meta?.additionalFields?.productUrl,
+        summary: meta?.additionalFields?.productSummary,
+        launchDate: meta?.additionalFields?.launchDate,
         d,
         image: {
           hash,
@@ -83,11 +129,21 @@ const resources = await Promise.all(
           stop2Color,
         },
         prefix,
+        ...(manualMetadata ?? {}),
       }
     })
 )
 
 await Promise.all(promises)
+
+/* await fs.writeFile( */
+/*   "./data/manual.json", */
+/*   JSON.stringify( */
+/*     lacking.map((l) => ({ id: l, name: "", subcategory: "" })), */
+/*     undefined, */
+/*     2 */
+/*   ) */
+/* ) */
 
 await fs.writeFile(
   "./data/resources.json",

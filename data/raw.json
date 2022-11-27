@@ -1,0 +1,4556 @@
+[
+  {
+    "id": "aws-products#aws-iot-core",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-iot-core",
+    "author": "breentro",
+    "lastUpdatedBy": "breentro",
+    "dateCreated": "2020-07-02T05:12:48+0000",
+    "dateUpdated": "2022-10-25T17:40:20+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/iot-core/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Connect devices to the cloud",
+      "launchDate": "2015-12-18",
+      "productUrl": "https://aws.amazon.com/iot-core/",
+      "productName": "AWS IoT Core",
+      "productNameLowercase": "1 aws iot core",
+      "productCategory": "Internet of Things"
+    }
+  },
+  {
+    "id": "aws-products#aws-iot-fleetwise",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-iot-fleetwise",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-30T16:56:40+0000",
+    "dateUpdated": "2022-11-21T05:49:45+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/iot-fleetwise/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Easily collect, transform, and transfer vehicle data to the cloud in near-real time",
+      "launchDate": "2021-11-30",
+      "productUrl": "https://aws.amazon.com/iot-fleetwise/",
+      "productName": "AWS IoT FleetWise",
+      "productNameLowercase": "2 aws iot fleetwise",
+      "productCategory": "Internet of Things"
+    }
+  },
+  {
+    "id": "aws-products#aws-iot-sitewise",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-iot-sitewise",
+    "author": "breentro",
+    "lastUpdatedBy": "breentro",
+    "dateCreated": "2020-07-02T05:13:00+0000",
+    "dateUpdated": "2022-10-25T18:16:18+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/iot-sitewise/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "IoT data collector and interpreter",
+      "launchDate": "2020-07-09",
+      "productUrl": "https://aws.amazon.com/iot-sitewise/",
+      "productName": "AWS IoT SiteWise",
+      "productNameLowercase": "3 aws iot sitewise",
+      "productCategory": "Internet of Things"
+    }
+  },
+  {
+    "id": "aws-products#aws-iot-twinmaker",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-iot-twinmaker",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-30T16:56:52+0000",
+    "dateUpdated": "2022-11-21T05:49:45+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/iot-twinmaker/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Optimize operations by easily creating digital twins of real-world systems",
+      "launchDate": "2021-11-30",
+      "productUrl": "https://aws.amazon.com/iot-twinmaker/",
+      "productName": "AWS IoT TwinMaker",
+      "productNameLowercase": "4 aws iot twinmaker",
+      "productCategory": "Internet of Things"
+    }
+  },
+  {
+    "id": "aws-products#aws-iot-greengrass",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-iot-greengrass",
+    "author": "breentro",
+    "lastUpdatedBy": "breentro",
+    "dateCreated": "2020-07-02T05:12:58+0000",
+    "dateUpdated": "2022-10-25T17:44:27+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/greengrass/pricing/",
+      "freeTierAvailability": "12 Months Free",
+      "productSummary": "Local compute, messaging, and sync for devices",
+      "launchDate": "2017-06-07",
+      "productUrl": "https://aws.amazon.com/greengrass/",
+      "productName": "AWS IoT Greengrass",
+      "productNameLowercase": "5 aws iot greengrass",
+      "productCategory": "Internet of Things"
+    }
+  },
+  {
+    "id": "aws-products#alexa-for-business",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "alexa-for-business",
+    "author": "breentro",
+    "lastUpdatedBy": "breentro",
+    "dateCreated": "2020-07-02T05:08:27+0000",
+    "dateUpdated": "2022-10-07T15:56:09+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/alexaforbusiness/pricing/",
+      "productSummary": "<p>Empower your organization with Alexa</p>\r\n",
+      "launchDate": "2017-11-30",
+      "productUrl": "https://aws.amazon.com/alexaforbusiness/",
+      "productName": "Alexa for Business",
+      "productNameLowercase": "alexa for business",
+      "productCategory": "Business Applications"
+    }
+  },
+  {
+    "id": "aws-products#amazon-api-gateway",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-api-gateway",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:15:41+0000",
+    "dateUpdated": "2022-08-24T22:28:50+0000",
+    "additionalFields": {
+      "featuredRank": "1001",
+      "pricingUrl": "https://aws.amazon.com/api-gateway/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Build, deploy, and manage APIs",
+      "launchDate": "2015-07-09",
+      "productUrl": "https://aws.amazon.com/api-gateway/",
+      "productName": "Amazon API Gateway",
+      "productNameLowercase": "amazon api gateway",
+      "productCategory": "Front-End Web & Mobile"
+    }
+  },
+  {
+    "id": "aws-products#amazon-appflow",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-appflow",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T04:41:34+0000",
+    "dateUpdated": "2022-08-24T22:28:58+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/appflow/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "No-code integration for SaaS apps & AWS services",
+      "launchDate": "2020-04-22",
+      "productUrl": "https://aws.amazon.com/appflow/",
+      "productName": "Amazon AppFlow",
+      "productNameLowercase": "amazon appflow",
+      "productCategory": "Application Integration"
+    }
+  },
+  {
+    "id": "aws-products#amazon-appstream-2-0",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-appstream-2-0",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:12:34+0000",
+    "dateUpdated": "2022-08-24T22:28:55+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/appstream2/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Stream desktop applications securely to a browser",
+      "launchDate": "2016-12-01",
+      "productUrl": "https://aws.amazon.com/appstream2/",
+      "productName": "Amazon AppStream 2.0",
+      "productNameLowercase": "amazon appstream 2.0",
+      "productCategory": "End User Computing"
+    }
+  },
+  {
+    "id": "aws-products#amazon-athena",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-athena",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-06-15T22:16:24+0000",
+    "dateUpdated": "2022-08-24T22:28:59+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/athena/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Query data in S3 using SQL",
+      "launchDate": "2016-11-30",
+      "productUrl": "https://aws.amazon.com/athena/",
+      "productName": "Amazon Athena",
+      "productNameLowercase": "amazon athena",
+      "productCategory": "Analytics"
+    }
+  },
+  {
+    "id": "aws-products#amazon-augmented-ai",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-augmented-ai",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:13:11+0000",
+    "dateUpdated": "2022-08-24T22:28:54+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/augmented-ai/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Easily implement human review of ML predictions",
+      "launchDate": "2020-04-24",
+      "productUrl": "https://aws.amazon.com/augmented-ai/",
+      "productName": "Amazon Augmented AI",
+      "productNameLowercase": "amazon augmented ai",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#amazon-aurora",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-aurora",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-06-16T02:58:08+0000",
+    "dateUpdated": "2022-08-24T22:28:59+0000",
+    "additionalFields": {
+      "featuredRank": "4",
+      "pricingUrl": "https://aws.amazon.com/rds/aurora/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "High performance managed relational database",
+      "launchDate": "2014-11-12",
+      "productUrl": "https://aws.amazon.com/rds/aurora/",
+      "productName": "Amazon Aurora",
+      "productNameLowercase": "amazon aurora",
+      "productCategory": "Databases"
+    }
+  },
+  {
+    "id": "aws-products#amazon-braket",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-braket",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-17T07:20:25+0000",
+    "dateUpdated": "2022-08-24T22:28:46+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/braket/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Accelerate quantum computing research",
+      "launchDate": "2020-08-13",
+      "productUrl": "https://aws.amazon.com/braket/",
+      "productName": "Amazon Braket",
+      "productNameLowercase": "amazon braket",
+      "productCategory": "Quantum Technologies"
+    }
+  },
+  {
+    "id": "aws-products#amazon-chime",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-chime",
+    "author": "breentro",
+    "lastUpdatedBy": "breentro",
+    "dateCreated": "2020-06-16T02:58:11+0000",
+    "dateUpdated": "2022-10-07T15:48:09+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/chime/pricing/",
+      "productSummary": "<p>Frustration-free meetings, video calls, and chat</p>\r\n",
+      "launchDate": "2017-02-13",
+      "productUrl": "https://aws.amazon.com/chime/",
+      "productName": "Amazon Chime",
+      "productNameLowercase": "amazon chime",
+      "productCategory": "Business Applications"
+    }
+  },
+  {
+    "id": "aws-products#amazon-chime-sdk",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-chime-sdk",
+    "author": "breentro",
+    "createdBy": "breentro",
+    "lastUpdatedBy": "breentro",
+    "dateCreated": "2022-10-04T18:32:07+0000",
+    "dateUpdated": "2022-10-07T15:49:01+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/chime/chime-sdk/pricing/",
+      "launchDate": "2019-11-21",
+      "productSummary": "<p>Real-time messaging, audio, video, and screen sharing&nbsp;</p>\r\n",
+      "productUrl": "https://aws.amazon.com/chime/chime-sdk/",
+      "productName": "Amazon Chime SDK",
+      "productNameLowercase": "amazon chime sdk",
+      "productCategory": "Business Applications"
+    }
+  },
+  {
+    "id": "aws-products#amazon-cloudfront",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-cloudfront",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:15:43+0000",
+    "dateUpdated": "2022-08-24T22:28:50+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/cloudfront/pricing/",
+      "freeTierAvailability": "12 Months Free",
+      "productSummary": "Global content delivery network",
+      "launchDate": "2008-11-18",
+      "productUrl": "https://aws.amazon.com/cloudfront/",
+      "productName": "Amazon CloudFront",
+      "productNameLowercase": "amazon cloudfront",
+      "productCategory": "Networking & Content Delivery"
+    }
+  },
+  {
+    "id": "aws-products#amazon-cloudsearch",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-cloudsearch",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T04:41:07+0000",
+    "dateUpdated": "2022-08-24T22:28:59+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/cloudsearch/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Managed search service",
+      "launchDate": "2012-04-11",
+      "productUrl": "https://aws.amazon.com/cloudsearch/",
+      "productName": "Amazon CloudSearch",
+      "productNameLowercase": "amazon cloudsearch",
+      "productCategory": "Analytics"
+    }
+  },
+  {
+    "id": "aws-products#amazon-cloudwatch",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-cloudwatch",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:14:06+0000",
+    "dateUpdated": "2022-08-24T22:28:52+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/cloudwatch/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Monitor resources and applications",
+      "launchDate": "2009-05-18",
+      "productUrl": "https://aws.amazon.com/cloudwatch/",
+      "productName": "Amazon CloudWatch",
+      "productNameLowercase": "amazon cloudwatch",
+      "productCategory": "Management & Governance"
+    }
+  },
+  {
+    "id": "aws-products#amazon-codeguru",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-codeguru",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:13:14+0000",
+    "dateUpdated": "2022-08-24T22:28:54+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/codeguru/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Find your most expensive lines of code",
+      "launchDate": "2019-12-03",
+      "productUrl": "https://aws.amazon.com/codeguru/",
+      "productName": "Amazon CodeGuru",
+      "productNameLowercase": "amazon codeguru",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#amazon-cognito",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-cognito",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:16:12+0000",
+    "dateUpdated": "2022-08-24T22:28:49+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/cognito/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Identity management for your apps",
+      "launchDate": "2014-07-10",
+      "productUrl": "https://aws.amazon.com/cognito/",
+      "productName": "Amazon Cognito",
+      "productNameLowercase": "amazon cognito",
+      "productCategory": "Security, Identity, & Compliance"
+    }
+  },
+  {
+    "id": "aws-products#amazon-comprehend",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-comprehend",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:13:16+0000",
+    "dateUpdated": "2022-08-24T22:28:54+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/comprehend/pricing/",
+      "freeTierAvailability": "12 Months Free",
+      "productSummary": "Discover insights and relationships in text",
+      "launchDate": "2017-11-29",
+      "productUrl": "https://aws.amazon.com/comprehend/",
+      "productName": "Amazon Comprehend",
+      "productNameLowercase": "amazon comprehend",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#amazon-connect",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-connect",
+    "author": "breentro",
+    "lastUpdatedBy": "breentro",
+    "dateCreated": "2020-07-02T05:09:15+0000",
+    "dateUpdated": "2022-10-07T15:31:05+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/connect/pricing/",
+      "productSummary": "<p>Omnichannel cloud contact center</p>\r\n",
+      "launchDate": "2017-03-28",
+      "productUrl": "https://aws.amazon.com/connect/",
+      "productName": "Amazon Connect",
+      "productNameLowercase": "amazon connect",
+      "productCategory": "Business Applications"
+    }
+  },
+  {
+    "id": "aws-products#amazon-corretto",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-corretto",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:09:49+0000",
+    "dateUpdated": "2022-08-24T22:28:55+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Production-ready distribution of OpenJDK",
+      "launchDate": "2019-01-31",
+      "productUrl": "https://aws.amazon.com/corretto/",
+      "productName": "Amazon Corretto",
+      "productNameLowercase": "amazon corretto",
+      "productCategory": "Developer Tools"
+    }
+  },
+  {
+    "id": "aws-products#amazon-detective",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-detective",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:16:15+0000",
+    "dateUpdated": "2022-08-24T22:28:49+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/detective/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Investigate potential security issues",
+      "launchDate": "2019-12-03",
+      "productUrl": "https://aws.amazon.com/detective/",
+      "productName": "Amazon Detective",
+      "productNameLowercase": "amazon detective",
+      "productCategory": "Security, Identity, & Compliance"
+    }
+  },
+  {
+    "id": "aws-products#amazon-devops-guru",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-devops-guru",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-17T07:19:09+0000",
+    "dateUpdated": "2022-08-24T22:28:47+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/devops-guru/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "ML-powered cloud operations service to improve application availability",
+      "launchDate": "2021-05-04",
+      "productUrl": "https://aws.amazon.com/devops-guru/",
+      "productName": "Amazon DevOps Guru",
+      "productNameLowercase": "amazon devops guru",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#amazon-documentdb-with-mongodb-compatibility",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-documentdb-with-mongodb-compatibility",
+    "author": "msamueli",
+    "lastUpdatedBy": "msamueli",
+    "dateCreated": "2020-07-02T05:09:24+0000",
+    "dateUpdated": "2022-10-10T22:00:55+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/documentdb/pricing/",
+      "freeTierAvailability": "<p>Free Trial</p>\r\n",
+      "productSummary": "<p>Fully managed document database</p>\r\n",
+      "launchDate": "2019-01-08",
+      "productUrl": "https://aws.amazon.com/documentdb/",
+      "productName": "Amazon DocumentDB",
+      "productNameLowercase": "amazon documentdb",
+      "productCategory": "Databases"
+    }
+  },
+  {
+    "id": "aws-products#amazon-dynamodb",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-dynamodb",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:09:26+0000",
+    "dateUpdated": "2022-08-24T22:28:56+0000",
+    "additionalFields": {
+      "featureFlag": "Free Trial Available",
+      "featuredRank": "5",
+      "pricingUrl": "https://aws.amazon.com/dynamodb/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Managed NoSQL database",
+      "launchDate": "2012-01-18",
+      "productUrl": "https://aws.amazon.com/dynamodb/",
+      "productName": "Amazon DynamoDB",
+      "productNameLowercase": "amazon dynamodb",
+      "productCategory": "Databases"
+    }
+  },
+  {
+    "id": "aws-products#amazon-ec2",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-ec2",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-06-15T22:17:48+0000",
+    "dateUpdated": "2022-08-24T22:28:59+0000",
+    "additionalFields": {
+      "featuredRank": "2",
+      "pricingUrl": "https://aws.amazon.com/ec2/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Virtual servers in the cloud",
+      "launchDate": "2008-10-23",
+      "productUrl": "https://aws.amazon.com/ec2/",
+      "productName": "Amazon EC2",
+      "productNameLowercase": "amazon ec2",
+      "productCategory": "Compute"
+    }
+  },
+  {
+    "id": "aws-products#amazon-ec2-auto-scaling",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-ec2-auto-scaling",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:08:39+0000",
+    "dateUpdated": "2022-08-24T22:28:57+0000",
+    "additionalFields": {
+      "featureFlag": "Free Trial Available",
+      "pricingUrl": "https://aws.amazon.com/ec2/autoscaling/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Scale compute capacity to meet demand",
+      "launchDate": "2009-05-17",
+      "productUrl": "https://aws.amazon.com/ec2/autoscaling/",
+      "productName": "Amazon EC2 Auto Scaling",
+      "productNameLowercase": "amazon ec2 auto scaling",
+      "productCategory": "Compute"
+    }
+  },
+  {
+    "id": "aws-products#amazon-ec2-spot-instances",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-ec2-spot-instances",
+    "author": "jenbar",
+    "createdBy": "patkho",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2022-05-09T05:20:49+0000",
+    "dateUpdated": "2022-08-24T22:28:44+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/ec2/spot/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Run workloads for up to 90% off",
+      "launchDate": "2009-12-14",
+      "productUrl": "https://aws.amazon.com/ec2/spot/",
+      "productName": "Amazon EC2 Spot Instances",
+      "productNameLowercase": "amazon ec2 spot instances",
+      "productCategory": "Compute"
+    }
+  },
+  {
+    "id": "aws-products#amazon-elastic-block-store-ebs",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-elastic-block-store-ebs",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:16:53+0000",
+    "dateUpdated": "2022-08-24T22:28:48+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/ebs/pricing/",
+      "freeTierAvailability": "12 Months Free",
+      "productSummary": "EC2 block storage volumes",
+      "launchDate": "2008-08-20",
+      "productUrl": "https://aws.amazon.com/ebs/",
+      "productName": "Amazon Elastic Block Store (EBS)",
+      "productNameLowercase": "amazon elastic block store (ebs)",
+      "productCategory": "Storage"
+    }
+  },
+  {
+    "id": "aws-products#amazon-elastic-container-registry",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-elastic-container-registry",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:09:04+0000",
+    "dateUpdated": "2022-08-24T22:28:56+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/ecr/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Easily store, manage, and deploy container images",
+      "launchDate": "2015-12-21",
+      "productUrl": "https://aws.amazon.com/ecr/",
+      "productName": "Amazon Elastic Container Registry (ECR)",
+      "productNameLowercase": "amazon elastic container registry (ecr)",
+      "productCategory": "Containers"
+    }
+  },
+  {
+    "id": "aws-products#amazon-elastic-container-service-ecs",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-elastic-container-service-ecs",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:09:07+0000",
+    "dateUpdated": "2022-08-24T22:28:56+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/ecs/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Highly secure, reliable, and scalable way to run containers",
+      "launchDate": "2014-11-13",
+      "productUrl": "https://aws.amazon.com/ecs/",
+      "productName": "Amazon Elastic Container Service (ECS)",
+      "productNameLowercase": "amazon elastic container service (ecs)",
+      "productCategory": "Containers"
+    }
+  },
+  {
+    "id": "aws-products#amazon-elastic-file-system-efs",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-elastic-file-system-efs",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:16:56+0000",
+    "dateUpdated": "2022-08-24T22:28:48+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/efs/pricing/",
+      "freeTierAvailability": "12 Months Free",
+      "productSummary": "Fully managed file system for EC2",
+      "launchDate": "2015-04-09",
+      "productUrl": "https://aws.amazon.com/efs/",
+      "productName": "Amazon Elastic File System (EFS)",
+      "productNameLowercase": "amazon elastic file system (efs)",
+      "productCategory": "Storage"
+    }
+  },
+  {
+    "id": "aws-products#amazon-elastic-inference",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-elastic-inference",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:13:18+0000",
+    "dateUpdated": "2022-08-24T22:28:54+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/machine-learning/elastic-inference/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Deep learning inference acceleration",
+      "launchDate": "2018-11-28",
+      "productUrl": "https://aws.amazon.com/machine-learning/elastic-inference/",
+      "productName": "Amazon Elastic Inference",
+      "productNameLowercase": "amazon elastic inference",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#amazon-elastic-kubernetes-service-eks",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-elastic-kubernetes-service-eks",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:09:10+0000",
+    "dateUpdated": "2022-08-24T22:28:56+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/eks/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "The most trusted way to run Kubernetes",
+      "launchDate": "2018-06-05",
+      "productUrl": "https://aws.amazon.com/eks/",
+      "productName": "Amazon Elastic Kubernetes Service (EKS)",
+      "productNameLowercase": "amazon elastic kubernetes service (eks)",
+      "productCategory": "Containers"
+    }
+  },
+  {
+    "id": "aws-products#amazon-elastic-transcoder",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-elastic-transcoder",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:14:51+0000",
+    "dateUpdated": "2022-08-24T22:28:51+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/elastictranscoder/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Easy-to-use scalable media transcoding",
+      "launchDate": "2013-01-28",
+      "productUrl": "https://aws.amazon.com/elastictranscoder/",
+      "productName": "Amazon Elastic Transcoder",
+      "productNameLowercase": "amazon elastic transcoder",
+      "productCategory": "Media Services"
+    }
+  },
+  {
+    "id": "aws-products#amazon-elasticache",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-elasticache",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:09:28+0000",
+    "dateUpdated": "2022-08-24T22:28:56+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/elasticache/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "In-memory caching service",
+      "launchDate": "2011-08-22",
+      "productUrl": "https://aws.amazon.com/elasticache/",
+      "productName": "Amazon ElastiCache",
+      "productNameLowercase": "amazon elasticache",
+      "productCategory": "Databases"
+    }
+  },
+  {
+    "id": "aws-products#amazon-emr",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-emr",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-06-16T02:58:04+0000",
+    "dateUpdated": "2022-08-24T22:28:59+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/emr/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Hosted Hadoop framework",
+      "launchDate": "2009-04-02",
+      "productUrl": "https://aws.amazon.com/emr/",
+      "productName": "Amazon EMR",
+      "productNameLowercase": "amazon emr",
+      "productCategory": "Analytics"
+    }
+  },
+  {
+    "id": "aws-products#amazon-eventbridge",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-eventbridge",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T04:41:37+0000",
+    "dateUpdated": "2022-08-24T22:28:58+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/eventbridge/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Serverless event bus for SaaS apps & AWS services",
+      "launchDate": "2019-07-11",
+      "productUrl": "https://aws.amazon.com/eventbridge/",
+      "productName": "Amazon EventBridge",
+      "productNameLowercase": "amazon eventbridge",
+      "productCategory": "Application Integration"
+    }
+  },
+  {
+    "id": "aws-products#amazon-finspace",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-finspace",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-17T07:18:07+0000",
+    "dateUpdated": "2022-08-24T22:28:48+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/finspace/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Store, catalog, prepare, and analyze financial industry data in minutes",
+      "launchDate": "2021-05-03",
+      "productUrl": "https://aws.amazon.com/finspace/",
+      "productName": "Amazon FinSpace",
+      "productNameLowercase": "amazon finspace",
+      "productCategory": "Analytics"
+    }
+  },
+  {
+    "id": "aws-products#amazon-forecast",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-forecast",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:13:20+0000",
+    "dateUpdated": "2022-08-24T22:28:54+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/forecast/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Increase forecast accuracy using machine learning",
+      "launchDate": "2019-08-22",
+      "productUrl": "https://aws.amazon.com/forecast/",
+      "productName": "Amazon Forecast",
+      "productNameLowercase": "amazon forecast",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#amazon-fraud-detector",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-fraud-detector",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-09-27T15:51:01+0000",
+    "dateUpdated": "2022-08-24T22:28:48+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/fraud-detector/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Detect more online fraud faster",
+      "launchDate": "2020-07-28",
+      "productUrl": "https://aws.amazon.com/fraud-detector/",
+      "productName": "Amazon Fraud Detector",
+      "productNameLowercase": "amazon fraud detector",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#amazon-fsx",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-fsx",
+    "author": "jenbar",
+    "createdBy": "patkho",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-12-15T17:10:59+0000",
+    "dateUpdated": "2022-08-24T22:28:44+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/fsx/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Launch, run, and scale feature-rich and highly-performant file systems with just a few clicks",
+      "launchDate": "2018-11-28",
+      "productUrl": "https://aws.amazon.com/fsx/",
+      "productName": "Amazon FSx",
+      "productNameLowercase": "amazon fsx",
+      "productCategory": "Storage"
+    }
+  },
+  {
+    "id": "aws-products#amazon-gamelift",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-gamelift",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:12:38+0000",
+    "dateUpdated": "2022-08-24T22:28:55+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/gamelift/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Simple, fast, cost-effective dedicated game server hosting",
+      "launchDate": "2016-02-09",
+      "productUrl": "https://aws.amazon.com/gamelift/",
+      "productName": "Amazon GameLift",
+      "productNameLowercase": "amazon gamelift",
+      "productCategory": "Game Tech"
+    }
+  },
+  {
+    "id": "aws-products#amazon-guardduty",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-guardduty",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-06-16T02:58:13+0000",
+    "dateUpdated": "2022-08-24T22:28:59+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/guardduty/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Managed threat detection service",
+      "launchDate": "2017-11-28",
+      "productUrl": "https://aws.amazon.com/guardduty/",
+      "productName": "Amazon GuardDuty",
+      "productNameLowercase": "amazon guardduty",
+      "productCategory": "Security, Identity, & Compliance"
+    }
+  },
+  {
+    "id": "aws-products#amazon-healthlake",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-healthlake",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-17T07:19:14+0000",
+    "dateUpdated": "2022-08-24T22:28:47+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/healthlake/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Securely store, transform, query, and analyze health data in minutes",
+      "launchDate": "2020-12-08",
+      "productUrl": "https://aws.amazon.com/healthlake/",
+      "productName": "Amazon HealthLake",
+      "productNameLowercase": "amazon healthlake",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#amazon-honeycode",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-honeycode",
+    "author": "breentro",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "breentro",
+    "dateCreated": "2021-11-17T07:18:17+0000",
+    "dateUpdated": "2022-10-07T15:47:11+0000",
+    "additionalFields": {
+      "productSummary": "<p>Build mobile &amp; web apps without programming</p>\r\n",
+      "launchDate": "2020-06-24",
+      "productUrl": "https://aws.amazon.com/honeycode/",
+      "productName": "Amazon Honeycode",
+      "productNameLowercase": "amazon honeycode",
+      "productCategory": "Business Applications"
+    }
+  },
+  {
+    "id": "aws-products#amazon-inspector",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-inspector",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:16:19+0000",
+    "dateUpdated": "2022-11-21T05:49:44+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/inspector/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Automated and continual vulnerability management for Amazon EC2 and Amazon ECR",
+      "launchDate": "2021-11-29",
+      "productUrl": "https://aws.amazon.com/inspector/",
+      "productName": "Amazon Inspector",
+      "productNameLowercase": "amazon inspector",
+      "productCategory": "Security, Identity, & Compliance"
+    }
+  },
+  {
+    "id": "aws-products#amazon-interactive-video-service",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-interactive-video-service",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-17T07:20:15+0000",
+    "dateUpdated": "2022-08-24T22:28:46+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/ivs/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Build engaging live stream experiences",
+      "launchDate": "2020-07-15",
+      "productUrl": "https://aws.amazon.com/ivs/",
+      "productName": "Amazon Interactive Video Service",
+      "productNameLowercase": "amazon interactive video service",
+      "productCategory": "Media Services"
+    }
+  },
+  {
+    "id": "aws-products#amazon-kendra",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-kendra",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:13:25+0000",
+    "dateUpdated": "2022-08-24T22:28:54+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/kendra/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Reinvent enterprise search with ML",
+      "launchDate": "2020-05-11",
+      "productUrl": "https://aws.amazon.com/kendra/",
+      "productName": "Amazon Kendra",
+      "productNameLowercase": "amazon kendra",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#amazon-keyspaces-for-apache-cassandra",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-keyspaces-for-apache-cassandra",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:09:31+0000",
+    "dateUpdated": "2022-08-24T22:28:56+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/keyspaces/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Managed Cassandra-compatible database",
+      "launchDate": "2020-04-23",
+      "productUrl": "https://aws.amazon.com/keyspaces/",
+      "productName": "Amazon Keyspaces (for Apache Cassandra)",
+      "productNameLowercase": "amazon keyspaces (for apache cassandra)",
+      "productCategory": "Databases"
+    }
+  },
+  {
+    "id": "aws-products#amazon-kinesis",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-kinesis",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T04:41:14+0000",
+    "dateUpdated": "2022-08-24T22:28:58+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/kinesis/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Analyze real-time video and data streams",
+      "launchDate": "2013-12-16",
+      "productUrl": "https://aws.amazon.com/kinesis/",
+      "productName": "Amazon Kinesis",
+      "productNameLowercase": "amazon kinesis",
+      "productCategory": "Analytics"
+    }
+  },
+  {
+    "id": "aws-products#amazon-kinesis-video-streams",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-kinesis-video-streams",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:14:52+0000",
+    "dateUpdated": "2022-08-24T22:28:51+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/kinesis/video-streams/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Process and analyze video streams",
+      "launchDate": "2017-11-29",
+      "productUrl": "https://aws.amazon.com/kinesis/video-streams/",
+      "productName": "Amazon Kinesis Video Streams",
+      "productNameLowercase": "amazon kinesis video streams",
+      "productCategory": "Media Services"
+    }
+  },
+  {
+    "id": "aws-products#amazon-lex",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-lex",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:13:27+0000",
+    "dateUpdated": "2022-08-24T22:28:54+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/lex/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Build voice and text chatbots",
+      "launchDate": "2017-04-19",
+      "productUrl": "https://aws.amazon.com/lex/",
+      "productName": "Amazon Lex",
+      "productNameLowercase": "amazon lex",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#amazon-lightsail",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-lightsail",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:08:41+0000",
+    "dateUpdated": "2022-08-24T22:28:57+0000",
+    "additionalFields": {
+      "featureFlag": "Free Trial Available",
+      "featuredRank": "1",
+      "pricingUrl": "https://aws.amazon.com/lightsail/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Launch and manage virtual private servers",
+      "launchDate": "2016-11-30",
+      "productUrl": "https://aws.amazon.com/lightsail/",
+      "productName": "Amazon Lightsail",
+      "productNameLowercase": "amazon lightsail",
+      "productCategory": "Compute"
+    }
+  },
+  {
+    "id": "aws-products#amazon-location",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-location",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-17T07:18:56+0000",
+    "dateUpdated": "2022-08-24T22:28:47+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/location/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Securely and easily add location data to applications",
+      "launchDate": "2021-06-01",
+      "productUrl": "https://aws.amazon.com/location/",
+      "productName": "Amazon Location Service",
+      "productNameLowercase": "amazon location service",
+      "productCategory": "Front-End Web & Mobile"
+    }
+  },
+  {
+    "id": "aws-products#amazon-lookout-for-equipment",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-lookout-for-equipment",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-17T07:19:20+0000",
+    "dateUpdated": "2022-08-24T22:28:47+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/lookout-for-equipment/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Detect abnormal equipment behavior by analyzing sensor data",
+      "launchDate": "2021-04-08",
+      "productUrl": "https://aws.amazon.com/lookout-for-equipment/",
+      "productName": "Amazon Lookout for Equipment",
+      "productNameLowercase": "amazon lookout for equipment",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#amazon-lookout-for-metrics",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-lookout-for-metrics",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-17T07:19:25+0000",
+    "dateUpdated": "2022-08-24T22:28:47+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/lookout-for-metrics/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Automatically detect anomalies in metrics and identify their root cause",
+      "launchDate": "2020-12-01",
+      "productUrl": "https://aws.amazon.com/lookout-for-metrics/",
+      "productName": "Amazon Lookout for Metrics",
+      "productNameLowercase": "amazon lookout for metrics",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#amazon-lookout-for-vision",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-lookout-for-vision",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-17T07:19:31+0000",
+    "dateUpdated": "2022-08-24T22:28:47+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/lookout-for-vision/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Spot product defects using computer vision to automate quality inspection",
+      "launchDate": "2021-02-24",
+      "productUrl": "https://aws.amazon.com/lookout-for-vision/",
+      "productName": "Amazon Lookout for Vision",
+      "productNameLowercase": "amazon lookout for vision",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#amazon-lumberyard",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-lumberyard",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-09-27T15:51:45+0000",
+    "dateUpdated": "2022-08-24T22:28:48+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "A free cross-platform 3D game engine, with Full Source, integrated with AWS and Twitch",
+      "launchDate": "2016-03-16",
+      "productUrl": "https://aws.amazon.com/lumberyard/",
+      "productName": "Amazon Lumberyard",
+      "productNameLowercase": "amazon lumberyard",
+      "productCategory": "Game Tech"
+    }
+  },
+  {
+    "id": "aws-products#amazon-macie",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-macie",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:16:22+0000",
+    "dateUpdated": "2022-08-24T22:28:49+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/macie/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Discover and protect your sensitive data at scale",
+      "launchDate": "2017-08-14",
+      "productUrl": "https://aws.amazon.com/macie/",
+      "productName": "Amazon Macie",
+      "productNameLowercase": "amazon macie",
+      "productCategory": "Security, Identity, & Compliance"
+    }
+  },
+  {
+    "id": "aws-products#amazon-managed-blockchain",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-managed-blockchain",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:08:24+0000",
+    "dateUpdated": "2022-08-24T22:28:57+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/managed-blockchain/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Create and manage scalable blockchain networks",
+      "launchDate": "2018-11-28",
+      "productUrl": "https://aws.amazon.com/managed-blockchain/",
+      "productName": "Amazon Managed Blockchain",
+      "productNameLowercase": "amazon managed blockchain",
+      "productCategory": "Blockchain"
+    }
+  },
+  {
+    "id": "aws-products#amazon-managed-grafana",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-managed-grafana",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-17T07:19:55+0000",
+    "dateUpdated": "2022-08-24T22:28:46+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/grafana/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Scalable, secure, and highly available data visualization for your operational metrics, logs, and traces",
+      "launchDate": "2021-08-31",
+      "productUrl": "https://aws.amazon.com/grafana/",
+      "productName": "Amazon Managed Grafana",
+      "productNameLowercase": "amazon managed grafana",
+      "productCategory": "Management & Governance"
+    }
+  },
+  {
+    "id": "aws-products#amazon-managed-promotheus",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-managed-promotheus",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-17T07:19:59+0000",
+    "dateUpdated": "2022-08-24T22:28:46+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/prometheus/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Highly available, secure, and managed monitoring for your containers",
+      "launchDate": "2021-09-29",
+      "productUrl": "https://aws.amazon.com/prometheus/",
+      "productName": "Amazon Managed Service for Prometheus",
+      "productNameLowercase": "amazon managed service for prometheus",
+      "productCategory": "Management & Governance"
+    }
+  },
+  {
+    "id": "aws-products#amazon-managed-streaming-for-apache-kafka",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-managed-streaming-for-apache-kafka",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T04:41:16+0000",
+    "dateUpdated": "2022-08-24T22:28:58+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/msk/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Fully managed Apache Kafka service",
+      "launchDate": "2019-05-30",
+      "productUrl": "https://aws.amazon.com/msk/",
+      "productName": "Amazon Managed Streaming for Apache Kafka (MSK)",
+      "productNameLowercase": "amazon managed streaming for apache kafka (msk)",
+      "productCategory": "Analytics"
+    }
+  },
+  {
+    "id": "aws-products#amazon-managed-workflows-for-apache-airflow",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-managed-workflows-for-apache-airflow",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-17T07:18:12+0000",
+    "dateUpdated": "2022-08-24T22:28:48+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/managed-workflows-for-apache-airflow/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Highly available, secure, and managed workflow orchestration for Apache Airflow",
+      "launchDate": "2020-11-24",
+      "productUrl": "https://aws.amazon.com/managed-workflows-for-apache-airflow/",
+      "productName": "Amazon Managed Workflows for Apache Airflow (MWAA)",
+      "productNameLowercase": "amazon managed workflows for apache airflow (mwaa)",
+      "productCategory": "Application Integration"
+    }
+  },
+  {
+    "id": "aws-products#amazon-memorydb-for-redis",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-memorydb-for-redis",
+    "author": "msamueli",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "msamueli",
+    "dateCreated": "2021-11-17T07:18:37+0000",
+    "dateUpdated": "2022-10-10T22:03:03+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/memorydb/pricing/",
+      "freeTierAvailability": "<p>Free Trial</p>\r\n",
+      "productSummary": "<p>Redis-compatible, durable, in-memory database service for ultra-fast performance</p>\r\n",
+      "launchDate": "2021-08-19",
+      "productUrl": "https://aws.amazon.com/memorydb/",
+      "productName": "Amazon MemoryDB for Redis",
+      "productNameLowercase": "amazon memorydb for redis",
+      "productCategory": "Databases"
+    }
+  },
+  {
+    "id": "aws-products#amazon-monitron",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-monitron",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-17T07:19:36+0000",
+    "dateUpdated": "2022-08-24T22:28:47+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/monitron/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Reduce unplanned equipment downtime with predictive maintenance and machine learning",
+      "launchDate": "2020-12-01",
+      "productUrl": "https://aws.amazon.com/monitron/",
+      "productName": "Amazon Monitron",
+      "productNameLowercase": "amazon monitron",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#amazon-mq",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-mq",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T04:41:39+0000",
+    "dateUpdated": "2022-08-24T22:28:58+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/amazon-mq/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Managed message broker service",
+      "launchDate": "2017-11-28",
+      "productUrl": "https://aws.amazon.com/amazon-mq/",
+      "productName": "Amazon MQ",
+      "productNameLowercase": "amazon mq",
+      "productCategory": "Application Integration"
+    }
+  },
+  {
+    "id": "aws-products#amazon-neptune",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-neptune",
+    "author": "msamueli",
+    "lastUpdatedBy": "msamueli",
+    "dateCreated": "2020-07-02T05:09:33+0000",
+    "dateUpdated": "2022-10-10T22:02:19+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/neptune/pricing/",
+      "freeTierAvailability": "<p>Free Trial</p>\r\n",
+      "productSummary": "<p>Fully managed graph database service</p>\r\n",
+      "launchDate": "2018-05-30",
+      "productUrl": "https://aws.amazon.com/neptune/",
+      "productName": "Amazon Neptune",
+      "productNameLowercase": "amazon neptune",
+      "productCategory": "Databases"
+    }
+  },
+  {
+    "id": "aws-products#amazon-nimble-studio",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-nimble-studio",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-17T07:20:20+0000",
+    "dateUpdated": "2022-08-24T22:28:46+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/nimble-studio/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Accelerate content creation in the cloud",
+      "launchDate": "2021-04-08",
+      "productUrl": "https://aws.amazon.com/nimble-studio/",
+      "productName": "Amazon Nimble Studio",
+      "productNameLowercase": "amazon nimble studio",
+      "productCategory": "Media Services"
+    }
+  },
+  {
+    "id": "aws-products#amazon-opensearch-service",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-opensearch-service",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2022-11-15T22:52:51+0000",
+    "dateUpdated": "2022-11-15T23:11:56+0000",
+    "additionalFields": {
+      "featureFlag": "Free Trial Available",
+      "pricingUrl": "https://aws.amazon.com/opensearch-service/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "launchDate": "2015-10-01",
+      "productSummary": "Search, visualize, and analyze up to petabytes of text and unstructured data",
+      "productUrl": "https://aws.amazon.com/opensearch-service/",
+      "productName": "Amazon OpenSearch Service",
+      "productNameLowercase": "amazon opensearch service",
+      "productCategory": "Analytics"
+    }
+  },
+  {
+    "id": "aws-products#amazon-personalize",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-personalize",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:13:29+0000",
+    "dateUpdated": "2022-08-24T22:28:53+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/personalize/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Build real-time recommendations into your applications",
+      "launchDate": "2019-06-10",
+      "productUrl": "https://aws.amazon.com/personalize/",
+      "productName": "Amazon Personalize",
+      "productNameLowercase": "amazon personalize",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#amazon-pinpoint",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-pinpoint",
+    "author": "breentro",
+    "lastUpdatedBy": "breentro",
+    "dateCreated": "2020-07-02T05:09:16+0000",
+    "dateUpdated": "2022-10-07T15:40:15+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/pinpoint/pricing/",
+      "productSummary": "<p>Multichannel marketing communications</p>\r\n",
+      "launchDate": "2016-12-01",
+      "productUrl": "https://aws.amazon.com/pinpoint/",
+      "productName": "Amazon Pinpoint",
+      "productNameLowercase": "amazon pinpoint",
+      "productCategory": "Front-End Web & Mobile"
+    }
+  },
+  {
+    "id": "aws-products#amazon-polly",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-polly",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:13:32+0000",
+    "dateUpdated": "2022-08-24T22:28:53+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/polly/pricing/",
+      "freeTierAvailability": "12 Months Free",
+      "productSummary": "Turn text into life-like speech",
+      "launchDate": "2016-11-30",
+      "productUrl": "https://aws.amazon.com/polly/",
+      "productName": "Amazon Polly",
+      "productNameLowercase": "amazon polly",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#amazon-quantum-ledger-database-qldb",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-quantum-ledger-database-qldb",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:08:26+0000",
+    "dateUpdated": "2022-08-24T22:28:57+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/qldb/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Fully managed ledger database",
+      "launchDate": "2018-11-28",
+      "productUrl": "https://aws.amazon.com/qldb/",
+      "productName": "Amazon Quantum Ledger Database (QLDB)",
+      "productNameLowercase": "amazon quantum ledger database (qldb)",
+      "productCategory": "Blockchain"
+    }
+  },
+  {
+    "id": "aws-products#amazon-quicksight",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-quicksight",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T04:41:21+0000",
+    "dateUpdated": "2022-08-24T22:28:58+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/quicksight/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Fast business analytics service",
+      "launchDate": "2016-11-15",
+      "productUrl": "https://aws.amazon.com/quicksight/",
+      "productName": "Amazon QuickSight",
+      "productNameLowercase": "amazon quicksight",
+      "productCategory": "Analytics"
+    }
+  },
+  {
+    "id": "aws-products#amazon-rds",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-rds",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:09:37+0000",
+    "dateUpdated": "2022-08-24T22:28:56+0000",
+    "additionalFields": {
+      "featureFlag": "Free Trial Available",
+      "featuredRank": "6",
+      "pricingUrl": "https://aws.amazon.com/rds/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Managed relational database service for MySQL, PostgreSQL, Oracle, SQL Server, and MariaDB",
+      "launchDate": "2009-10-27",
+      "productUrl": "https://aws.amazon.com/rds/",
+      "productName": "Amazon RDS",
+      "productNameLowercase": "amazon rds",
+      "productCategory": "Databases"
+    }
+  },
+  {
+    "id": "aws-products#amazon-redshift",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-redshift",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-06-16T02:58:06+0000",
+    "dateUpdated": "2022-08-24T22:28:59+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/redshift/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Fast, simple, cost-effective data warehousing",
+      "launchDate": "2013-02-14",
+      "productUrl": "https://aws.amazon.com/redshift/",
+      "productName": "Amazon Redshift",
+      "productNameLowercase": "amazon redshift",
+      "productCategory": "Databases"
+    }
+  },
+  {
+    "id": "aws-products#amazon-rekognition",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-rekognition",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:13:34+0000",
+    "dateUpdated": "2022-08-24T22:28:53+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/rekognition/pricing/",
+      "freeTierAvailability": "12 Months Free",
+      "productSummary": "Analyze image and video",
+      "launchDate": "2016-11-30",
+      "productUrl": "https://aws.amazon.com/rekognition/",
+      "productName": "Amazon Rekognition",
+      "productNameLowercase": "amazon rekognition",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#amazon-route-53",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-route-53",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:15:45+0000",
+    "dateUpdated": "2022-08-24T22:28:50+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/route53/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "53 Scalable domain name system (DNS)",
+      "launchDate": "2010-12-06",
+      "productUrl": "https://aws.amazon.com/route53/",
+      "productName": "Amazon Route 53",
+      "productNameLowercase": "amazon route 53",
+      "productCategory": "Networking & Content Delivery"
+    }
+  },
+  {
+    "id": "aws-products#amazon-glacier",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-glacier",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-06-16T02:58:09+0000",
+    "dateUpdated": "2022-08-24T22:28:59+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/glacier/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Low-cost archive storage in the cloud",
+      "launchDate": "2012-08-20",
+      "productUrl": "https://aws.amazon.com/glacier/",
+      "productName": "Amazon S3 Glacier",
+      "productNameLowercase": "amazon s3 glacier",
+      "productCategory": "Storage"
+    }
+  },
+  {
+    "id": "aws-products#amazon-sagemaker",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-sagemaker",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:13:09+0000",
+    "dateUpdated": "2022-08-24T22:28:54+0000",
+    "additionalFields": {
+      "featureFlag": "Free Trial Available",
+      "featuredRank": "9",
+      "pricingUrl": "https://aws.amazon.com/sagemaker/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Build, train, and deploy machine learning models at scale",
+      "launchDate": "2017-11-29",
+      "productUrl": "https://aws.amazon.com/sagemaker/",
+      "productName": "Amazon SageMaker",
+      "productNameLowercase": "amazon sagemaker",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#amazon-sagemaker-ground-truth",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-sagemaker-ground-truth",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:13:36+0000",
+    "dateUpdated": "2022-08-24T22:28:53+0000",
+    "additionalFields": {
+      "featureFlag": "Free Trial Available",
+      "pricingUrl": "https://aws.amazon.com/sagemaker/groundtruth/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Build accurate ML training datasets",
+      "launchDate": "2018-11-27",
+      "productUrl": "https://aws.amazon.com/sagemaker/groundtruth/",
+      "productName": "Amazon SageMaker Ground Truth",
+      "productNameLowercase": "amazon sagemaker ground truth",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#amazon-simple-email-service-ses",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-simple-email-service-ses",
+    "author": "breentro",
+    "lastUpdatedBy": "breentro",
+    "dateCreated": "2020-07-02T05:09:18+0000",
+    "dateUpdated": "2022-10-07T15:58:14+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/ses/pricing/",
+      "productSummary": "<p>High-scale inbound and outbound email</p>\r\n",
+      "launchDate": "2011-01-25",
+      "productUrl": "https://aws.amazon.com/ses/",
+      "productName": "Amazon Simple Email Service (SES)",
+      "productNameLowercase": "amazon simple email service (ses)",
+      "productCategory": "Front-End Web & Mobile"
+    }
+  },
+  {
+    "id": "aws-products#amazon-simple-notification-service-sns",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-simple-notification-service-sns",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T04:41:41+0000",
+    "dateUpdated": "2022-08-24T22:28:58+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/sns/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Pub/sub, SMS, email, and mobile push notifications",
+      "launchDate": "2010-04-07",
+      "productUrl": "https://aws.amazon.com/sns/",
+      "productName": "Amazon Simple Notification Service (SNS)",
+      "productNameLowercase": "amazon simple notification service (sns)",
+      "productCategory": "Application Integration"
+    }
+  },
+  {
+    "id": "aws-products#amazon-simple-queue-service-sqs",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-simple-queue-service-sqs",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T04:41:44+0000",
+    "dateUpdated": "2022-08-24T22:28:58+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/sqs/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Managed message queues",
+      "launchDate": "2006-07-13",
+      "productUrl": "https://aws.amazon.com/sqs/",
+      "productName": "Amazon Simple Queue Service (SQS)",
+      "productNameLowercase": "amazon simple queue service (sqs)",
+      "productCategory": "Application Integration"
+    }
+  },
+  {
+    "id": "aws-products#amazon-s3",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-s3",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-06-15T22:18:55+0000",
+    "dateUpdated": "2022-08-24T22:28:59+0000",
+    "additionalFields": {
+      "featureFlag": "Free Trial Available",
+      "featuredRank": "3",
+      "pricingUrl": "https://aws.amazon.com/s3/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Object storage built to retrieve any amount of data from anywhere",
+      "launchDate": "2006-03-13",
+      "productUrl": "https://aws.amazon.com/s3/",
+      "productName": "Amazon Simple Storage Service (S3)",
+      "productNameLowercase": "amazon simple storage service (s3)",
+      "productCategory": "Storage"
+    }
+  },
+  {
+    "id": "aws-products#amazon-sumerian",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-sumerian",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T04:41:48+0000",
+    "dateUpdated": "2022-08-24T22:28:58+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Build and run AR and VR applications",
+      "launchDate": "2018-05-15",
+      "productUrl": "https://aws.amazon.com/sumerian/",
+      "productName": "Amazon Sumerian",
+      "productNameLowercase": "amazon sumerian",
+      "productCategory": "AR & VR"
+    }
+  },
+  {
+    "id": "aws-products#amazon-textract",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-textract",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:13:38+0000",
+    "dateUpdated": "2022-08-24T22:28:53+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/textract/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Extract text and data from documents",
+      "launchDate": "2019-05-29",
+      "productUrl": "https://aws.amazon.com/textract/",
+      "productName": "Amazon Textract",
+      "productNameLowercase": "amazon textract",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#amazon-timestream",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-timestream",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:09:44+0000",
+    "dateUpdated": "2022-08-24T22:28:55+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/timestream/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Fully managed time series database",
+      "launchDate": "2020-09-30",
+      "productUrl": "https://aws.amazon.com/timestream/",
+      "productName": "Amazon Timestream",
+      "productNameLowercase": "amazon timestream",
+      "productCategory": "Databases"
+    }
+  },
+  {
+    "id": "aws-products#amazon-transcribe",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-transcribe",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:13:43+0000",
+    "dateUpdated": "2022-08-24T22:28:53+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/transcribe/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Automatic speech recognition",
+      "launchDate": "2018-04-04",
+      "productUrl": "https://aws.amazon.com/transcribe/",
+      "productName": "Amazon Transcribe",
+      "productNameLowercase": "amazon transcribe",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#amazon-translate",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-translate",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:13:41+0000",
+    "dateUpdated": "2022-08-24T22:28:53+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/translate/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Natural and fluent language translation",
+      "launchDate": "2018-04-04",
+      "productUrl": "https://aws.amazon.com/translate/",
+      "productName": "Amazon Translate",
+      "productNameLowercase": "amazon translate",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#amazon-vpc",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-vpc",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:15:38+0000",
+    "dateUpdated": "2022-08-24T22:28:50+0000",
+    "additionalFields": {
+      "featuredRank": "8",
+      "pricingUrl": "https://aws.amazon.com/vpc/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Isolated cloud resources",
+      "launchDate": "2011-08-03",
+      "productUrl": "https://aws.amazon.com/vpc/",
+      "productName": "Amazon VPC",
+      "productNameLowercase": "amazon vpc",
+      "productCategory": "Networking & Content Delivery"
+    }
+  },
+  {
+    "id": "aws-products#amazon-workdocs",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-workdocs",
+    "author": "breentro",
+    "lastUpdatedBy": "breentro",
+    "dateCreated": "2020-07-02T05:08:33+0000",
+    "dateUpdated": "2022-10-07T15:51:25+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/workdocs/pricing/",
+      "freeTierAvailability": "<p>Free Trial</p>\r\n",
+      "productSummary": "<p>Secure enterprise document storage and sharing</p>\r\n",
+      "launchDate": "2015-01-28",
+      "productUrl": "https://aws.amazon.com/workdocs/",
+      "productName": "Amazon WorkDocs",
+      "productNameLowercase": "amazon workdocs",
+      "productCategory": "Business Applications"
+    }
+  },
+  {
+    "id": "aws-products#amazon-workmail",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-workmail",
+    "author": "breentro",
+    "lastUpdatedBy": "breentro",
+    "dateCreated": "2020-07-02T05:08:35+0000",
+    "dateUpdated": "2022-10-07T15:55:02+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/workmail/pricing/",
+      "productSummary": "<p>Secure email and calendaring</p>\r\n",
+      "launchDate": "2016-01-04",
+      "productUrl": "https://aws.amazon.com/workmail/",
+      "productName": "Amazon WorkMail",
+      "productNameLowercase": "amazon workmail",
+      "productCategory": "Business Applications"
+    }
+  },
+  {
+    "id": "aws-products#amazon-workspaces",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-workspaces",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:12:32+0000",
+    "dateUpdated": "2022-08-24T22:28:55+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/workspaces/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Virtual desktops in the cloud",
+      "launchDate": "2014-03-26",
+      "productUrl": "https://aws.amazon.com/workspaces/",
+      "productName": "Amazon WorkSpaces",
+      "productNameLowercase": "amazon workspaces",
+      "productCategory": "End User Computing"
+    }
+  },
+  {
+    "id": "aws-products#apache-mxnet-on-aws",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "apache-mxnet-on-aws",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:13:59+0000",
+    "dateUpdated": "2022-08-24T22:28:53+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Scalable, open-source deep learning framework",
+      "launchDate": "2017-06-06",
+      "productUrl": "https://aws.amazon.com/mxnet/",
+      "productName": "Apache MXNet on AWS",
+      "productNameLowercase": "apache mxnet on aws",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#cloudendure-migration",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "cloudendure-migration",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:15:22+0000",
+    "dateUpdated": "2022-08-24T22:28:50+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/application-migration-service/pricing/",
+      "freeTierAvailability": "<p>Always Free</p>",
+      "productSummary": "<p>Automate application migration and modernization</p>",
+      "launchDate": "2019-06-11",
+      "productUrl": "https://aws.amazon.com/application-migration-service/",
+      "productName": "AWS Application Migration Service (MGN)",
+      "productNameLowercase": "application migration service",
+      "productCategory": "Migration"
+    }
+  },
+  {
+    "id": "aws-products#aws-amplify",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-amplify",
+    "author": "breentro",
+    "lastUpdatedBy": "breentro",
+    "dateCreated": "2020-07-02T05:15:27+0000",
+    "dateUpdated": "2022-10-07T16:03:08+0000",
+    "additionalFields": {
+      "featureFlag": "New",
+      "pricingUrl": "https://aws.amazon.com/amplify/pricing/",
+      "freeTierAvailability": "<p>Free Trial</p>\r\n",
+      "productSummary": "<p>Build, deploy, host, and manage scalable web and mobile apps</p>\r\n",
+      "launchDate": "2017-11-21",
+      "productUrl": "https://aws.amazon.com/amplify/",
+      "productName": "AWS Amplify",
+      "productNameLowercase": "aws amplify",
+      "productCategory": "Front-End Web & Mobile"
+    }
+  },
+  {
+    "id": "aws-products#aws-app-mesh",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-app-mesh",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:15:47+0000",
+    "dateUpdated": "2022-08-24T22:28:50+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/app-mesh/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Monitor and control microservices",
+      "launchDate": "2019-03-27",
+      "productUrl": "https://aws.amazon.com/app-mesh/",
+      "productName": "AWS App Mesh",
+      "productNameLowercase": "aws app mesh",
+      "productCategory": "Networking & Content Delivery"
+    }
+  },
+  {
+    "id": "aws-products#aws-app-runner",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-app-runner",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-17T07:18:23+0000",
+    "dateUpdated": "2022-08-24T22:28:47+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/apprunner/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Production web applications at scale made easy for developers",
+      "launchDate": "2021-05-18",
+      "productUrl": "https://aws.amazon.com/apprunner/",
+      "productName": "AWS App Runner",
+      "productNameLowercase": "aws app runner",
+      "productCategory": "Compute"
+    }
+  },
+  {
+    "id": "aws-products#aws-app2container",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-app2container",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:09:02+0000",
+    "dateUpdated": "2022-08-24T22:28:56+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Containerize and migrate existing applications",
+      "launchDate": "2020-07-01",
+      "productUrl": "https://aws.amazon.com/app2container/",
+      "productName": "AWS App2Container",
+      "productNameLowercase": "aws app2container",
+      "productCategory": "Containers"
+    }
+  },
+  {
+    "id": "aws-products#aws-application-discovery-service",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-application-discovery-service",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:15:09+0000",
+    "dateUpdated": "2022-08-24T22:28:51+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/application-discovery/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Discover on-premises applications to streamline migration",
+      "launchDate": "2016-04-19",
+      "productUrl": "https://aws.amazon.com/application-discovery/",
+      "productName": "AWS Application Discovery Service",
+      "productNameLowercase": "aws application discovery service",
+      "productCategory": "Migration"
+    }
+  },
+  {
+    "id": "aws-products#aws-appsync",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-appsync",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T04:41:46+0000",
+    "dateUpdated": "2022-08-24T22:28:58+0000",
+    "additionalFields": {
+      "featuredRank": "1002",
+      "pricingUrl": "https://aws.amazon.com/appsync/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Accelerate app development with fully-managed, scalable GraphQL APIs",
+      "launchDate": "2017-11-28",
+      "productUrl": "https://aws.amazon.com/appsync/",
+      "productName": "AWS AppSync",
+      "productNameLowercase": "aws appsync",
+      "productCategory": "Front-End Web & Mobile"
+    }
+  },
+  {
+    "id": "aws-products#aws-artifact",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-artifact",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:16:24+0000",
+    "dateUpdated": "2022-08-24T22:28:49+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "On-demand access to AWS’ compliance reports",
+      "launchDate": "2016-11-30",
+      "productUrl": "https://aws.amazon.com/artifact/",
+      "productName": "AWS Artifact",
+      "productNameLowercase": "aws artifact",
+      "productCategory": "Security, Identity, & Compliance"
+    }
+  },
+  {
+    "id": "aws-products#aws-audit-manager",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-audit-manager",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-17T07:20:30+0000",
+    "dateUpdated": "2022-08-24T22:28:46+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/audit-manager/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Continuously audit your AWS usage to simplify how you assess risk and compliance",
+      "launchDate": "2020-12-08",
+      "productUrl": "https://aws.amazon.com/audit-manager/",
+      "productName": "AWS Audit Manager",
+      "productNameLowercase": "aws audit manager",
+      "productCategory": "Security, Identity, & Compliance"
+    }
+  },
+  {
+    "id": "aws-products#aws-auto-scaling",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-auto-scaling",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:14:08+0000",
+    "dateUpdated": "2022-08-24T22:28:52+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/autoscaling/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Scale multiple resources to meet demand",
+      "launchDate": "2018-01-16",
+      "productUrl": "https://aws.amazon.com/autoscaling/",
+      "productName": "AWS Auto Scaling",
+      "productNameLowercase": "aws auto scaling",
+      "productCategory": "Compute"
+    }
+  },
+  {
+    "id": "aws-products#aws-backup",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-backup",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:17:05+0000",
+    "dateUpdated": "2022-08-24T22:28:48+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/backup/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Centralized backup across AWS services",
+      "launchDate": "2019-01-15",
+      "productUrl": "https://aws.amazon.com/backup/",
+      "productName": "AWS Backup",
+      "productNameLowercase": "aws backup",
+      "productCategory": "Storage"
+    }
+  },
+  {
+    "id": "aws-products#aws-batch",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-batch",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:08:43+0000",
+    "dateUpdated": "2022-08-24T22:28:57+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/batch/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Run batch jobs at any scale",
+      "launchDate": "2017-01-05",
+      "productUrl": "https://aws.amazon.com/batch/",
+      "productName": "AWS Batch",
+      "productNameLowercase": "aws batch",
+      "productCategory": "Compute"
+    }
+  },
+  {
+    "id": "aws-products#aws-budgets",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-budgets",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:08:17+0000",
+    "dateUpdated": "2022-08-24T22:28:58+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/aws-cost-management/aws-budgets/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Set custom cost and usage budgets",
+      "launchDate": "2015-06-29",
+      "productUrl": "https://aws.amazon.com/aws-cost-management/aws-budgets/",
+      "productName": "AWS Budgets",
+      "productNameLowercase": "aws budgets",
+      "productCategory": "Cloud Financial Management"
+    }
+  },
+  {
+    "id": "aws-products#aws-certificate-manager",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-certificate-manager",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:16:26+0000",
+    "dateUpdated": "2022-08-24T22:28:49+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/certificate-manager/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Manager Provision, manage, and deploy SSL/TLS certificates",
+      "launchDate": "2016-01-21",
+      "productUrl": "https://aws.amazon.com/certificate-manager/",
+      "productName": "AWS Certificate Manager",
+      "productNameLowercase": "aws certificate manager",
+      "productCategory": "Security, Identity, & Compliance"
+    }
+  },
+  {
+    "id": "aws-products#aws-chatbot",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-chatbot",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:14:10+0000",
+    "dateUpdated": "2022-08-24T22:28:52+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/chatbot/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "ChatOps for AWS",
+      "launchDate": "2020-04-22",
+      "productUrl": "https://aws.amazon.com/chatbot/",
+      "productName": "AWS Chatbot",
+      "productNameLowercase": "aws chatbot",
+      "productCategory": "Management & Governance"
+    }
+  },
+  {
+    "id": "aws-products#aws-cloud-control-api",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-cloud-control-api",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-17T07:18:41+0000",
+    "dateUpdated": "2022-08-24T22:28:47+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/cloudcontrolapi/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Manage AWS and third-party cloud infrastructure with consistent APIs",
+      "launchDate": "2021-09-30",
+      "productUrl": "https://aws.amazon.com/cloudcontrolapi/",
+      "productName": "AWS Cloud Control API",
+      "productNameLowercase": "aws cloud control api",
+      "productCategory": "Developer Tools"
+    }
+  },
+  {
+    "id": "aws-products#aws-cloud-development-kit-cdk",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-cloud-development-kit-cdk",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:09:51+0000",
+    "dateUpdated": "2022-08-24T22:28:55+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Model cloud infrastructure using code",
+      "launchDate": "2019-07-11",
+      "productUrl": "https://aws.amazon.com/cdk/",
+      "productName": "AWS Cloud Development Kit (CDK)",
+      "productNameLowercase": "aws cloud development kit (cdk)",
+      "productCategory": "Developer Tools"
+    }
+  },
+  {
+    "id": "aws-products#aws-cloud-map",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-cloud-map",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:15:50+0000",
+    "dateUpdated": "2022-08-24T22:28:50+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/cloud-map/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Service discovery for cloud resources",
+      "launchDate": "2018-11-28",
+      "productUrl": "https://aws.amazon.com/cloud-map/",
+      "productName": "AWS Cloud Map",
+      "productNameLowercase": "aws cloud map",
+      "productCategory": "Networking & Content Delivery"
+    }
+  },
+  {
+    "id": "aws-products#aws-cloud9",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-cloud9",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:12:07+0000",
+    "dateUpdated": "2022-08-24T22:28:55+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/cloud9/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Write, run, and debug code on a cloud IDE",
+      "launchDate": "2017-11-30",
+      "productUrl": "https://aws.amazon.com/cloud9/",
+      "productName": "AWS Cloud9",
+      "productNameLowercase": "aws cloud9",
+      "productCategory": "Developer Tools"
+    }
+  },
+  {
+    "id": "aws-products#aws-cloudformation",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-cloudformation",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:14:12+0000",
+    "dateUpdated": "2022-08-24T22:28:52+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/cloudformation/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Create and manage resources with templates",
+      "launchDate": "2011-02-25",
+      "productUrl": "https://aws.amazon.com/cloudformation/",
+      "productName": "AWS CloudFormation",
+      "productNameLowercase": "aws cloudformation",
+      "productCategory": "Management & Governance"
+    }
+  },
+  {
+    "id": "aws-products#aws-cloudhsm",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-cloudhsm",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:16:28+0000",
+    "dateUpdated": "2022-08-24T22:28:49+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/cloudhsm/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Hardware-based key storage for regulatory compliance",
+      "launchDate": "2013-03-26",
+      "productUrl": "https://aws.amazon.com/cloudhsm/",
+      "productName": "AWS CloudHSM",
+      "productNameLowercase": "aws cloudhsm",
+      "productCategory": "Security, Identity, & Compliance"
+    }
+  },
+  {
+    "id": "aws-products#aws-cloudshell",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-cloudshell",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-17T07:18:46+0000",
+    "dateUpdated": "2022-08-24T22:28:47+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/cloudshell/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Command line access to AWS resources and tools directly from a browser",
+      "launchDate": "2020-12-15",
+      "productUrl": "https://aws.amazon.com/cloudshell/",
+      "productName": "AWS CloudShell",
+      "productNameLowercase": "aws cloudshell",
+      "productCategory": "Developer Tools"
+    }
+  },
+  {
+    "id": "aws-products#aws-cloudtrail",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-cloudtrail",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:14:15+0000",
+    "dateUpdated": "2022-08-24T22:28:52+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/cloudtrail/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Track user activity and API usage",
+      "launchDate": "2013-11-13",
+      "productUrl": "https://aws.amazon.com/cloudtrail/",
+      "productName": "AWS CloudTrail",
+      "productNameLowercase": "aws cloudtrail",
+      "productCategory": "Management & Governance"
+    }
+  },
+  {
+    "id": "aws-products#aws-code-artifact",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-code-artifact",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:12:09+0000",
+    "dateUpdated": "2022-08-24T22:28:55+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/codeartifact/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Secure, scalable, and cost-effective artifact management for software development",
+      "launchDate": "2020-06-10",
+      "productUrl": "https://aws.amazon.com/codeartifact/",
+      "productName": "AWS CodeArtifact",
+      "productNameLowercase": "aws codeartifact",
+      "productCategory": "Developer Tools"
+    }
+  },
+  {
+    "id": "aws-products#aws-codebuild",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-codebuild",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:12:11+0000",
+    "dateUpdated": "2022-08-24T22:28:55+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/codebuild/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Build and test code",
+      "launchDate": "2016-12-01",
+      "productUrl": "https://aws.amazon.com/codebuild/",
+      "productName": "AWS CodeBuild",
+      "productNameLowercase": "aws codebuild",
+      "productCategory": "Developer Tools"
+    }
+  },
+  {
+    "id": "aws-products#aws-codecommit",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-codecommit",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:12:14+0000",
+    "dateUpdated": "2022-08-24T22:28:55+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/codecommit/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Store code in private Git repositories",
+      "launchDate": "2015-07-15",
+      "productUrl": "https://aws.amazon.com/codecommit/",
+      "productName": "AWS CodeCommit",
+      "productNameLowercase": "aws codecommit",
+      "productCategory": "Developer Tools"
+    }
+  },
+  {
+    "id": "aws-products#aws-codedeploy",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-codedeploy",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:12:16+0000",
+    "dateUpdated": "2022-08-24T22:28:55+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/codedeploy/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Automate code deployments",
+      "launchDate": "2014-11-12",
+      "productUrl": "https://aws.amazon.com/codedeploy/",
+      "productName": "AWS CodeDeploy",
+      "productNameLowercase": "aws codedeploy",
+      "productCategory": "Developer Tools"
+    }
+  },
+  {
+    "id": "aws-products#aws-codepipeline",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-codepipeline",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:12:18+0000",
+    "dateUpdated": "2022-08-24T22:28:55+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/codepipeline/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Release software using continuous delivery",
+      "launchDate": "2015-07-15",
+      "productUrl": "https://aws.amazon.com/codepipeline/",
+      "productName": "AWS CodePipeline",
+      "productNameLowercase": "aws codepipeline",
+      "productCategory": "Developer Tools"
+    }
+  },
+  {
+    "id": "aws-products#aws-codestar",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-codestar",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:12:20+0000",
+    "dateUpdated": "2022-08-24T22:28:55+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/codestar/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Develop and deploy AWS applications",
+      "launchDate": "2017-04-19",
+      "productUrl": "https://aws.amazon.com/codestar/",
+      "productName": "AWS CodeStar",
+      "productNameLowercase": "aws codestar",
+      "productCategory": "Developer Tools"
+    }
+  },
+  {
+    "id": "aws-products#aws-command-line-interface",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-command-line-interface",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:14:17+0000",
+    "dateUpdated": "2022-08-24T22:28:52+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Line Interface Unified tool to manage AWS services",
+      "launchDate": "2013-09-03",
+      "productUrl": "https://aws.amazon.com/cli/",
+      "productName": "AWS Command Line Interface (CLI)",
+      "productNameLowercase": "aws command line interface (cli)",
+      "productCategory": "Developer Tools"
+    }
+  },
+  {
+    "id": "aws-products#aws-compute-optimizer",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-compute-optimizer",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:14:19+0000",
+    "dateUpdated": "2022-08-24T22:28:52+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/compute-optimizer/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Identify optimal AWS Compute resources",
+      "launchDate": "2019-12-03",
+      "productUrl": "https://aws.amazon.com/compute-optimizer/",
+      "productName": "AWS Compute Optimizer",
+      "productNameLowercase": "aws compute optimizer",
+      "productCategory": "Compute"
+    }
+  },
+  {
+    "id": "aws-products#aws-config",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-config",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:14:21+0000",
+    "dateUpdated": "2022-08-24T22:28:52+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/config/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Track resources inventory and changes",
+      "launchDate": "2015-04-06",
+      "productUrl": "https://aws.amazon.com/config/",
+      "productName": "AWS Config",
+      "productNameLowercase": "aws config",
+      "productCategory": "Management & Governance"
+    }
+  },
+  {
+    "id": "aws-products#aws-control-tower",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-control-tower",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:14:24+0000",
+    "dateUpdated": "2022-08-24T22:28:52+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/controltower/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Set up and govern a secure, compliant multi-account environment",
+      "launchDate": "2019-06-24",
+      "productUrl": "https://aws.amazon.com/controltower/",
+      "productName": "AWS Control Tower",
+      "productNameLowercase": "aws control tower",
+      "productCategory": "Management & Governance"
+    }
+  },
+  {
+    "id": "aws-products#aws-copilot",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-copilot",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-17T07:18:28+0000",
+    "dateUpdated": "2022-08-24T22:28:47+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "AWS Copilot is the easiest way to launch and manage your containerized application on AWS",
+      "launchDate": "2020-11-23",
+      "productUrl": "https://aws.amazon.com/containers/copilot/",
+      "productName": "AWS Copilot",
+      "productNameLowercase": "aws copilot",
+      "productCategory": "Containers"
+    }
+  },
+  {
+    "id": "aws-products#aws-cost-and-usage-report",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-cost-and-usage-report",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:08:19+0000",
+    "dateUpdated": "2022-08-24T22:28:58+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Access comprehensive cost and usage information",
+      "launchDate": "2015-12-16",
+      "productUrl": "https://aws.amazon.com/aws-cost-management/aws-cost-and-usage-reporting/",
+      "productName": "AWS Cost and Usage Report",
+      "productNameLowercase": "aws cost and usage report",
+      "productCategory": "Cloud Financial Management"
+    }
+  },
+  {
+    "id": "aws-products#aws-cost-explorer",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-cost-explorer",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T04:41:50+0000",
+    "dateUpdated": "2022-08-24T22:28:58+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Analyze your AWS cost and usage",
+      "launchDate": "2014-04-08",
+      "productUrl": "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/",
+      "productName": "AWS Cost Explorer",
+      "productNameLowercase": "aws cost explorer",
+      "productCategory": "Cloud Financial Management"
+    }
+  },
+  {
+    "id": "aws-products#aws-data-exchange",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-data-exchange",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T04:41:23+0000",
+    "dateUpdated": "2022-08-24T22:28:58+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/data-exchange/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Find, subscribe to, and use third-party data in the cloud",
+      "launchDate": "2019-11-13",
+      "productUrl": "https://aws.amazon.com/data-exchange/",
+      "productName": "AWS Data Exchange",
+      "productNameLowercase": "aws data exchange",
+      "productCategory": "Analytics"
+    }
+  },
+  {
+    "id": "aws-products#aws-data-pipeline",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-data-pipeline",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T04:41:26+0000",
+    "dateUpdated": "2022-08-24T22:28:58+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/datapipeline/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Orchestration service for periodic, data-driven workflows",
+      "launchDate": "2012-12-20",
+      "productUrl": "https://aws.amazon.com/datapipeline/",
+      "productName": "AWS Data Pipeline",
+      "productNameLowercase": "aws data pipeline",
+      "productCategory": "Analytics"
+    }
+  },
+  {
+    "id": "aws-products#aws-database-migration-service",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-database-migration-service",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:15:11+0000",
+    "dateUpdated": "2022-08-24T22:28:50+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/dms/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Migrate databases with minimal downtime",
+      "launchDate": "2016-03-15",
+      "productUrl": "https://aws.amazon.com/dms/",
+      "productName": "AWS Database Migration Service (DMS)",
+      "productNameLowercase": "aws database migration service (dms)",
+      "productCategory": "Migration"
+    }
+  },
+  {
+    "id": "aws-products#aws-datasync",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-datasync",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:15:13+0000",
+    "dateUpdated": "2022-08-24T22:28:50+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/datasync/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Simple, fast, online data transfer",
+      "launchDate": "2018-11-25",
+      "productUrl": "https://aws.amazon.com/datasync/",
+      "productName": "AWS DataSync",
+      "productNameLowercase": "aws datasync",
+      "productCategory": "Migration"
+    }
+  },
+  {
+    "id": "aws-products#aws-deep-learning-amis",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-deep-learning-amis",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:13:45+0000",
+    "dateUpdated": "2022-08-24T22:28:53+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Deep learning on Amazon EC2",
+      "launchDate": "2017-02-10",
+      "productUrl": "https://aws.amazon.com/machine-learning/amis/",
+      "productName": "AWS Deep Learning AMIs",
+      "productNameLowercase": "aws deep learning amis",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#aws-deep-learning-containers",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-deep-learning-containers",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:13:47+0000",
+    "dateUpdated": "2022-08-24T22:28:53+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Docker images for deep learning",
+      "launchDate": "2019-03-27",
+      "productUrl": "https://aws.amazon.com/machine-learning/containers/",
+      "productName": "AWS Deep Learning Containers",
+      "productNameLowercase": "aws deep learning containers",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#aws-deepcomposer",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-deepcomposer",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:13:49+0000",
+    "dateUpdated": "2022-08-24T22:28:53+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/deepcomposer/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "ML enabled musical keyboard",
+      "launchDate": "2020-04-02",
+      "productUrl": "https://aws.amazon.com/deepcomposer/",
+      "productName": "AWS DeepComposer",
+      "productNameLowercase": "aws deepcomposer",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#aws-deeplens",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-deeplens",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:13:52+0000",
+    "dateUpdated": "2022-08-24T22:28:53+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Deep learning enabled video camera",
+      "launchDate": "2017-11-29",
+      "productUrl": "https://aws.amazon.com/deeplens/",
+      "productName": "AWS DeepLens",
+      "productNameLowercase": "aws deeplens",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#aws-deepracer",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-deepracer",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:13:54+0000",
+    "dateUpdated": "2022-08-24T22:28:53+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/deepracer/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Autonomous 1/18th scale race car, driven by ML",
+      "launchDate": "2018-11-28",
+      "productUrl": "https://aws.amazon.com/deepracer/",
+      "productName": "AWS DeepRacer",
+      "productNameLowercase": "aws deepracer",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#aws-device-farm",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-device-farm",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:12:25+0000",
+    "dateUpdated": "2022-08-24T22:28:55+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/device-farm/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Test Android, iOS, and web apps on real devices in the AWS cloud",
+      "launchDate": "2015-07-09",
+      "productUrl": "https://aws.amazon.com/device-farm/",
+      "productName": "AWS Device Farm",
+      "productNameLowercase": "aws device farm",
+      "productCategory": "Front-End Web & Mobile"
+    }
+  },
+  {
+    "id": "aws-products#aws-direct-connect",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-direct-connect",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:15:52+0000",
+    "dateUpdated": "2022-08-24T22:28:50+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/directconnect/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Dedicated network connection to AWS",
+      "launchDate": "2011-08-30",
+      "productUrl": "https://aws.amazon.com/directconnect/",
+      "productName": "AWS Direct Connect",
+      "productNameLowercase": "aws direct connect",
+      "productCategory": "Networking & Content Delivery"
+    }
+  },
+  {
+    "id": "aws-products#aws-directory-service",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-directory-service",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:16:31+0000",
+    "dateUpdated": "2022-08-24T22:28:49+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/directoryservice/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Host and manage active directory",
+      "launchDate": "2014-10-21",
+      "productUrl": "https://aws.amazon.com/directoryservice/",
+      "productName": "AWS Directory Service",
+      "productNameLowercase": "aws directory service",
+      "productCategory": "Security, Identity, & Compliance"
+    }
+  },
+  {
+    "id": "aws-products#aws-distro-open-telemetry",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-distro-open-telemetry",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-17T07:19:45+0000",
+    "dateUpdated": "2022-08-24T22:28:47+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Secure, production-ready open source distribution with predictable performance",
+      "launchDate": "2020-10-21",
+      "productUrl": "https://aws.amazon.com/otel/",
+      "productName": "AWS Distro for OpenTelemetry",
+      "productNameLowercase": "aws distro for opentelemetry",
+      "productCategory": "Management & Governance"
+    }
+  },
+  {
+    "id": "aws-products#aws-elastic-beanstalk",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-elastic-beanstalk",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:08:46+0000",
+    "dateUpdated": "2022-08-24T22:28:57+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/elasticbeanstalk/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Run and manage web apps",
+      "launchDate": "2020-04-09",
+      "productUrl": "https://aws.amazon.com/elasticbeanstalk/",
+      "productName": "AWS Elastic Beanstalk",
+      "productNameLowercase": "aws elastic beanstalk",
+      "productCategory": "Compute"
+    }
+  },
+  {
+    "id": "aws-products#aws-elemental-appliances-software",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-elemental-appliances-software",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:15:05+0000",
+    "dateUpdated": "2022-08-24T22:28:51+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "On-premises media solutions",
+      "launchDate": "2019-08-07",
+      "productUrl": "https://aws.amazon.com/elemental-appliances-software/",
+      "productName": "AWS Elemental Appliances & Software",
+      "productNameLowercase": "aws elemental appliances & software",
+      "productCategory": "Media Services"
+    }
+  },
+  {
+    "id": "aws-products#aws-elemental-mediaconnect-media-services",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-elemental-mediaconnect-media-services",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:14:54+0000",
+    "dateUpdated": "2022-08-24T22:28:51+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/mediaconnect/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Reliable and secure live video transport",
+      "launchDate": "2018-11-27",
+      "productUrl": "https://aws.amazon.com/mediaconnect/",
+      "productName": "AWS Elemental MediaConnect",
+      "productNameLowercase": "aws elemental mediaconnect",
+      "productCategory": "Media Services"
+    }
+  },
+  {
+    "id": "aws-products#aws-elemental-mediaconvert",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-elemental-mediaconvert",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:14:56+0000",
+    "dateUpdated": "2022-08-24T22:28:51+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/mediaconvert/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Convert file-based video content",
+      "launchDate": "2017-11-26",
+      "productUrl": "https://aws.amazon.com/mediaconvert/",
+      "productName": "AWS Elemental MediaConvert",
+      "productNameLowercase": "aws elemental mediaconvert",
+      "productCategory": "Media Services"
+    }
+  },
+  {
+    "id": "aws-products#aws-elemental-medialive",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-elemental-medialive",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:14:57+0000",
+    "dateUpdated": "2022-08-24T22:28:51+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/medialive/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Convert live video content",
+      "launchDate": "2017-11-26",
+      "productUrl": "https://aws.amazon.com/medialive/",
+      "productName": "AWS Elemental MediaLive",
+      "productNameLowercase": "aws elemental medialive",
+      "productCategory": "Media Services"
+    }
+  },
+  {
+    "id": "aws-products#aws-elemental-mediapackage",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-elemental-mediapackage",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:14:59+0000",
+    "dateUpdated": "2022-08-24T22:28:51+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/mediapackage/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Video origination and packaging",
+      "launchDate": "2017-11-26",
+      "productUrl": "https://aws.amazon.com/mediapackage/",
+      "productName": "AWS Elemental MediaPackage",
+      "productNameLowercase": "aws elemental mediapackage",
+      "productCategory": "Media Services"
+    }
+  },
+  {
+    "id": "aws-products#aws-elemental-mediastore",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-elemental-mediastore",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:15:01+0000",
+    "dateUpdated": "2022-08-24T22:28:51+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/mediastore/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Media storage and simple http origin",
+      "launchDate": "2017-11-26",
+      "productUrl": "https://aws.amazon.com/mediastore/",
+      "productName": "AWS Elemental MediaStore",
+      "productNameLowercase": "aws elemental mediastore",
+      "productCategory": "Media Services"
+    }
+  },
+  {
+    "id": "aws-products#aws-elemental-mediatailor",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-elemental-mediatailor",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:15:03+0000",
+    "dateUpdated": "2022-08-24T22:28:51+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/mediatailor/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Video personalization and monetization",
+      "launchDate": "2017-11-26",
+      "productUrl": "https://aws.amazon.com/mediatailor/",
+      "productName": "AWS Elemental MediaTailor",
+      "productNameLowercase": "aws elemental mediatailor",
+      "productCategory": "Media Services"
+    }
+  },
+  {
+    "id": "aws-products#aws-fargate",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-fargate",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:09:12+0000",
+    "dateUpdated": "2022-08-24T22:28:56+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/fargate/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Serverless compute for containers",
+      "launchDate": "2017-11-29",
+      "productUrl": "https://aws.amazon.com/fargate/",
+      "productName": "AWS Fargate",
+      "productNameLowercase": "aws fargate",
+      "productCategory": "Containers"
+    }
+  },
+  {
+    "id": "aws-products#aws-fault-injection-simulator",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-fault-injection-simulator",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-17T07:18:51+0000",
+    "dateUpdated": "2022-08-24T22:28:47+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/fis/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Improve resiliency and performance with controlled experiments",
+      "launchDate": "2021-03-16",
+      "productUrl": "https://aws.amazon.com/fis/",
+      "productName": "AWS Fault Injection Simulator",
+      "productNameLowercase": "aws fault injection simulator",
+      "productCategory": "Developer Tools"
+    }
+  },
+  {
+    "id": "aws-products#aws-firewall-manager",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-firewall-manager",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:16:33+0000",
+    "dateUpdated": "2022-08-24T22:28:49+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/firewall-manager/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Central management of firewall rules",
+      "launchDate": "2018-04-04",
+      "productUrl": "https://aws.amazon.com/firewall-manager/",
+      "productName": "AWS Firewall Manager",
+      "productNameLowercase": "aws firewall manager",
+      "productCategory": "Security, Identity, & Compliance"
+    }
+  },
+  {
+    "id": "aws-products#aws-global-accelerator",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-global-accelerator",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:15:54+0000",
+    "dateUpdated": "2022-08-24T22:28:50+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/global-accelerator/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Improve global application availability and performance",
+      "launchDate": "2018-11-26",
+      "productUrl": "https://aws.amazon.com/global-accelerator/",
+      "productName": "AWS Global Accelerator",
+      "productNameLowercase": "aws global accelerator",
+      "productCategory": "Networking & Content Delivery"
+    }
+  },
+  {
+    "id": "aws-products#aws-glue",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-glue",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T04:41:28+0000",
+    "dateUpdated": "2022-08-24T22:28:58+0000",
+    "additionalFields": {
+      "featureFlag": "Free Trial Available",
+      "pricingUrl": "https://aws.amazon.com/glue/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Simple, scalable, and serverless data integration",
+      "launchDate": "2016-12-01",
+      "productUrl": "https://aws.amazon.com/glue/",
+      "productName": "AWS Glue",
+      "productNameLowercase": "aws glue",
+      "productCategory": "Analytics"
+    }
+  },
+  {
+    "id": "aws-products#aws-ground-station",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-ground-station",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:16:08+0000",
+    "dateUpdated": "2022-08-24T22:28:49+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/ground-station/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Fully managed ground station as a service",
+      "launchDate": "2019-05-22",
+      "productUrl": "https://aws.amazon.com/ground-station/",
+      "productName": "AWS Ground Station",
+      "productNameLowercase": "aws ground station",
+      "productCategory": "Satellite"
+    }
+  },
+  {
+    "id": "aws-products#aws-identity-and-access-management-iam",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-identity-and-access-management-iam",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:16:10+0000",
+    "dateUpdated": "2022-08-24T22:28:49+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Securely manage access to services and resources",
+      "launchDate": "2011-05-03",
+      "productUrl": "https://aws.amazon.com/iam/",
+      "productName": "AWS Identity and Access Management",
+      "productNameLowercase": "aws identity and access management",
+      "productCategory": "Security, Identity, & Compliance"
+    }
+  },
+  {
+    "id": "aws-products#aws-inferentia",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-inferentia",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:13:56+0000",
+    "dateUpdated": "2022-08-24T22:28:53+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Machine learning inference chip",
+      "launchDate": "2018-11-28",
+      "productUrl": "https://aws.amazon.com/machine-learning/inferentia/",
+      "productName": "AWS Inferentia",
+      "productNameLowercase": "aws inferentia",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#aws-iot-1-click",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-iot-1-click",
+    "author": "breentro",
+    "lastUpdatedBy": "breentro",
+    "dateCreated": "2020-07-02T05:12:42+0000",
+    "dateUpdated": "2022-10-25T18:17:35+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/iot-1-click/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "One click creation of an AWS Lambda trigger",
+      "launchDate": "2018-05-16",
+      "productUrl": "https://aws.amazon.com/iot-1-click/",
+      "productName": "AWS IoT 1-Click",
+      "productNameLowercase": "aws iot 1-click",
+      "productCategory": "Internet of Things"
+    }
+  },
+  {
+    "id": "aws-products#aws-iot-analytics",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-iot-analytics",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:12:44+0000",
+    "dateUpdated": "2022-08-24T22:28:55+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/iot-analytics/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Analytics for IoT devices",
+      "launchDate": "2017-11-29",
+      "productUrl": "https://aws.amazon.com/iot-analytics/",
+      "productName": "AWS IoT Analytics",
+      "productNameLowercase": "aws iot analytics",
+      "productCategory": "Internet of Things"
+    }
+  },
+  {
+    "id": "aws-products#aws-iot-button",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-iot-button",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:12:46+0000",
+    "dateUpdated": "2022-08-24T22:28:54+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Cloud programmable dash button",
+      "launchDate": "2015-10-08",
+      "productUrl": "https://aws.amazon.com/iotbutton/",
+      "productName": "AWS IoT Button",
+      "productNameLowercase": "aws iot button",
+      "productCategory": "Internet of Things"
+    }
+  },
+  {
+    "id": "aws-products#aws-iot-device-defender",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-iot-device-defender",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:12:51+0000",
+    "dateUpdated": "2022-08-24T22:28:54+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/iot-device-defender/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Security management for IoT devices",
+      "launchDate": "2017-11-29",
+      "productUrl": "https://aws.amazon.com/iot-device-defender/",
+      "productName": "AWS IoT Device Defender",
+      "productNameLowercase": "aws iot device defender",
+      "productCategory": "Internet of Things"
+    }
+  },
+  {
+    "id": "aws-products#aws-iot-device-management",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-iot-device-management",
+    "author": "breentro",
+    "lastUpdatedBy": "breentro",
+    "dateCreated": "2020-07-02T05:12:53+0000",
+    "dateUpdated": "2022-10-25T18:18:36+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/iot-device-management/pricing/",
+      "freeTierAvailability": "12 Months Free",
+      "productSummary": "Onboard, organize, and remotely manage IoT devices",
+      "launchDate": "2017-11-29",
+      "productUrl": "https://aws.amazon.com/iot-device-management/",
+      "productName": "AWS IoT Device Management",
+      "productNameLowercase": "aws iot device management",
+      "productCategory": "Internet of Things"
+    }
+  },
+  {
+    "id": "aws-products#aws-iot-edukit",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-iot-edukit",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-17T07:19:02+0000",
+    "dateUpdated": "2022-08-24T22:28:47+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Learn how to build simple IoT applications with reference hardware and step-by-step tutorials",
+      "launchDate": "2020-12-15",
+      "productUrl": "https://aws.amazon.com/iot/edukit/",
+      "productName": "AWS IoT EduKit",
+      "productNameLowercase": "aws iot edukit",
+      "productCategory": "Internet of Things"
+    }
+  },
+  {
+    "id": "aws-products#aws-iot-events",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-iot-events",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:12:55+0000",
+    "dateUpdated": "2022-08-24T22:28:54+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/iot-events/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "IoT event detection and response",
+      "launchDate": "2019-05-30",
+      "productUrl": "https://aws.amazon.com/iot-events/",
+      "productName": "AWS IoT Events",
+      "productNameLowercase": "aws iot events",
+      "productCategory": "Internet of Things"
+    }
+  },
+  {
+    "id": "aws-products#aws-iot-roborunner",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-iot-roborunner",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-29T16:16:26+0000",
+    "dateUpdated": "2022-11-21T05:49:46+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Build applications that help fleets of robots work together seamlessly",
+      "launchDate": "2021-11-29",
+      "productUrl": "https://aws.amazon.com/roborunner",
+      "productName": "AWS IoT RoboRunner",
+      "productNameLowercase": "aws iot roborunner",
+      "productCategory": "Internet of Things"
+    }
+  },
+  {
+    "id": "aws-products#aws-key-management-service",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-key-management-service",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:16:35+0000",
+    "dateUpdated": "2022-08-24T22:28:49+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/kms/pricing/",
+      "freeTierAvailability": "Always Free",
+      "productSummary": "Managed creation and control of encryption keys",
+      "launchDate": "2014-11-12",
+      "productUrl": "https://aws.amazon.com/kms/",
+      "productName": "AWS Key Management Service (KMS)",
+      "productNameLowercase": "aws key management service (kms)",
+      "productCategory": "Security, Identity, & Compliance"
+    }
+  },
+  {
+    "id": "aws-products#aws-lake-formation",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-lake-formation",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T04:41:30+0000",
+    "dateUpdated": "2022-08-24T22:28:58+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/lake-formation/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Build a secure data lake in days",
+      "launchDate": "2019-08-09",
+      "productUrl": "https://aws.amazon.com/lake-formation/",
+      "productName": "AWS Lake Formation",
+      "productNameLowercase": "aws lake formation",
+      "productCategory": "Analytics"
+    }
+  },
+  {
+    "id": "aws-products#aws-lambda",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-lambda",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:08:48+0000",
+    "dateUpdated": "2022-08-24T22:28:57+0000",
+    "additionalFields": {
+      "featureFlag": "Free Trial Available",
+      "featuredRank": "7",
+      "pricingUrl": "https://aws.amazon.com/lambda/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Run code without thinking about servers",
+      "launchDate": "2015-04-15",
+      "productUrl": "https://aws.amazon.com/lambda/",
+      "productName": "AWS Lambda",
+      "productNameLowercase": "aws lambda",
+      "productCategory": "Compute"
+    }
+  },
+  {
+    "id": "aws-products#aws-launch-wizard",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-launch-wizard",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-17T07:19:50+0000",
+    "dateUpdated": "2022-08-24T22:28:47+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Easily size, configure, and deploy third party applications on AWS",
+      "launchDate": "2019-11-13",
+      "productUrl": "https://aws.amazon.com/launchwizard/",
+      "productName": "AWS Launch Wizard",
+      "productNameLowercase": "aws launch wizard",
+      "productCategory": "Management & Governance"
+    }
+  },
+  {
+    "id": "aws-products#aws-license-manager",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-license-manager",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:14:28+0000",
+    "dateUpdated": "2022-08-24T22:28:52+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/license-manager/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Track, manage, and control licenses",
+      "launchDate": "2018-11-28",
+      "productUrl": "https://aws.amazon.com/license-manager/",
+      "productName": "AWS License Manager",
+      "productNameLowercase": "aws license manager",
+      "productCategory": "Management & Governance"
+    }
+  },
+  {
+    "id": "aws-products#local-zones",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "local-zones",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2022-11-19T00:25:40+0000",
+    "dateUpdated": "2022-11-19T00:30:03+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/about-aws/global-infrastructure/localzones/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Run latency sensitive applications closer to end users",
+      "launchDate": "2019-12-03",
+      "productUrl": "https://aws.amazon.com/about-aws/global-infrastructure/localzones/",
+      "productName": "AWS Local Zones",
+      "productNameLowercase": "aws local zones",
+      "productCategory": "Compute"
+    }
+  },
+  {
+    "id": "aws-products#aws-mainframe-modernization",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-mainframe-modernization",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-30T16:57:09+0000",
+    "dateUpdated": "2022-11-21T05:49:45+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/mainframe-modernization/pricing/",
+      "productSummary": "<p>Migrate, modernize, operate, and run mainframe workloads</p>\n",
+      "launchDate": "2021-11-30",
+      "productUrl": "https://aws.amazon.com/mainframe-modernization/",
+      "productName": "AWS Mainframe Modernization",
+      "productNameLowercase": "aws mainframe modernization",
+      "productCategory": "Migration"
+    }
+  },
+  {
+    "id": "aws-products#aws-managed-services",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-managed-services",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:14:33+0000",
+    "dateUpdated": "2022-08-24T22:28:52+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Infrastructure operations management for AWS",
+      "launchDate": "2016-12-12",
+      "productUrl": "https://aws.amazon.com/managed-services/",
+      "productName": "AWS Managed Services",
+      "productNameLowercase": "aws managed services",
+      "productCategory": "Management & Governance"
+    }
+  },
+  {
+    "id": "aws-products#aws-management-console",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-management-console",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:14:30+0000",
+    "dateUpdated": "2022-08-24T22:28:52+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Web-based user interface",
+      "launchDate": "2009-01-08",
+      "productUrl": "https://aws.amazon.com/console/",
+      "productName": "AWS Management Console",
+      "productNameLowercase": "aws management console",
+      "productCategory": "Management & Governance"
+    }
+  },
+  {
+    "id": "aws-products#aws-console-mobile-application",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-console-mobile-application",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:14:26+0000",
+    "dateUpdated": "2022-08-24T22:28:52+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Access resources on the go",
+      "launchDate": "2013-01-04",
+      "productUrl": "https://aws.amazon.com/console/mobile/",
+      "productName": "AWS Management Console Mobile Application",
+      "productNameLowercase": "aws management console mobile application",
+      "productCategory": "Management & Governance"
+    }
+  },
+  {
+    "id": "aws-products#aws-migration-hub",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-migration-hub",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:15:06+0000",
+    "dateUpdated": "2022-08-24T22:28:51+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/migration-hub/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Track migrations from a single place",
+      "launchDate": "2017-08-14",
+      "productUrl": "https://aws.amazon.com/migration-hub/",
+      "productName": "AWS Migration Hub",
+      "productNameLowercase": "aws migration hub",
+      "productCategory": "Migration"
+    }
+  },
+  {
+    "id": "aws-products#aws-network-firewall",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-network-firewall",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-17T07:20:36+0000",
+    "dateUpdated": "2022-08-24T22:28:46+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/network-firewall/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Deploy network security across your Amazon VPCs with just a few clicks",
+      "launchDate": "2020-11-19",
+      "productUrl": "https://aws.amazon.com/network-firewall/",
+      "productName": "AWS Network Firewall",
+      "productNameLowercase": "aws network firewall",
+      "productCategory": "Security, Identity, & Compliance"
+    }
+  },
+  {
+    "id": "aws-products#aws-opsworks",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-opsworks",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:14:35+0000",
+    "dateUpdated": "2022-08-24T22:28:52+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/opsworks/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Automate operations with Chef and Puppet",
+      "launchDate": "2013-02-18",
+      "productUrl": "https://aws.amazon.com/opsworks/",
+      "productName": "AWS OpsWorks",
+      "productNameLowercase": "aws opsworks",
+      "productCategory": "Management & Governance"
+    }
+  },
+  {
+    "id": "aws-products#aws-organizations",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-organizations",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:14:37+0000",
+    "dateUpdated": "2022-08-24T22:28:51+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Central governance and management across AWS accounts",
+      "launchDate": "2017-02-27",
+      "productUrl": "https://aws.amazon.com/organizations/",
+      "productName": "AWS Organizations",
+      "productNameLowercase": "aws organizations",
+      "productCategory": "Management & Governance"
+    }
+  },
+  {
+    "id": "aws-products#aws-outposts",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-outposts",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:08:50+0000",
+    "dateUpdated": "2022-08-24T22:28:57+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/outposts/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Run AWS infrastructure on-premises",
+      "launchDate": "2019-12-03",
+      "productUrl": "https://aws.amazon.com/outposts/",
+      "productName": "AWS Outposts",
+      "productNameLowercase": "aws outposts",
+      "productCategory": "Compute"
+    }
+  },
+  {
+    "id": "aws-products#aws-panorama",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-panorama",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-17T07:19:40+0000",
+    "dateUpdated": "2022-08-24T22:28:47+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/panorama/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Improve your operations with computer vision at the edge",
+      "launchDate": "2020-12-01",
+      "productUrl": "https://aws.amazon.com/panorama/",
+      "productName": "AWS Panorama",
+      "productNameLowercase": "aws panorama",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#aws-partner-device-catalog",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-partner-device-catalog",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:13:05+0000",
+    "dateUpdated": "2022-08-24T22:28:54+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Curated catalog of AWS-compatible IoT hardware",
+      "launchDate": "2018-11-27",
+      "productUrl": "https://devices.amazonaws.com/",
+      "productName": "AWS Partner Device Catalog",
+      "productNameLowercase": "aws partner device catalog",
+      "productCategory": "Internet of Things"
+    }
+  },
+  {
+    "id": "aws-products#aws-personal-health-dashboard",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-personal-health-dashboard",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:14:39+0000",
+    "dateUpdated": "2022-08-24T22:28:51+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Personalized view of AWS service health",
+      "launchDate": "2016-12-01",
+      "productUrl": "https://aws.amazon.com/premiumsupport/technology/personal-health-dashboard/",
+      "productName": "AWS Personal Health Dashboard",
+      "productNameLowercase": "aws personal health dashboard",
+      "productCategory": "Management & Governance"
+    }
+  },
+  {
+    "id": "aws-products#aws-private-5g",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-private-5g",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-30T16:56:30+0000",
+    "dateUpdated": "2022-11-21T05:49:45+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Easily deploy, manage, and scale a private cellular network",
+      "launchDate": "2021-11-30",
+      "productUrl": "https://aws.amazon.com/private5g/",
+      "productName": "AWS Private 5G",
+      "productNameLowercase": "aws private 5g",
+      "productCategory": "Networking & Content Delivery"
+    }
+  },
+  {
+    "id": "aws-products#aws-privatelink",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-privatelink",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:15:56+0000",
+    "dateUpdated": "2022-08-24T22:28:50+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/privatelink/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Securely access services hosted on AWS",
+      "launchDate": "2017-11-08",
+      "productUrl": "https://aws.amazon.com/privatelink/",
+      "productName": "AWS PrivateLink",
+      "productNameLowercase": "aws privatelink",
+      "productCategory": "Networking & Content Delivery"
+    }
+  },
+  {
+    "id": "aws-products#aws-proton",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-proton",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-17T07:20:05+0000",
+    "dateUpdated": "2022-08-24T22:28:46+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/proton/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Automate management for container and serverless deployments",
+      "launchDate": "2021-06-09",
+      "productUrl": "https://aws.amazon.com/proton/",
+      "productName": "AWS Proton",
+      "productNameLowercase": "aws proton",
+      "productCategory": "Management & Governance"
+    }
+  },
+  {
+    "id": "aws-products#aws-resilience-hub",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-resilience-hub",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-17T07:20:10+0000",
+    "dateUpdated": "2022-08-24T22:28:46+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/resilience-hub/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Prepare and protect your applications from disruptions",
+      "launchDate": "2021-11-10",
+      "productUrl": "https://aws.amazon.com/resilience-hub/",
+      "productName": "AWS Resilience Hub",
+      "productNameLowercase": "aws resilience hub",
+      "productCategory": "Management & Governance"
+    }
+  },
+  {
+    "id": "aws-products#aws-resource-access-manager",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-resource-access-manager",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:16:37+0000",
+    "dateUpdated": "2022-08-24T22:28:49+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Simple, secure service to share AWS resources",
+      "launchDate": "2018-12-06",
+      "productUrl": "https://aws.amazon.com/ram/",
+      "productName": "AWS Resource Access Manager",
+      "productNameLowercase": "aws resource access manager",
+      "productCategory": "Security, Identity, & Compliance"
+    }
+  },
+  {
+    "id": "aws-products#aws-robomaker",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-robomaker",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:16:06+0000",
+    "dateUpdated": "2022-08-24T22:28:49+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/robomaker/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Develop, test, and deploy robotics applications",
+      "launchDate": "2018-11-26",
+      "productUrl": "https://aws.amazon.com/robomaker/",
+      "productName": "AWS RoboMaker",
+      "productNameLowercase": "aws robomaker",
+      "productCategory": "Robotics"
+    }
+  },
+  {
+    "id": "aws-products#aws-secrets-manager",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-secrets-manager",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:16:40+0000",
+    "dateUpdated": "2022-08-24T22:28:49+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/secrets-manager/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Rotate, manage, and retrieve secrets",
+      "launchDate": "2018-04-04",
+      "productUrl": "https://aws.amazon.com/secrets-manager/",
+      "productName": "AWS Secrets Manager",
+      "productNameLowercase": "aws secrets manager",
+      "productCategory": "Security, Identity, & Compliance"
+    }
+  },
+  {
+    "id": "aws-products#aws-security-hub",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-security-hub",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:16:42+0000",
+    "dateUpdated": "2022-08-24T22:28:48+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/security-hub/pricing/",
+      "freeTierAvailability": "Free Trial",
+      "productSummary": "Unified security and compliance center",
+      "launchDate": "2019-06-24",
+      "productUrl": "https://aws.amazon.com/security-hub/",
+      "productName": "AWS Security Hub",
+      "productNameLowercase": "aws security hub",
+      "productCategory": "Security, Identity, & Compliance"
+    }
+  },
+  {
+    "id": "aws-products#aws-server-migration-service",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-server-migration-service",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:15:16+0000",
+    "dateUpdated": "2022-08-24T22:28:50+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/server-migration-service/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Migrate on-premises servers to AWS",
+      "launchDate": "2016-10-24",
+      "productUrl": "https://aws.amazon.com/server-migration-service/",
+      "productName": "AWS Server Migration Service (SMS)",
+      "productNameLowercase": "aws server migration service (sms)",
+      "productCategory": "Migration"
+    }
+  },
+  {
+    "id": "aws-products#aws-serverless-application-repository",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-serverless-application-repository",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:08:52+0000",
+    "dateUpdated": "2022-08-24T22:28:56+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Discover, deploy, and publish serverless applications",
+      "launchDate": "2018-02-21",
+      "productUrl": "https://aws.amazon.com/serverless/serverlessrepo/",
+      "productName": "AWS Serverless Application Repository",
+      "productNameLowercase": "aws serverless application repository",
+      "productCategory": "Compute"
+    }
+  },
+  {
+    "id": "aws-products#aws-service-catalog",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-service-catalog",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:14:42+0000",
+    "dateUpdated": "2022-08-24T22:28:51+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/servicecatalog/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Create and use standardized products",
+      "launchDate": "2015-07-09",
+      "productUrl": "https://aws.amazon.com/servicecatalog/",
+      "productName": "AWS Service Catalog",
+      "productNameLowercase": "aws service catalog",
+      "productCategory": "Management & Governance"
+    }
+  },
+  {
+    "id": "aws-products#aws-service-management-connector",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-service-management-connector",
+    "author": "breentro",
+    "createdBy": "breentro",
+    "lastUpdatedBy": "breentro",
+    "dateCreated": "2022-09-14T22:10:06+0000",
+    "dateUpdated": "2022-09-14T22:10:50+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/service-management-connector/pricing/",
+      "launchDate": "2022-09-14",
+      "productSummary": "<p>Provision, manage and operate AWS resources within Service Management Tools</p>\n",
+      "productUrl": "https://aws.amazon.com/service-management-connector/",
+      "productName": "AWS Service Management Connector",
+      "productNameLowercase": "aws service management connector",
+      "productCategory": "Management & Governance"
+    }
+  },
+  {
+    "id": "aws-products#aws-shield",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-shield",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:16:44+0000",
+    "dateUpdated": "2022-08-24T22:28:48+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/shield/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "DDoS protection",
+      "launchDate": "2016-12-01",
+      "productUrl": "https://aws.amazon.com/shield/",
+      "productName": "AWS Shield",
+      "productNameLowercase": "aws shield",
+      "productCategory": "Security, Identity, & Compliance"
+    }
+  },
+  {
+    "id": "aws-products#aws-single-sign-on",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-single-sign-on",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:16:46+0000",
+    "dateUpdated": "2022-08-24T22:28:48+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Cloud single sign-on (SSO) service",
+      "launchDate": "2017-12-07",
+      "productUrl": "https://aws.amazon.com/single-sign-on/",
+      "productName": "AWS Single Sign-On (SSO)",
+      "productNameLowercase": "aws single sign-on (sso)",
+      "productCategory": "Security, Identity, & Compliance"
+    }
+  },
+  {
+    "id": "aws-products#aws-snow-family-storage",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-snow-family-storage",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:17:07+0000",
+    "dateUpdated": "2022-08-24T22:28:48+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Physical edge computing and storage devices for rugged or disconnected environments",
+      "launchDate": "2015-10-07",
+      "productUrl": "https://aws.amazon.com/snow/",
+      "productName": "AWS Snow Family",
+      "productNameLowercase": "aws snow family",
+      "productCategory": "Storage"
+    }
+  },
+  {
+    "id": "aws-products#aws-step-functions",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-step-functions",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T04:41:32+0000",
+    "dateUpdated": "2022-08-24T22:28:58+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/step-functions/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Coordination for distributed applications",
+      "launchDate": "2016-12-01",
+      "productUrl": "https://aws.amazon.com/step-functions/",
+      "productName": "AWS Step Functions",
+      "productNameLowercase": "aws step functions",
+      "productCategory": "Application Integration"
+    }
+  },
+  {
+    "id": "aws-products#aws-storage-gateway",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-storage-gateway",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:17:09+0000",
+    "dateUpdated": "2022-08-24T22:28:48+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/storagegateway/pricing/",
+      "freeTierAvailability": "Always Free",
+      "productSummary": "Hybrid storage integration",
+      "launchDate": "2012-01-24",
+      "productUrl": "https://aws.amazon.com/storagegateway/",
+      "productName": "AWS Storage Gateway",
+      "productNameLowercase": "aws storage gateway",
+      "productCategory": "Storage"
+    }
+  },
+  {
+    "id": "aws-products#aws-systems-manager",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-systems-manager",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:14:44+0000",
+    "dateUpdated": "2022-08-24T22:28:51+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/systems-manager/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Gain operational insights and take action",
+      "launchDate": "2017-11-29",
+      "productUrl": "https://aws.amazon.com/systems-manager/",
+      "productName": "AWS Systems Manager",
+      "productNameLowercase": "aws systems manager",
+      "productCategory": "Management & Governance"
+    }
+  },
+  {
+    "id": "aws-products#aws-tools-and-sdks",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-tools-and-sdks",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:12:27+0000",
+    "dateUpdated": "2022-08-24T22:28:55+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Tools and SDKs for AWS",
+      "launchDate": "2009-11-11",
+      "productUrl": "https://aws.amazon.com/getting-started/tools-sdks/",
+      "productName": "AWS Tools and SDKs",
+      "productNameLowercase": "aws tools and sdks",
+      "productCategory": "Developer Tools"
+    }
+  },
+  {
+    "id": "aws-products#aws-transfer-family",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-transfer-family",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-09-27T15:58:29+0000",
+    "dateUpdated": "2022-08-24T22:28:48+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/aws-transfer-family/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Fully managed SFTP, FTPS, and FTP service",
+      "launchDate": "2018-11-25",
+      "productUrl": "https://aws.amazon.com/aws-transfer-family/",
+      "productName": "AWS Transfer Family",
+      "productNameLowercase": "aws transfer family",
+      "productCategory": "Migration"
+    }
+  },
+  {
+    "id": "aws-products#aws-transit-gateway",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-transit-gateway",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:15:58+0000",
+    "dateUpdated": "2022-08-24T22:28:50+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/transit-gateway/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Easily scale VPC and account connections",
+      "launchDate": "2018-11-26",
+      "productUrl": "https://aws.amazon.com/transit-gateway/",
+      "productName": "AWS Transit Gateway",
+      "productNameLowercase": "aws transit gateway",
+      "productCategory": "Networking & Content Delivery"
+    }
+  },
+  {
+    "id": "aws-products#aws-trusted-advisor",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-trusted-advisor",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:14:46+0000",
+    "dateUpdated": "2022-08-24T22:28:51+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Optimize performance and security",
+      "launchDate": "2012-01-30",
+      "productUrl": "https://aws.amazon.com/premiumsupport/technology/trusted-advisor/",
+      "productName": "AWS Trusted Advisor",
+      "productNameLowercase": "aws trusted advisor",
+      "productCategory": "Management & Governance"
+    }
+  },
+  {
+    "id": "aws-products#aws-vpn",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-vpn",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:16:01+0000",
+    "dateUpdated": "2022-08-24T22:28:50+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/vpn/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Securely access your network resources",
+      "launchDate": "2018-12-18",
+      "productUrl": "https://aws.amazon.com/vpn/",
+      "productName": "AWS VPN",
+      "productNameLowercase": "aws vpn",
+      "productCategory": "Networking & Content Delivery"
+    }
+  },
+  {
+    "id": "aws-products#aws-waf",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-waf",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:16:49+0000",
+    "dateUpdated": "2022-08-24T22:28:48+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/waf/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Filter malicious web traffic",
+      "launchDate": "2015-10-06",
+      "productUrl": "https://aws.amazon.com/waf/",
+      "productName": "AWS WAF",
+      "productNameLowercase": "aws waf",
+      "productCategory": "Security, Identity, & Compliance"
+    }
+  },
+  {
+    "id": "aws-products#aws-wavelength",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-wavelength",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:08:57+0000",
+    "dateUpdated": "2022-08-24T22:28:56+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/wavelength/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Deliver ultra-low latency applications for 5G devices",
+      "launchDate": "2019-12-03",
+      "productUrl": "https://aws.amazon.com/wavelength/",
+      "productName": "AWS Wavelength",
+      "productNameLowercase": "aws wavelength",
+      "productCategory": "Compute"
+    }
+  },
+  {
+    "id": "aws-products#aws-well-architected-tool",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-well-architected-tool",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:14:48+0000",
+    "dateUpdated": "2022-08-24T22:28:51+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/well-architected-tool/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Review and improve your workloads",
+      "launchDate": "2018-11-29",
+      "productUrl": "https://aws.amazon.com/well-architected-tool/",
+      "productName": "AWS Well-Architected Tool",
+      "productNameLowercase": "aws well-architected tool",
+      "productCategory": "Architecture Strategy"
+    }
+  },
+  {
+    "id": "aws-products#aws-x-ray",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "aws-x-ray",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:12:29+0000",
+    "dateUpdated": "2022-08-24T22:28:55+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/xray/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Analyze and debug your applications",
+      "launchDate": "2017-04-19",
+      "productUrl": "https://aws.amazon.com/xray/",
+      "productName": "AWS X-Ray",
+      "productNameLowercase": "aws x-ray",
+      "productCategory": "Developer Tools"
+    }
+  },
+  {
+    "id": "aws-products#cloudeendure-disaster-recovery",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "cloudeendure-disaster-recovery",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:17:11+0000",
+    "dateUpdated": "2022-08-24T22:28:48+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/disaster-recovery/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "<p>Scalable, cost-effective application recovery to AWS</p>",
+      "launchDate": "2019-10-31",
+      "productUrl": "https://aws.amazon.com/disaster-recovery/",
+      "productName": "AWS Elastic Disaster Recovery (DRS)",
+      "productNameLowercase": "elastic disaster recovery",
+      "productCategory": "Storage"
+    }
+  },
+  {
+    "id": "aws-products#elastic-load-balancing-elb",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "elastic-load-balancing-elb",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:16:03+0000",
+    "dateUpdated": "2022-08-24T22:28:49+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/elasticloadbalancing/pricing/",
+      "freeTierAvailability": "12 Months Free",
+      "productSummary": "Distribute incoming traffic across multiple targets",
+      "launchDate": "2009-05-17",
+      "productUrl": "https://aws.amazon.com/elasticloadbalancing/",
+      "productName": "Elastic Load Balancing (ELB)",
+      "productNameLowercase": "elastic load balancing (elb)",
+      "productCategory": "Networking & Content Delivery"
+    }
+  },
+  {
+    "id": "aws-products#amazon-freertos",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "amazon-freertos",
+    "author": "breentro",
+    "lastUpdatedBy": "breentro",
+    "dateCreated": "2020-07-02T05:13:07+0000",
+    "dateUpdated": "2022-10-25T18:17:58+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/freertos/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Real-time operating system for microcontrollers",
+      "launchDate": "2017-11-29",
+      "productUrl": "https://aws.amazon.com/freertos/",
+      "productName": "FreeRTOS",
+      "productNameLowercase": "freertos",
+      "productCategory": "Internet of Things"
+    }
+  },
+  {
+    "id": "aws-products#migration-evaluator-formerly-tso-logic",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "migration-evaluator-formerly-tso-logic",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:15:25+0000",
+    "dateUpdated": "2022-08-24T22:28:50+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/migration-evaluator/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Create a business case for cloud migration",
+      "launchDate": "2020-07-20",
+      "productUrl": "https://aws.amazon.com/migration-evaluator/",
+      "productName": "Migration Evaluator (formerly TSO Logic)",
+      "productNameLowercase": "migration evaluator (formerly tso logic)",
+      "productCategory": "Migration"
+    }
+  },
+  {
+    "id": "aws-products#pytorch-on-aws",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "pytorch-on-aws",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:14:01+0000",
+    "dateUpdated": "2022-08-24T22:28:52+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Flexible open-source machine learning framework",
+      "launchDate": "2018-06-20",
+      "productUrl": "https://aws.amazon.com/pytorch/",
+      "productName": "PyTorch on AWS",
+      "productNameLowercase": "pytorch on aws",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#red-hat-openshift-service-aws",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "red-hat-openshift-service-aws",
+    "author": "jenbar",
+    "createdBy": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-11-17T07:18:33+0000",
+    "dateUpdated": "2022-08-24T22:28:47+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/rosa/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Managed OpenShift in the cloud",
+      "launchDate": "2021-03-24",
+      "productUrl": "https://aws.amazon.com/rosa/",
+      "productName": "Red Hat OpenShift Service on AWS",
+      "productNameLowercase": "red hat openshift service on aws",
+      "productCategory": "Containers"
+    }
+  },
+  {
+    "id": "aws-products#reserved-instance-reporting",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "reserved-instance-reporting",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:08:21+0000",
+    "dateUpdated": "2022-08-24T22:28:57+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Dive deeper into your reserved instances (RIs)",
+      "launchDate": "2016-12-21",
+      "productUrl": "https://aws.amazon.com/aws-cost-management/reserved-instance-reporting/",
+      "productName": "Reserved Instance (RI) Reporting",
+      "productNameLowercase": "reserved instance (ri) reporting",
+      "productCategory": "Cloud Financial Management"
+    }
+  },
+  {
+    "id": "aws-products#savings-plans",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "savings-plans",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2021-09-23T16:59:38+0000",
+    "dateUpdated": "2022-08-24T22:28:48+0000",
+    "additionalFields": {
+      "pricingUrl": "https://aws.amazon.com/savingsplans/pricing/",
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Save up to 72% on compute usage with flexible pricing",
+      "launchDate": "2019-11-06",
+      "productUrl": "https://aws.amazon.com/savingsplans/",
+      "productName": "Savings Plans",
+      "productNameLowercase": "savings plans",
+      "productCategory": "Cloud Financial Management"
+    }
+  },
+  {
+    "id": "aws-products#tensorflow-on-aws",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "tensorflow-on-aws",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:14:03+0000",
+    "dateUpdated": "2022-08-24T22:28:52+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Open-source machine intelligence library",
+      "launchDate": "2017-07-14",
+      "productUrl": "https://aws.amazon.com/tensorflow/",
+      "productName": "TensorFlow on AWS",
+      "productNameLowercase": "tensorflow on aws",
+      "productCategory": "Machine Learning"
+    }
+  },
+  {
+    "id": "aws-products#vmware-cloud-on-aws",
+    "locale": "en_US",
+    "directoryId": "aws-products",
+    "name": "vmware-cloud-on-aws",
+    "author": "jenbar",
+    "lastUpdatedBy": "jenbar",
+    "dateCreated": "2020-07-02T05:08:59+0000",
+    "dateUpdated": "2022-08-24T22:28:56+0000",
+    "additionalFields": {
+      "freeTierAvailability": "<p> </p>",
+      "productSummary": "Build a hybrid cloud without custom hardware",
+      "launchDate": "2017-08-28",
+      "productUrl": "https://aws.amazon.com/vmware/",
+      "productName": "VMware Cloud on AWS",
+      "productNameLowercase": "vmware cloud on aws",
+      "productCategory": "Compute"
+    }
+  }
+]
