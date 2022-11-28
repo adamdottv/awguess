@@ -194,7 +194,7 @@ const gameMachine = createMachine<Context, GameEvent, GameTypestate>({
 
 let previousState: State<Context, GameEvent, GameTypestate>
 if (typeof window !== "undefined") {
-  const serializedState = localStorage.getItem("game-machine-state")
+  const serializedState = localStorage.getItem("game-state")
   if (serializedState) {
     previousState = JSON.parse(serializedState)
   }
@@ -333,7 +333,7 @@ const Game: React.FC = () => {
 
   service.onTransition((state) => {
     try {
-      localStorage.setItem("game-machine-state", JSON.stringify(state))
+      localStorage.setItem("game-state", JSON.stringify(state))
     } catch (e) {
       console.error("Unable to save to localStorage")
     }
