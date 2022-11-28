@@ -31,8 +31,10 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({ data, userId }) => {
             "bg-blue-3": !userId || score.userId !== userId,
           })}
         >
-          <div className="whitespace-nowrap text-sm w-12">{score.rank}</div>
-          <div className="whitespace-nowrap text-sm flex-grow ml-5">
+          <div className="whitespace-nowrap text-sm w-12 flex-shrink-0">
+            {score.rank}
+          </div>
+          <div className="whitespace-nowrap text-sm flex-grow ml-5 truncate">
             <div className="flex space-x-2 items-center">
               {score.name && score.image ? (
                 <Image
@@ -47,10 +49,10 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({ data, userId }) => {
                   ?
                 </div>
               )}
-              <div>{score.name ?? "Anonymous"}</div>
+              <div className="truncate">{score.name ?? "Anonymous"}</div>
             </div>
           </div>
-          <div className="whitespace-nowrap text-sm w-20 text-center">
+          <div className="whitespace-nowrap text-sm w-20 text-center flex-shrink-0">
             {/* <Link href={{ pathname: "/game/[id]", query: { id: score.id } }}> */}
             {score.score}
             {/* </Link> */}

@@ -19,7 +19,7 @@ export default defineNextConfig({
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "pbs.twimg.com",
+        hostname: "*.twimg.com",
       },
       {
         protocol: "https",
