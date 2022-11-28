@@ -54,7 +54,7 @@ export const Button: React.FC<ButtonProps> = ({
   }
 
   if (secondary) {
-    color = "bg-transparent border-2 border-blue-8 text-blue-9"
+    color = "bg-transparent border-2 border-blue-8 text-blue-10"
   }
 
   const className = cn({
