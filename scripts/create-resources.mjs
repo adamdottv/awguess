@@ -2,7 +2,7 @@ import fs from "fs/promises"
 import path from "path"
 import crypto from "crypto"
 import { parse } from "svg-parser"
-import fetch from "node-fetch"
+// import fetch from "node-fetch"
 
 const toPascalCase = (words) => {
   return words
@@ -33,23 +33,24 @@ const files = await fs.readdir(baseDir)
 await fs.rm(hashedDir, { recursive: true, force: true })
 await fs.mkdir(hashedDir)
 
-let metadata
-try {
-  const services = await fetch(
-    "https://aws.amazon.com/api/dirs/items/search?item.directoryId=aws-products&sort_by=item.additionalFields.productNameLowercase&sort_order=asc&size=300&item.locale=en_US&tags.id=aws-products%23type%23service&tags.id=!aws-products%23type%23variant"
-  )
-  const json = await services.json()
-
-  metadata = JSON.parse(
-    JSON.stringify(json.items.map((i) => ({ ...i.item }))).replaceAll(
-      "?did=ap_card&trk=ap_card",
-      ""
-    )
-  )
-  await fs.writeFile("./data/raw.json", JSON.stringify(metadata, undefined, 2))
-} catch (error) {
-  console.warning("failed to read metadata from aws url")
-}
+const metadata = JSON.parse(await fs.readFile("./data/raw.json"))
+// let metadata
+// try {
+//   const services = await fetch(
+//     "https://aws.amazon.com/api/dirs/items/search?item.directoryId=aws-products&sort_by=item.additionalFields.productNameLowercase&sort_order=asc&size=300&item.locale=en_US&tags.id=aws-products%23type%23service&tags.id=!aws-products%23type%23variant"
+//   )
+//   const json = await services.json()
+//
+//   metadata = JSON.parse(
+//     JSON.stringify(json.items.map((i) => ({ ...i.item }))).replaceAll(
+//       "?did=ap_card&trk=ap_card",
+//       ""
+//     )
+//   )
+//   await fs.writeFile("./data/raw.json", JSON.stringify(metadata, undefined, 2))
+// } catch (error) {
+//   console.warning("failed to read metadata from aws url")
+// }
 
 const manual = JSON.parse(await fs.readFile("./data/manual.json"))
 

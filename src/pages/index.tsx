@@ -47,52 +47,52 @@ type GameEvent =
 
 type GameTypestate =
   | {
-    value: "Idle"
-    context: Context & {
-      game: undefined
-      round: undefined
-      result: undefined
-      choice: undefined
+      value: "Idle"
+      context: Context & {
+        game: undefined
+        round: undefined
+        result: undefined
+        choice: undefined
+      }
     }
-  }
   | { value: "Starting"; context: Context }
   | { value: "Countdown"; context: Context }
   | {
-    value: "Active"
-    context: Context & {
-      game: Game
-      round: Round
+      value: "Active"
+      context: Context & {
+        game: Game
+        round: Round
+      }
     }
-  }
   | {
-    value: { Active: "Guessing" }
-    context: Context & {
-      game: Game
-      round: Round
+      value: { Active: "Guessing" }
+      context: Context & {
+        game: Game
+        round: Round
+      }
     }
-  }
   | {
-    value: { Active: "Checking Answer" }
-    context: Context & {
-      game: Game
-      round: Round
-      choice: string
+      value: { Active: "Checking Answer" }
+      context: Context & {
+        game: Game
+        round: Round
+        choice: string
+      }
     }
-  }
   | {
-    value: { Active: "Showing Answer" }
-    context: Context & {
-      game: Game
-      round: Round
-      next: Round
-      choice: string
-      result: Result
+      value: { Active: "Showing Answer" }
+      context: Context & {
+        game: Game
+        round: Round
+        next: Round
+        choice: string
+        result: Result
+      }
     }
-  }
   | {
-    value: "Game Over"
-    context: Context
-  }
+      value: "Game Over"
+      context: Context
+    }
 
 const gameMachine = createMachine<Context, GameEvent, GameTypestate>({
   id: "Game",
@@ -295,7 +295,7 @@ const Game: React.FC = () => {
       },
       answer: (context) => {
         return new Promise(async (resolve, reject) => {
-          if (!context.round) {
+          if (!context.round || !context.choice) {
             reject("No current round")
             return
           }
@@ -395,6 +395,12 @@ const Game: React.FC = () => {
             <Button full className="text-2xl" onClick={handleNewGame}>
               Play Again
             </Button>
+            <Link
+              href={{ pathname: "/game/[id]", query: { id: context.game?.id } }}
+              className="text-2xl"
+            >
+              View Recap
+            </Link>
             {context.finalized && (
               <div className="flex flex-col space-y-2">
                 <Leaderboard
@@ -698,13 +704,15 @@ const Round: React.FC<RoundProps> = ({ current, handleAnswer, ...props }) => {
             <Timer state={current} />
             {!!context.result?.expiresDelta && (
               <div
-                className={`absolute -top-[10px] -left-[6px] animate-appear text-lg ${context.result.expiresDelta > 0
+                className={`absolute -top-[10px] -left-[6px] animate-appear text-lg ${
+                  context.result.expiresDelta > 0
                     ? "text-green-11"
                     : "text-red-11"
-                  }`}
+                }`}
               >
-                {`${context.result.expiresDelta > 0 ? "+" : ""}${context.result.expiresDelta
-                  }`}
+                {`${context.result.expiresDelta > 0 ? "+" : ""}${
+                  context.result.expiresDelta
+                }`}
               </div>
             )}
           </div>
@@ -716,8 +724,9 @@ const Round: React.FC<RoundProps> = ({ current, handleAnswer, ...props }) => {
             <div className="text-lg text-orange-12">{context.game?.score}</div>
             {!!context.result?.scoreDelta && (
               <div className="absolute -top-[10px] -right-[6px] animate-appear text-lg text-green-11">
-                {`${context.result.scoreDelta > 0 ? "+" : ""}${context.result.scoreDelta
-                  }`}
+                {`${context.result.scoreDelta > 0 ? "+" : ""}${
+                  context.result.scoreDelta
+                }`}
               </div>
             )}
           </div>
@@ -735,12 +744,12 @@ const Round: React.FC<RoundProps> = ({ current, handleAnswer, ...props }) => {
         {context.round!.choices.map((c) => {
           const chosen =
             current.matches({ Active: "Showing Answer" }) &&
-            c.name === context.choice
+            c.id === context.choice
           const state = current.matches({ Active: "Guessing" })
             ? undefined
-            : context.result?.answer === c.name
-              ? "success"
-              : "error"
+            : context.result?.answer === c.id
+            ? "success"
+            : "error"
 
           return (
             <Button
@@ -755,11 +764,8 @@ const Round: React.FC<RoundProps> = ({ current, handleAnswer, ...props }) => {
               })}
               state={state}
               chosen={chosen}
-              onClick={() => handleAnswer(c.name)}
+              onClick={() => handleAnswer(c.id)}
             >
-              {/* <div className="text-sm font-light uppercase opacity-80"> */}
-              {/*   {c.prefix === "aws" ? "AWS" : "Amazon"} */}
-              {/* </div> */}
               {c.name}
             </Button>
           )

@@ -27,4 +27,14 @@ export default defineNextConfig({
       },
     ],
   },
+  experimental: {
+    swcPlugins: [
+      [
+        "next-superjson-plugin",
+        {
+          excluded: [],
+        },
+      ],
+    ],
+  },
 })

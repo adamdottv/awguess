@@ -48,7 +48,7 @@ export const gameRouter = createRouter()
   .mutation("answer", {
     input: z.object({
       roundId: z.string().min(1),
-      choice: z.string().optional(),
+      choice: z.string().min(1),
     }),
     async resolve({ ctx, input }) {
       const { roundId, choice } = input
@@ -293,13 +293,14 @@ async function createRound(
   start.setSeconds(start.getSeconds() + roundDelay)
 
   const round = await prisma.round.create({
-    data: { gameId, answer: answer.name, start },
+    data: { gameId, answer: answer.id, start },
   })
 
   return {
     ...round,
     answer: { d, stop1Color, stop2Color },
-    choices: shuffle(choices).map(({ name, prefix }) => ({
+    choices: shuffle(choices).map(({ id, name, prefix }) => ({
+      id,
       name,
       prefix,
     })),
@@ -316,11 +317,11 @@ function shuffle<T>(array: Array<T>) {
     randomIndex = Math.floor(Math.random() * currentIndex)
     currentIndex--
 
-      // And swap it with the current element.
-      ;[array[currentIndex], array[randomIndex]] = [
-        array[randomIndex] as T,
-        array[currentIndex] as T,
-      ]
+    // And swap it with the current element.
+    ;[array[currentIndex], array[randomIndex]] = [
+      array[randomIndex] as T,
+      array[currentIndex] as T,
+    ]
   }
 
   return array

@@ -27,6 +27,7 @@ specifiers:
   js-confetti: ^0.11.0
   next: 13.0.3
   next-auth: ^4.17.0
+  next-superjson-plugin: ^0.4.9
   node-fetch: ^3.3.0
   postcss: ^8.4.16
   prettier: ^2.7.1
@@ -64,6 +65,7 @@ dependencies:
   js-confetti: 0.11.0
   next: 13.0.3_biqbaboplfbrettd7655fr4n2y
   next-auth: 4.17.0_ogpkrxaz2lg6nectum6dl66tn4
+  next-superjson-plugin: 0.4.9_f6u5o4wezvqlz2l4c6obuika34
   node-fetch: 3.3.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -89,7 +91,7 @@ devDependencies:
   prettier-plugin-tailwindcss: 0.1.13_prettier@2.7.1
   prisma: 4.6.1
   svg-parser: 2.0.4
-  tailwindcss: 3.2.4
+  tailwindcss: 3.2.4_postcss@8.4.19
   typescript: 4.7.4
 
 packages:
@@ -1692,6 +1694,12 @@ packages:
     resolution: {integrity: sha512-COpmrF2NOg4TBWUJ5UVyaCU2A88wEMkUPK4hNqyCkqHbxT92BbvfjoSozkAIIm6XhicGlJHhFdullInrdhwU8Q==}
     dev: false
 
+  /hoist-non-react-statics/3.3.2:
+    resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==}
+    dependencies:
+      react-is: 16.13.1
+    dev: false
+
   /ignore/5.2.0:
     resolution: {integrity: sha512-CmxgYGiEPCLhfLnpPp1MoRmifwEIOgjcHXxOBjv7mY96c+eWScsOP9c112ZyLdWHi0FxHjI+4uVhKYp/gcdRmQ==}
     engines: {node: '>= 4'}
@@ -2042,6 +2050,17 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       uuid: 8.3.2
+    dev: false
+
+  /next-superjson-plugin/0.4.9_f6u5o4wezvqlz2l4c6obuika34:
+    resolution: {integrity: sha512-MSj40zj+ZRmFnZgZxOgQFD6efk3A5OQAPhU9e018JthWPjiE/Xx3HyxOsuOycoBDSxurBa6xH+m78SRr60JTXw==}
+    peerDependencies:
+      next: '>12.3.0'
+      superjson: ^1
+    dependencies:
+      hoist-non-react-statics: 3.3.2
+      next: 13.0.3_biqbaboplfbrettd7655fr4n2y
+      superjson: 1.11.0
     dev: false
 
   /next/13.0.3_biqbaboplfbrettd7655fr4n2y:
@@ -2458,7 +2477,6 @@ packages:
 
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
-    dev: true
 
   /react-query/3.39.2_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-F6hYDKyNgDQfQOuR1Rsp3VRzJnWHx6aRnnIZHMNGGgbL3SBgpZTDg8MQwmxOgpCAoqZJA+JSNCydF1xGJqKOCA==}
@@ -2743,10 +2761,12 @@ packages:
     resolution: {integrity: sha512-e4hG1hRwoOdRb37cIMSgzNsxyzKfayW6VOflrwvR+/bzrkyxY/31WkbgnQpgtrNp1SdpJvpUAGTa/ZoiPNDuRQ==}
     dev: true
 
-  /tailwindcss/3.2.4:
+  /tailwindcss/3.2.4_postcss@8.4.19:
     resolution: {integrity: sha512-AhwtHCKMtR71JgeYDaswmZXhPcW9iuI9Sp2LvZPo9upDZ7231ZJ7eA9RaURbhpXGVlrjX4cFNlB4ieTetEb7hQ==}
     engines: {node: '>=12.13.0'}
     hasBin: true
+    peerDependencies:
+      postcss: ^8.0.9
     dependencies:
       arg: 5.0.2
       chokidar: 3.5.3
