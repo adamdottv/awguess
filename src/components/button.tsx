@@ -54,7 +54,7 @@ export const Button: React.FC<ButtonProps> = ({
   }
 
   if (secondary) {
-    color = "bg-transparent border-2 border-blue-8 text-blue-10"
+    color = "bg-transparent border-2 border-blue-8"
   }
 
   const className = cn({
@@ -94,6 +94,7 @@ export const Button: React.FC<ButtonProps> = ({
             true,
           "w-full sm:max-w-96": full,
           [props.className ?? ""]: !!props.className,
+          "text-blue-9": secondary,
         })}
       >
         {props.children}
