@@ -1,6 +1,6 @@
 import cn from "classnames"
 import Image from "next/image"
-import Link from "next/link"
+/* import Link from "next/link" */
 import { ComponentProps } from "react"
 import { inferQueryOutput } from "../utils/trpc"
 
@@ -51,9 +51,9 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({ data, userId }) => {
             </div>
           </div>
           <div className="whitespace-nowrap text-sm w-20 text-center">
-            <Link href={{ pathname: "/game/[id]", query: { id: score.id } }}>
-              {score.score}
-            </Link>
+            {/* <Link href={{ pathname: "/game/[id]", query: { id: score.id } }}> */}
+            {score.score}
+            {/* </Link> */}
           </div>
         </div>
       ))}
