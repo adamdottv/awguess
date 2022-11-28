@@ -11,7 +11,7 @@ import "../styles/globals.css"
 
 import { Epilogue, DM_Sans } from "@next/font/google"
 const customFont = DM_Sans({
-  weight: "400",
+  weight: ["400", "700"],
   subsets: ["latin"],
   display: "swap",
 })

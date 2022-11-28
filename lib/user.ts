@@ -3,13 +3,10 @@ import { prisma } from "../src/server/db/client"
 /* import { env } from "../src/env/server.mjs" */
 /* const redis = new Redis(env.REDIS_URL) */
 
-export async function getGame(id: string) {
-  const game = await prisma.game.findUnique({
-    include: {
-      rounds: true,
-      user: true,
-    },
+export async function getUser(id: string) {
+  const user = await prisma.user.findUnique({
+    include: { games: true },
     where: { id },
   })
-  return game ?? undefined
+  return user ?? undefined
 }

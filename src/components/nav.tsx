@@ -5,10 +5,11 @@ import Link from "next/link"
 import { Logo, Mark } from "./logo"
 import { signOut, useSession } from "next-auth/react"
 import Image from "next/image"
+import { useRouter } from "next/router"
 
 const navigation = [
-  /* { name: "Play", href: "/", current: false }, */
-  { name: "Leaderboard", href: "/leaderboard", current: true },
+  { name: "Play", href: "/play" },
+  { name: "Leaderboard", href: "/leaderboard" },
   /* { name: "My Games", href: "/", current: false }, */
 ]
 
@@ -16,6 +17,7 @@ export const Nav: React.FC<ComponentProps<"nav">> = ({
   className,
   ...props
 }) => {
+  const router = useRouter()
   const { data: session } = useSession()
 
   return (
@@ -37,12 +39,14 @@ export const Nav: React.FC<ComponentProps<"nav">> = ({
                       key={item.name}
                       href={item.href}
                       className={cn(
-                        false /* item.current */
+                        item.href === router.pathname
                           ? "bg-blue-6 text-blue-12"
                           : "text-blue-12 hover:bg-blue-7 hover:text-blue-12",
                         "px-3 py-2 rounded-md text-base font-medium focus:outline-none focus:ring-2 focus:ring-blue-12 focus:ring-offset-2 focus:ring-offset-blue-4"
                       )}
-                      /* aria-current={item.current ? "page" : undefined} */
+                      aria-current={
+                        item.href === router.pathname ? "page" : undefined
+                      }
                     >
                       {item.name}
                     </a>

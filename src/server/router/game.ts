@@ -6,6 +6,10 @@ import { TRPCError } from "@trpc/server"
 import Redis from "ioredis"
 import { env } from "../../env/server.mjs"
 import { getRandomItem } from "../common/game"
+import {
+  getLeaderboard,
+  getRelativeLeaderboard,
+} from "../../../lib/leaderboard"
 
 const duration = 30
 const gameDelay = 6
@@ -148,7 +152,7 @@ export const gameRouter = createRouter()
       }
 
       await Promise.all(promises)
-      return getRelativeLeaderboard(ctx.prisma, game.userId)
+      return getRelativeLeaderboard(game.userId)
     },
   })
   .query("leaderboard", {
@@ -157,98 +161,14 @@ export const gameRouter = createRouter()
       .nullish(),
     async resolve({ ctx, input }) {
       if (input?.userId) {
-        return getRelativeLeaderboard(ctx.prisma, input.userId)
+        return getRelativeLeaderboard(input.userId)
       }
 
       const pageSize = 30
       const start = input?.page ? input.page * pageSize : 0
-      return getLeaderboard(ctx.prisma, start, pageSize)
+      return getLeaderboard(start, pageSize)
     },
   })
-
-async function getRelativeLeaderboard(prisma: PrismaClient, userId: string) {
-  const rank = await redis.zrevrank("top-scores", userId)
-  if (rank === null) return []
-
-  const scores = await getRange(Math.max(rank - 2, 0), rank + 2)
-  const userIds = scores.map((s) => s.userId)
-
-  const rankIndex = userIds.indexOf(userId)
-  const firstRank = rank - rankIndex
-  const users = await getUsers(prisma, userIds)
-
-  let currentRank = firstRank
-  const leaderboard = scores.map((score, index) => {
-    const user = users.find((s) => s.id === score.userId)
-    currentRank = firstRank + index + 1
-
-    return {
-      ...user,
-      ...score,
-      rank: currentRank,
-    }
-  })
-
-  return leaderboard
-}
-
-async function getLeaderboard(
-  prisma: PrismaClient,
-  firstRank: number,
-  count = 30
-) {
-  const scores = await getRange(firstRank, count)
-  const userIds = scores.map((s) => s.userId)
-  const users = await getUsers(prisma, userIds)
-
-  let currentRank = firstRank
-  const leaderboard = scores.map((score, index) => {
-    const user = users.find((s) => s.id === score.userId)
-    currentRank = firstRank + index + 1
-
-    return {
-      ...user,
-      ...score,
-      rank: currentRank,
-    }
-  })
-
-  return leaderboard
-}
-
-interface GetRangeOptions {
-  set: "top-scores" | "top-streaks"
-}
-
-async function getRange(
-  start: number,
-  end: number,
-  options: GetRangeOptions = { set: "top-scores" }
-) {
-  const range = await redis.zrevrange(options.set, start, end, "WITHSCORES")
-
-  const scores = range
-    .map((userId, index) =>
-      index % 2 === 0
-        ? { userId, score: Number.parseInt(range[index + 1] as string) }
-        : undefined
-    )
-    .filter(Boolean) as { userId: string; score: number }[]
-
-  return scores
-}
-
-async function getUsers(prisma: PrismaClient, userIds: string[]) {
-  const users = await prisma.user.findMany({
-    select: {
-      id: true,
-      name: true,
-      image: true,
-    },
-    where: { id: { in: userIds } },
-  })
-  return users
-}
 
 interface CreateRoundOptions {
   delayedStart?: Date
