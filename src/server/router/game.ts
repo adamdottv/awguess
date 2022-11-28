@@ -147,8 +147,8 @@ export const gameRouter = createRouter()
       if (game.score >= topScore) {
         promises.push(redis.zadd("top-scores", game.score, game.userId))
       }
-      if (game.streak >= topStreak) {
-        promises.push(redis.zadd("top-streaks", game.streak, game.userId))
+      if (game.longest >= topStreak) {
+        promises.push(redis.zadd("top-streaks", game.longest, game.userId))
       }
 
       await Promise.all(promises)
