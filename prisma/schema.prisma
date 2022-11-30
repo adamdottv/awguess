@@ -75,6 +75,7 @@ model Game {
   complete Boolean  @default(false)
   streak   Int      @default(0)
   longest  Int      @default(0)
+  valid    Boolean  @default(true)
 }
 
 model Round {

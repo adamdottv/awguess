@@ -10,6 +10,21 @@ import {
   getLeaderboard,
   getRelativeLeaderboard,
 } from "../../../lib/leaderboard"
+import { grpc } from "google-gax"
+import { GoogleAuth } from "google-auth-library"
+import { RecaptchaEnterpriseServiceV1Beta1Client } from "@google-cloud/recaptcha-enterprise/build/src/v1beta1"
+
+import type { JWT } from "google-auth-library"
+
+const getApiKeyCredentials = (apiKey: string): grpc.ChannelCredentials => {
+  const sslCreds: grpc.ChannelCredentials = grpc.credentials.createSsl()
+
+  const authJWT: JWT = new GoogleAuth().fromAPIKey(apiKey)
+  const credentials: grpc.CallCredentials =
+    grpc.credentials.createFromGoogleCredential(authJWT)
+
+  return grpc.credentials.combineChannelCredentials(sslCreds, credentials)
+}
 
 const duration = 30
 const gameDelay = 6
@@ -17,8 +32,13 @@ const roundDelay = 2
 const correctBonus = 3
 const maxStreakBonus = 10
 const incorrectPenalty = -5
+const validateThreshold = 5
 
 const redis = new Redis(env.REDIS_URL)
+const client = new RecaptchaEnterpriseServiceV1Beta1Client({
+  sslCreds: getApiKeyCredentials(env.GOOGLE_CLOUD_API_KEY),
+})
+const projectPath = client.projectPath(env.GOOGLE_RECAPTCHA_PROJECT_ID)
 
 export const gameRouter = createRouter()
   .mutation("new", {
@@ -47,6 +67,24 @@ export const gameRouter = createRouter()
     }),
     resolve({ ctx, input }) {
       return createRound(ctx.prisma, input.gameId)
+    },
+  })
+  .mutation("validate", {
+    input: z.object({
+      gameId: z.string().min(1),
+      token: z.string().min(1),
+    }),
+    async resolve({ ctx, input }) {
+      const score = await assess(input.token)
+      console.log(score)
+
+      const valid = score !== null && score !== undefined && score >= 0.9 // true // TODO: based on score
+      await ctx.prisma.game.update({
+        data: { valid },
+        where: { id: input.gameId },
+      })
+
+      return valid
     },
   })
   .mutation("answer", {
@@ -113,11 +151,13 @@ export const gameRouter = createRouter()
         scoreDelta,
         expiresDelta,
         next,
+        // require captcha for big scores lol
+        validate: game.score > validateThreshold,
       }
     },
   })
   .mutation("finalize", {
-    input: z.object({ gameId: z.string() }),
+    input: z.object({ gameId: z.string(), token: z.string().optional() }),
     async resolve({ ctx, input }) {
       const game = await ctx.prisma.game.findUnique({
         where: { id: input.gameId },
@@ -126,6 +166,13 @@ export const gameRouter = createRouter()
         throw new TRPCError({
           code: "BAD_REQUEST",
           message: "Could not find game with provided ID",
+        })
+      }
+
+      if (!game.valid) {
+        throw new TRPCError({
+          code: "BAD_REQUEST",
+          message: "Game was determined to be fraudulent",
         })
       }
 
@@ -169,6 +216,35 @@ export const gameRouter = createRouter()
       return getLeaderboard(start, pageSize)
     },
   })
+
+async function assess(token: string) {
+  // client.createAssessment() can return a Promise or take a Callback
+  const [response] = await client.createAssessment({
+    assessment: {
+      event: {
+        token,
+        siteKey: env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY,
+      },
+    },
+    parent: projectPath,
+  })
+
+  // Check if the token is valid.
+  if (!response.tokenProperties?.valid) {
+    console.log(
+      "The CreateAssessment call failed because the token was: " +
+      response.tokenProperties?.invalidReason
+    )
+
+    return null
+  }
+
+  // Get the risk score and the reason(s).
+  // For more information on interpreting the assessment,
+  // see: https://cloud.google.com/recaptcha-enterprise/docs/interpret-assessment
+  console.log("The reCAPTCHA score is: " + response.score)
+  return response.score
+}
 
 interface CreateRoundOptions {
   delayedStart?: Date
@@ -237,11 +313,11 @@ function shuffle<T>(array: Array<T>) {
     randomIndex = Math.floor(Math.random() * currentIndex)
     currentIndex--
 
-    // And swap it with the current element.
-    ;[array[currentIndex], array[randomIndex]] = [
-      array[randomIndex] as T,
-      array[currentIndex] as T,
-    ]
+      // And swap it with the current element.
+      ;[array[currentIndex], array[randomIndex]] = [
+        array[randomIndex] as T,
+        array[currentIndex] as T,
+      ]
   }
 
   return array

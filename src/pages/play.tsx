@@ -4,6 +4,7 @@ import { inferMutationOutput, trpc } from "../utils/trpc"
 import cn from "classnames"
 import React, { ComponentProps, useEffect, useState } from "react"
 import Confetti from "js-confetti"
+import ReCAPTCHA from "react-google-recaptcha"
 import {
   createMachine,
   assign,
@@ -21,7 +22,9 @@ import { Leaderboard } from "../components/leaderboard"
 import { Layout } from "../components/layout"
 import { Button } from "../components/button"
 import Nav from "../components/nav"
+import { env } from "../env/client.mjs"
 const { send, cancel } = actions
+const sitekey = env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY
 
 const confetti = typeof window !== "undefined" ? new Confetti() : undefined
 
@@ -38,58 +41,86 @@ type Context = {
   result?: Result
   choice?: string
   finalized?: Finalized
+  validate?: boolean
+  token?: string
 }
 
 type GameEvent =
   | { type: "START_GAME" }
   | { type: "GUESS"; choice: string }
   | { type: "EXPIRED" }
+  | { type: "VALIDATE"; valid: boolean }
 
 type GameTypestate =
   | { value: "Starting"; context: Context }
   | { value: "Countdown"; context: Context }
   | {
-      value: "Active"
-      context: Context & {
-        game: Game
-        round: Round
-      }
+    value: "Active"
+    context: Context & {
+      game: Game
+      round: Round
     }
+  }
   | {
-      value: { Active: "Guessing" }
-      context: Context & {
-        game: Game
-        round: Round
-      }
+    value: { Active: "Guessing" }
+    context: Context & {
+      game: Game
+      round: Round
     }
+  }
   | {
-      value: { Active: "Checking Answer" }
-      context: Context & {
-        game: Game
-        round: Round
-        choice: string
-      }
+    value: { Active: "Checking Answer" }
+    context: Context & {
+      game: Game
+      round: Round
+      choice: string
     }
+  }
   | {
-      value: { Active: "Showing Answer" }
-      context: Context & {
-        game: Game
-        round: Round
-        next: Round
-        choice: string
-        result: Result
-      }
+    value: { Active: "Showing Answer" }
+    context: Context & {
+      game: Game
+      round: Round
+      next: Round
+      choice: string
+      result: Result
     }
+  }
   | {
-      value: "Game Over"
-      context: Context
-    }
+    value: "Validating"
+    context: Context
+  }
+  | {
+    value: "Game Over"
+    context: Context
+  }
 
 const gameMachine = createMachine<Context, GameEvent, GameTypestate>({
   id: "Game",
   initial: "Starting",
   predictableActionArguments: true,
   states: {
+    Validating: {
+      on: {
+        VALIDATE: [
+          {
+            target: "Game Over",
+            cond: (_context, event) => event.valid,
+          },
+          {
+            target: "Disqualified",
+            cond: (_context, event) => !event.valid,
+          },
+        ],
+      },
+    },
+    Disqualified: {
+      on: {
+        START_GAME: {
+          target: "Starting",
+        },
+      },
+    },
     "Game Over": {
       on: {
         START_GAME: {
@@ -120,6 +151,7 @@ const gameMachine = createMachine<Context, GameEvent, GameTypestate>({
               return {
                 game: event.data.game,
                 round: event.data.round,
+                validate: false,
                 finalized: undefined,
               }
             }),
@@ -132,7 +164,17 @@ const gameMachine = createMachine<Context, GameEvent, GameTypestate>({
     },
     Active: {
       initial: "Guessing",
-      on: { EXPIRED: { target: "Game Over" } },
+      on: {
+        EXPIRED: [
+          {
+            target: "Validating",
+            cond: (context) => Boolean(context.validate),
+          },
+          {
+            target: "Game Over",
+          },
+        ],
+      },
       states: {
         Guessing: {
           entry: [
@@ -164,6 +206,7 @@ const gameMachine = createMachine<Context, GameEvent, GameTypestate>({
                 target: "Showing Answer",
                 actions: assign({
                   result: (_context, event) => event.data,
+                  validate: (_context, event) => event.data.validate,
                   game: (_context, event) => event.data.game,
                   next: (_context, event) => event.data.next,
                 }),
@@ -181,8 +224,11 @@ const gameMachine = createMachine<Context, GameEvent, GameTypestate>({
                 actions: assign({ round: (_ctx, event) => event.data }),
               },
               {
+                target: "#Game.Validating",
+                cond: (ctx, event) => !event.data && Boolean(ctx.validate),
+              },
+              {
                 target: "#Game.Game Over",
-                cond: (_ctx, event) => !event.data,
               },
             ],
           },
@@ -233,6 +279,7 @@ const Game: React.FC = () => {
 
   const newGameMutation = trpc.useMutation(["game.new"])
   const answerMutation = trpc.useMutation(["game.answer"])
+  const validateMutation = trpc.useMutation(["game.validate"])
   const finalizeMutation = trpc.useMutation(["game.finalize"])
 
   const [current, send, service] = useMachine(gameMachine, {
@@ -315,7 +362,7 @@ const Game: React.FC = () => {
           }
         })
       },
-      finalize: (context) => {
+      finalize: (context, event) => {
         return new Promise(async (resolve) => {
           if (!context.game) {
             resolve(undefined)
@@ -357,6 +404,17 @@ const Game: React.FC = () => {
     send("START_GAME")
   }
 
+  async function handleRecaptchaChange(value: string | null) {
+    if (!context.game || !value) return
+
+    console.log(value)
+    const valid = await validateMutation.mutateAsync({
+      gameId: context.game?.id,
+      token: value,
+    })
+    send("VALIDATE", { valid })
+  }
+
   return (
     <>
       <Nav
@@ -369,6 +427,13 @@ const Game: React.FC = () => {
         {current.matches("Countdown") && <Countdown context={context} />}
         {current.matches("Active") && (
           <Round current={current} handleAnswer={handleAnswer} />
+        )}
+        {current.matches("Validating") && (
+          <ReCAPTCHA
+            sitekey={sitekey}
+            theme="dark"
+            onChange={handleRecaptchaChange}
+          />
         )}
         {current.matches("Game Over") && (
           <div className="flex-col items-center justify-center text-center space-y-10">
@@ -617,9 +682,8 @@ const Round: React.FC<RoundProps> = ({ current, handleAnswer, ...props }) => {
               <div
                 className={`animate-pop duration-500 text-lg font-bold text-orange-12 `}
               >
-                {`${context.result.expiresDelta > 0 ? "+" : ""}${
-                  context.result.expiresDelta
-                }`}
+                {`${context.result.expiresDelta > 0 ? "+" : ""}${context.result.expiresDelta
+                  }`}
               </div>
             ) : (
               <Timer state={current} />
@@ -632,9 +696,8 @@ const Round: React.FC<RoundProps> = ({ current, handleAnswer, ...props }) => {
           <div className="flex h-12 w-12 items-center justify-center rounded-2xl border-4 border-blue-2 bg-orange-9">
             {!!context.result?.scoreDelta ? (
               <div className="animate-pop text-lg text-orange-12 font-bold duration-500">
-                {`${context.result.scoreDelta > 0 ? "+" : ""}${
-                  context.result.scoreDelta
-                }`}
+                {`${context.result.scoreDelta > 0 ? "+" : ""}${context.result.scoreDelta
+                  }`}
               </div>
             ) : (
               <div className="text-lg text-orange-12">
@@ -660,8 +723,8 @@ const Round: React.FC<RoundProps> = ({ current, handleAnswer, ...props }) => {
           const state = current.matches({ Active: "Guessing" })
             ? undefined
             : context.result?.answer === c.id
-            ? "success"
-            : "error"
+              ? "success"
+              : "error"
 
           return (
             <Button
